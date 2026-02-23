@@ -21,13 +21,15 @@ private val AppColors = darkColorScheme(
     onSurface = White,
     onSurfaceVariant = White,
     primary = Color(0xFF7C3AED),
-    onPrimary = White
+    onPrimary = White,
+
+
 )
 
 @Composable
 fun MultiChoiceTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = AppColors,
-        content = content
+        content = content,
     )
 }

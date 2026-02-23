@@ -36,7 +36,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.ButtonDefaults
 import com.multichoice.app.ui.theme.MultiChoiceTheme
 import androidx.compose.material3.Surface
-
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Icon
 
 
 
@@ -139,7 +143,10 @@ private fun HomePage(
                     painter = painterResource(id = R.mipmap.ic_launcher_foreground),
                     contentDescription = "App icon"
                 )
-                Text("Multi-Choice", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
+                Text("Multi-Choice", modifier = Modifier
+                    .padding(top = 20.dp)      // marginTop-ish
+                    .fillMaxWidth(),
+                    style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
             }
 
             Button(onClick = onCreateSection, modifier = Modifier.fillMaxWidth(),
@@ -238,7 +245,7 @@ private fun SectionPage(
                 Button(
                     onClick = { questionIndex = (questionIndex + 1) % questions.size },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
+                        containerColor = Color(0xFF08C0B0),
                         contentColor = MaterialTheme.colorScheme.onPrimary
                     )
                 ) {
@@ -325,7 +332,23 @@ private fun StudyQuestionCard(question: Question) {
 
             if (selectedIndex >= 0) {
                 val isCorrect = shuffledOptions[selectedIndex].isCorrect
-                Text(if (isCorrect) "Correct" else "Incorrect")
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (isCorrect) {
+                        Icon(
+                            imageVector = Icons.Filled.CheckCircle,
+                            contentDescription = "Correct",
+                            tint = Color(0xFF22C55E) // green
+                        )
+                        Text("Correct", color = Color(0xFF22C55E), style = MaterialTheme.typography.titleLarge)
+                    } else {
+                        Icon(
+                            imageVector = Icons.Filled.Close,
+                            contentDescription = "Incorrect",
+                            tint = Color(0xFFEF4444) // red
+                        )
+                        Text("Incorrect", color = Color(0xFFEF4444), style = MaterialTheme.typography.titleLarge)
+                    }
+                }
             }
         }
     }
