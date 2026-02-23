@@ -35,6 +35,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.ButtonDefaults
 import com.multichoice.app.ui.theme.MultiChoiceTheme
+import androidx.compose.material3.Surface
 
 
 
@@ -56,56 +57,65 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
     val nav = rememberNavController()
 
     MultiChoiceTheme  {
-        NavHost(navController = nav, startDestination = Routes.HOME) {
-            composable(Routes.HOME) {
-                HomePage(
-                    sections = state.sections,
-                    onCreateSection = { nav.navigate(Routes.CREATE_SECTION) },
-                    onOpenSection = { sectionId ->
-                        vm.selectSection(sectionId)
-                        nav.navigate(Routes.section(sectionId))
-                    }
-                )
-            }
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background,
+            contentColor = MaterialTheme.colorScheme.onBackground
+        ) {
+            NavHost(navController = nav, startDestination = Routes.HOME) {
+                composable(Routes.HOME) {
+                    HomePage(
+                        sections = state.sections,
+                        onCreateSection = { nav.navigate(Routes.CREATE_SECTION) },
+                        onOpenSection = { sectionId ->
+                            vm.selectSection(sectionId)
+                            nav.navigate(Routes.section(sectionId))
+                        }
+                    )
+                }
 
-            composable(Routes.CREATE_SECTION) {
-                CreateSectionPage(
-                    onSave = { title, desc ->
-                        vm.addSection(title, desc)
-                        nav.popBackStack()
-                    },
-                    onCancel = { nav.popBackStack() }
-                )
-            }
+                composable(Routes.CREATE_SECTION) {
+                    CreateSectionPage(
+                        onSave = { title, desc ->
+                            vm.addSection(title, desc)
+                            nav.popBackStack()
+                        },
+                        onCancel = { nav.popBackStack() }
+                    )
+                }
 
-            composable(
-                route = Routes.SECTION,
-                arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
-            ) { backStackEntry ->
-                val sectionId = backStackEntry.arguments?.getLong("sectionId") ?: return@composable
-                val section = state.sections.firstOrNull { it.id == sectionId } ?: return@composable
+                composable(
+                    route = Routes.SECTION,
+                    arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
+                ) { backStackEntry ->
+                    val sectionId =
+                        backStackEntry.arguments?.getLong("sectionId") ?: return@composable
+                    val section =
+                        state.sections.firstOrNull { it.id == sectionId } ?: return@composable
 
-                SectionPage(
-                    sectionTitle = section.title,
-                    questions = section.questions,
-                    onBack = { nav.popBackStack() },
-                    onAddQuestion = { nav.navigate(Routes.addQuestion(sectionId)) }
-                )
+                    SectionPage(
+                        sectionTitle = section.title,
+                        questions = section.questions,
+                        onBack = { nav.popBackStack() },
+                        onAddQuestion = { nav.navigate(Routes.addQuestion(sectionId)) }
+                    )
 
-            }
+                }
 
-            composable(
-                route = Routes.ADD_QUESTION,
-                arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
-            ) { backStackEntry ->
-                val sectionId = backStackEntry.arguments?.getLong("sectionId") ?: return@composable
-                AddQuestionPage(
-                    onSave = { prompt, options, correctIndex ->
-                        vm.addQuestion(sectionId, prompt, options, correctIndex)
-                        nav.popBackStack()
-                    },
-                    onCancel = { nav.popBackStack() }
-                )
+                composable(
+                    route = Routes.ADD_QUESTION,
+                    arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
+                ) { backStackEntry ->
+                    val sectionId =
+                        backStackEntry.arguments?.getLong("sectionId") ?: return@composable
+                    AddQuestionPage(
+                        onSave = { prompt, options, correctIndex ->
+                            vm.addQuestion(sectionId, prompt, options, correctIndex)
+                            nav.popBackStack()
+                        },
+                        onCancel = { nav.popBackStack() }
+                    )
+                }
             }
         }
     }

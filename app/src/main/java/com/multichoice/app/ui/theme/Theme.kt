@@ -10,16 +10,18 @@ private val White = Color(0xFFFFFFFF)
 private val Purple = Color(0xFF7C3AED)
 private val PurplePressed = Color(0xFF6D28D9)
 private val CardDark = Color(0xFF161B22)
+private  val CorrectColor = Color(0xFF36D011)
+private val IncorrectColor = Color(0xFFEF5350)
 
 private val AppColors = darkColorScheme(
     background = GitHubDark,
-    surface = CardDark,
-    primary = Purple,
-    secondary = PurplePressed,
-    onPrimary = White,
-    onSecondary = White,
+    surface = GitHubDark,
+    surfaceVariant = GitHubDark,
     onBackground = White,
-    onSurface = White
+    onSurface = White,
+    onSurfaceVariant = White,
+    primary = Color(0xFF7C3AED),
+    onPrimary = White
 )
 
 @Composable
