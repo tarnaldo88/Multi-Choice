@@ -3,8 +3,6 @@ package com.multichoice.app.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.multichoice.app.data.ChoiceOption
-import com.multichoice.app.data.Question
 import com.multichoice.app.data.QuestionRepository
 import com.multichoice.app.data.Section
 import com.multichoice.app.data.SeedFileReader
@@ -27,10 +25,15 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     init {
     viewModelScope.launch {
-        repo.seedIfEmpty(SeedFileReader.read(app))
-        refreshSections()
+        runCatching {
+            repo.seedIfEmpty(SeedFileReader.read(app))
+            refreshSections()
+        }.onFailure { e ->
+            android.util.Log.e("AppViewModel", "Startup failed", e)
+        }
     }
 }
+
 
     fun addSection(title: String, description: String) {
         viewModelScope.launch {
@@ -53,7 +56,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun selectSection(sectionId: Long) {
         _state.value = _state.value.copy(selectedSectionId = sectionId, studyIndex = 0)
-    }    
+    }
 
     fun nextStudyQuestion() {
         val section = currentSection() ?: return
@@ -64,9 +67,4 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun currentSection(): Section? =
         _state.value.sections.firstOrNull { it.id == _state.value.selectedSectionId }
-
-    private fun save(sections: List<Section>) {
-        _state.value = _state.value.copy(sections = sections)
-        viewModelScope.launch { repo.saveSections(sections) }
-    }
 }

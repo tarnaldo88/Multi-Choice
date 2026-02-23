@@ -22,7 +22,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "multi_choice.db"
-                ).build().also { INSTANCE = it }
+                )
+                .fallbackToDestructiveMigration() // dev-safe reset on schema mismatch
+                .build().also { INSTANCE = it }
             }
         }
     }

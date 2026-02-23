@@ -1,5 +1,6 @@
 package com.multichoice.app.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,71 +10,147 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.multichoice.app.R
+import com.multichoice.app.data.Question
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.ButtonDefaults
+import com.multichoice.app.ui.theme.MultiChoiceTheme
 
+
+
+
+private object Routes {
+    const val HOME = "home"
+    const val CREATE_SECTION = "create_section"
+    const val SECTION = "section/{sectionId}"
+    const val ADD_QUESTION = "add_question/{sectionId}"
+
+    fun section(sectionId: Long) = "section/$sectionId"
+    fun addQuestion(sectionId: Long) = "add_question/$sectionId"
+}
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
     val state by vm.state.collectAsState()
-    var showCreateSection by remember { mutableStateOf(false) }
-    var showCreateQuestion by remember { mutableStateOf(false) }
+    val nav = rememberNavController()
 
-    MaterialTheme {
-        Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text("Multi-Choice", style = MaterialTheme.typography.headlineMedium)
-
-            if (showCreateSection) {
-                CreateSectionForm(
-                    onSave = { t, d -> vm.addSection(t, d); showCreateSection = false },
-                    onCancel = { showCreateSection = false }
+    MultiChoiceTheme  {
+        NavHost(navController = nav, startDestination = Routes.HOME) {
+            composable(Routes.HOME) {
+                HomePage(
+                    sections = state.sections,
+                    onCreateSection = { nav.navigate(Routes.CREATE_SECTION) },
+                    onOpenSection = { sectionId ->
+                        vm.selectSection(sectionId)
+                        nav.navigate(Routes.section(sectionId))
+                    }
                 )
-            } else {
-                Button(onClick = { showCreateSection = true }) { Text("Create Section") }
             }
 
+            composable(Routes.CREATE_SECTION) {
+                CreateSectionPage(
+                    onSave = { title, desc ->
+                        vm.addSection(title, desc)
+                        nav.popBackStack()
+                    },
+                    onCancel = { nav.popBackStack() }
+                )
+            }
+
+            composable(
+                route = Routes.SECTION,
+                arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
+            ) { backStackEntry ->
+                val sectionId = backStackEntry.arguments?.getLong("sectionId") ?: return@composable
+                val section = state.sections.firstOrNull { it.id == sectionId } ?: return@composable
+
+                SectionPage(
+                    sectionTitle = section.title,
+                    questions = section.questions,
+                    onBack = { nav.popBackStack() },
+                    onAddQuestion = { nav.navigate(Routes.addQuestion(sectionId)) }
+                )
+
+            }
+
+            composable(
+                route = Routes.ADD_QUESTION,
+                arguments = listOf(navArgument("sectionId") { type = NavType.LongType })
+            ) { backStackEntry ->
+                val sectionId = backStackEntry.arguments?.getLong("sectionId") ?: return@composable
+                AddQuestionPage(
+                    onSave = { prompt, options, correctIndex ->
+                        vm.addQuestion(sectionId, prompt, options, correctIndex)
+                        nav.popBackStack()
+                    },
+                    onCancel = { nav.popBackStack() }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun HomePage(
+    sections: List<com.multichoice.app.data.Section>,
+    onCreateSection: () -> Unit,
+    onOpenSection: (Long) -> Unit
+) {
+    MultiChoiceTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Image(
+                    painter = painterResource(id = R.mipmap.ic_launcher_foreground),
+                    contentDescription = "App icon"
+                )
+                Text("Multi-Choice", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
+            }
+
+            Button(onClick = onCreateSection, modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) {
+                Text("Create New Section")
+            }
+
+            Text("Your Sections", style = MaterialTheme.typography.titleMedium)
+
             LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                items(state.sections) { section ->
-                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                        Column(Modifier.weight(1f)) {
-                            Text(section.title, style = MaterialTheme.typography.titleMedium)
+                items(sections) { section ->
+                    Card(onClick = { onOpenSection(section.id) }, modifier = Modifier.fillMaxWidth()) {
+                        Column(Modifier.padding(12.dp)) {
+                            Text(section.title, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onBackground)
                             Text(section.description)
                             Text("Questions: ${section.questions.size}")
                         }
-                        Button(onClick = { vm.selectSection(section.id) }) { Text("Study") }
                     }
-                }
-            }
-
-            val selected = vm.currentSection()
-            if (selected != null) {
-                Text("Selected: ${selected.title}", style = MaterialTheme.typography.titleMedium)
-                if (showCreateQuestion) {
-                    CreateQuestionForm(
-                        onSave = { prompt, opts, correct ->
-                            vm.addQuestion(selected.id, prompt, opts, correct)
-                            showCreateQuestion = false
-                        },
-                        onCancel = { showCreateQuestion = false }
-                    )
-                } else {
-                    Button(onClick = { showCreateQuestion = true }) { Text("Add Question") }
-                }
-
-                val q = selected.questions.getOrNull(state.studyIndex)
-                if (q != null) {
-                    Text("Study Question", style = MaterialTheme.typography.titleMedium)
-                    Text(q.prompt)
-                    q.options.forEachIndexed { idx, option ->
-                        val mark = if (option.isCorrect) " (Correct)" else ""
-                        Text("${idx + 1}. ${option.text}$mark")
-                    }
-                    Button(onClick = { vm.nextStudyQuestion() }) { Text("Next Question") }
                 }
             }
         }
@@ -81,58 +158,165 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
 }
 
 @Composable
-fun CreateSectionForm(onSave: (String, String) -> Unit, onCancel: () -> Unit) {
+private fun CreateSectionPage(onSave: (String, String) -> Unit, onCancel: () -> Unit) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        OutlinedTextField(title, { title = it }, label = { Text("Section title") })
-        OutlinedTextField(description, { description = it }, label = { Text("Description") })
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(onClick = { if (title.isNotBlank()) onSave(title.trim(), description.trim()) }) { Text("Save") }
-            Button(onClick = onCancel) { Text("Cancel") }
+
+    MultiChoiceTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text("Create Section", style = MaterialTheme.typography.headlineSmall)
+            OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Title") })
+            OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Description") })
+
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = { if (title.isNotBlank()) onSave(title.trim(), description.trim()) },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Save") }
+                Button(onClick = onCancel,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Cancel") }
+            }
         }
     }
 }
 
 @Composable
-fun CreateQuestionForm(onSave: (String, List<String>, Int) -> Unit, onCancel: () -> Unit) {
+private fun SectionPage(
+    sectionTitle: String,
+    questions: List<Question>,
+    onBack: () -> Unit,
+    onAddQuestion: () -> Unit
+) {
+    var questionIndex by remember { mutableIntStateOf(0) }
+
+    MultiChoiceTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text(sectionTitle, style = MaterialTheme.typography.headlineSmall)
+            Text("Questions: ${questions.size}")
+
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = onAddQuestion,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Add Question") }
+                Button(onClick = onBack,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Back") }
+            }
+
+            if (questions.isNotEmpty()) {
+                val question = questions[questionIndex]
+                StudyQuestionCard(question = question)
+
+                Button(
+                    onClick = { questionIndex = (questionIndex + 1) % questions.size },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )
+                ) {
+                    Text("Next Question")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AddQuestionPage(
+    onSave: (String, List<String>, Int) -> Unit,
+    onCancel: () -> Unit
+) {
     var prompt by remember { mutableStateOf("") }
     var o1 by remember { mutableStateOf("") }
     var o2 by remember { mutableStateOf("") }
     var o3 by remember { mutableStateOf("") }
     var o4 by remember { mutableStateOf("") }
-    var correct by remember { mutableIntStateOf(0) }
 
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        OutlinedTextField(prompt, { prompt = it }, label = { Text("Question prompt") })
-        listOf(
-            "Option 1" to o1,
-            "Option 2" to o2,
-            "Option 3" to o3,
-            "Option 4" to o4
-        ).forEachIndexed { index, pair ->
-            Row {
-                RadioButton(selected = correct == index, onClick = { correct = index })
-                OutlinedTextField(
-                    value = pair.second,
-                    onValueChange = {
-                        when (index) {
-                            0 -> o1 = it
-                            1 -> o2 = it
-                            2 -> o3 = it
-                            else -> o4 = it
-                        }
-                    },
-                    label = { Text(pair.first) }
-                )
+    MultiChoiceTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text("Add Question", style = MaterialTheme.typography.headlineSmall)
+            OutlinedTextField(value = prompt, onValueChange = { prompt = it }, label = { Text("Prompt") })
+            OutlinedTextField(value = o1, onValueChange = { o1 = it }, label = { Text("Option 1 (Correct)") })
+            OutlinedTextField(value = o2, onValueChange = { o2 = it }, label = { Text("Option 2") })
+            OutlinedTextField(value = o3, onValueChange = { o3 = it }, label = { Text("Option 3") })
+            OutlinedTextField(value = o4, onValueChange = { o4 = it }, label = { Text("Option 4") })
+
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = {
+                    val options = listOf(o1, o2, o3, o4).map { it.trim() }
+                    if (prompt.isNotBlank() && options.none { it.isBlank() }) {
+                        onSave(prompt.trim(), options, 0) // option 1 treated as correct for now
+                    }
+                },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Save") }
+
+                Button(onClick = onCancel,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )) { Text("Cancel") }
             }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(onClick = {
-                val opts = listOf(o1, o2, o3, o4).map { it.trim() }
-                if (prompt.isNotBlank() && opts.none { it.isBlank() }) onSave(prompt.trim(), opts, correct)
-            }) { Text("Save") }
-            Button(onClick = onCancel) { Text("Cancel") }
+    }
+}
+
+@Composable
+private fun StudyQuestionCard(question: Question) {
+    var selectedIndex by remember(question.id) { mutableIntStateOf(-1) }
+
+    // Randomize answer order for this question display
+    val shuffledOptions = remember(question.id) {
+        question.options.shuffled()
+    }
+
+    MultiChoiceTheme {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(question.prompt, style = MaterialTheme.typography.titleMedium)
+
+            shuffledOptions.forEachIndexed { index, option ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Button(
+                        onClick = { selectedIndex = index },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = MaterialTheme.colorScheme.onPrimary
+                        )
+                    ) {
+                        Text(option.text)
+                    }
+                }
+            }
+
+            if (selectedIndex >= 0) {
+                val isCorrect = shuffledOptions[selectedIndex].isCorrect
+                Text(if (isCorrect) "Correct" else "Incorrect")
+            }
         }
     }
 }
