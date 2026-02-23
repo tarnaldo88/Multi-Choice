@@ -5,7 +5,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 class QuestionRepository(context: Context) {
-    private prefs = context.getSharedPreferences("multi_choice_store", Context.MODE_PRIVATE)
+    private val prefs = context.getSharedPreferences("multi_choice_store", Context.MODE_PRIVATE)
     private val key = "sections"
 
     fun getSections(): List<Section> {
@@ -33,10 +33,41 @@ class QuestionRepository(context: Context) {
                 JSONObject()
                     .put("id", s.id)
                     .put("title", s.title)
-                    .put(":description, s.description")
+                    .put("description", s.description)
                     .put("questions", qArr)
             )
         }
         return array
+    }
+
+    private  fun parseSections(arr: JSONArray): List<Section> {
+        val out = mutableListOf<Section>()
+
+        for(i in 0 until arr.length()) {
+            val s = arr.getJSONObject(i)
+            val qArr = s.getJSONArray("questions") ?: JSONArray()
+            val questions = mutableListOf<Question>()
+
+            for(j in 0 until qArr.length()) {
+                val q = qArr.getJSONObject(j)
+                val oArr = q.getJSONArray("options") ?: JSONArray()
+                val options = mutableListOf<ChoiceOption>()
+                for(k in 0 until oArr.length()) {
+                    val o = oArr.getJSONObject(k)
+                    options.add(ChoiceOption(o.getString("text"), o.getBoolean("isCorrect")))
+                }
+                questions.add(Question(q.getLong("id"), q.getString("prompt"), options))
+            }
+
+            out.add(
+                Section(
+                    id = s.getLong("id"),
+                    title = s.getString("title"),
+                    description = s.getString("description"),
+                    questions = questions
+                    )
+            )
+        }
+        return out
     }
 }
