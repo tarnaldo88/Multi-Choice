@@ -3,7 +3,7 @@
         android:allowBackup="true"
         android:label="Multi-Choice"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/multiicon"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
