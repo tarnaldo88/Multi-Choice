@@ -1,74 +1,76 @@
 package com.multichoice.app.data
 
-import android.content.Context
+import com.multichoice.app.data.db.MultiChoiceDao
+import com.multichoice.app.data.db.OptionEntity
+import com.multichoice.app.data.db.QuestionEntity
+import com.multichoice.app.data.db.SectionEntity
 import org.json.JSONArray
-import org.json.JSONObject
 
-class QuestionRepository(context: Context) {
-    private val prefs = context.getSharedPreferences("multi_choice_store", Context.MODE_PRIVATE)
-    private val key = "sections"
+class QuestionRepository(private val dao: MultiChoiceDao) {
 
-    fun getSections(): List<Section> {
-        val raw = prefs.getString(key, "[]") ?: "[]"
-        return parseSections(JSONArray(raw))
-    }
-
-    fun saveSections(sections: List<Section>) {
-        prefs.edit().putString(key, toJson(sections).toString()).apply()
-    }
-
-    private fun toJson(sections: List<Section>): JSONArray {
-        val arr = JSONArray()
-        sections.forEach { s ->
-            val qArr = JSONArray()
-            s.questions.forEach { q ->
-                val oArr = JSONArray()
-                q.options.forEach { o ->
-                    oArr.put(JSONObject().put("text", o.text).put("isCorrect", o.isCorrect))
-                }
-                qArr.put(
-                    JSONObject().put("id", q.id).put("prompt", q.prompt).put("options", oArr)
-                )
-            }
-            arr.put(
-                JSONObject()
-                    .put("id", s.id)
-                    .put("title", s.title)
-                    .put("description", s.description)
-                    .put("questions", qArr)
-            )
-        }
-        return arr
-    }
-
-    private  fun parseSections(arr: JSONArray): List<Section> {
-        val out = mutableListOf<Section>()
-
-        for(i in 0 until arr.length()) {
-            val s = arr.getJSONObject(i)
-            val qArr = s.getJSONArray("questions") ?: JSONArray()
-            val questions = mutableListOf<Question>()
-
-            for(j in 0 until qArr.length()) {
-                val q = qArr.getJSONObject(j)
-                val oArr = q.getJSONArray("options") ?: JSONArray()
-                val options = mutableListOf<ChoiceOption>()
-                for(k in 0 until oArr.length()) {
-                    val o = oArr.getJSONObject(k)
-                    options.add(ChoiceOption(o.getString("text"), o.getBoolean("isCorrect")))
-                }
-                questions.add(Question(q.getLong("id"), q.getString("prompt"), options))
-            }
-
-            out.add(
-                Section(
-                    id = s.getLong("id"),
-                    title = s.getString("title"),
-                    description = s.getString("description"),
-                    questions = questions
+    suspend fun getSections(): List<Section> {
+        return dao.getSectionsWithQuestions().map { swq ->
+            Section(
+                id = swq.section.id,
+                title = swq.section.title,
+                description = swq.section.description,
+                questions = swq.questions.map { qwo ->
+                    Question(
+                        id = qwo.question.id,
+                        prompt = qwo.question.prompt,
+                        options = qwo.options.map { ChoiceOption(it.text, it.isCorrect) }
                     )
+                }
             )
         }
-        return out
+    }
+
+    suspend fun addSection(title: String, description: String) {
+        dao.insertSection(SectionEntity(title = title, description = description))
+    }
+
+    suspend fun addQuestion(sectionId: Long, prompt: String, options: List<String>, correctIndex: Int) {
+        val questionId = dao.insertQuestion(QuestionEntity(sectionId = sectionId, prompt = prompt))
+        val optionEntities = options.mapIndexed { index, text ->
+            OptionEntity(questionId = questionId, text = text, isCorrect = index == correctIndex)
+        }
+        dao.insertOptions(optionEntities)
+    }
+
+    suspend fun seedIfEmpty(seedJson: String) {
+        if (dao.countSections() > 0) return
+
+        val root = JSONArray(seedJson)
+        for (i in 0 until root.length()) {
+            val sectionObj = root.getJSONObject(i)
+            val sectionId = dao.insertSection(
+                SectionEntity(
+                    title = sectionObj.getString("title"),
+                    description = sectionObj.getString("description")
+                )
+            )
+
+            val questions = sectionObj.getJSONArray("questions")
+            for (j in 0 until questions.length()) {
+                val qObj = questions.getJSONObject(j)
+                val questionId = dao.insertQuestion(
+                    QuestionEntity(sectionId = sectionId, prompt = qObj.getString("prompt"))
+                )
+
+                val opts = qObj.getJSONArray("options")
+                val optionEntities = mutableListOf<OptionEntity>()
+                for (k in 0 until opts.length()) {
+                    val o = opts.getJSONObject(k)
+                    optionEntities.add(
+                        OptionEntity(
+                            questionId = questionId,
+                            text = o.getString("text"),
+                            isCorrect = o.getBoolean("isCorrect")
+                        )
+                    )
+                }
+                dao.insertOptions(optionEntities)
+            }
+        }
     }
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Kotlin Basics",
+    "description": "Variables, nullability, syntax",
+    "questions": [
+      {
+        "prompt": "Which keyword creates an immutable variable in Kotlin?",
+        "options": [
+          { "text": "var", "isCorrect": false },
+          { "text": "val", "isCorrect": true },
+          { "text": "let", "isCorrect": false },
+          { "text": "const", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Android",
+    "description": "Core Android concepts",
+    "questions": [
+      {
+        "prompt": "Which component handles app UI in Jetpack Compose?",
+        "options": [
+          { "text": "Service", "isCorrect": false },
+          { "text": "Composable functions", "isCorrect": true },
+          { "text": "BroadcastReceiver", "isCorrect": false },
+          { "text": "ContentProvider", "isCorrect": false }
+        ]
+      }
+    ]
+  }
+]

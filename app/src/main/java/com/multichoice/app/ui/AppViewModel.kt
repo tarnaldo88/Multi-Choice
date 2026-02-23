@@ -7,6 +7,8 @@ import com.multichoice.app.data.ChoiceOption
 import com.multichoice.app.data.Question
 import com.multichoice.app.data.QuestionRepository
 import com.multichoice.app.data.Section
+import com.multichoice.app.data.SeedFileReader
+import com.multichoice.app.data.db.AppDatabase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,31 +21,39 @@ data class AppState(
 )
 
 class AppViewModel(app: Application) : AndroidViewModel(app) {
-    private val repo = QuestionRepository(app)
-    private val _state = MutableStateFlow(AppState(sections = repo.getSections()))
+    private val repo = QuestionRepository(AppDatabase.getInstance(app).dao())
+    private val _state = MutableStateFlow(AppState())
     val state: StateFlow<AppState> = _state.asStateFlow()
 
+    init {
+    viewModelScope.launch {
+        repo.seedIfEmpty(SeedFileReader.read(app))
+        refreshSections()
+    }
+}
+
     fun addSection(title: String, description: String) {
-        val section = Section(System.currentTimeMillis(), title, description)
-        val next = _state.value.sections + section
-        save(next)
+        viewModelScope.launch {
+            repo.addSection(title, description)
+            refreshSections()
+        }
+    }
+
+    fun addQuestion(sectionId: Long, prompt: String, options: List<String>, correctIndex: Int) {
+        viewModelScope.launch {
+            repo.addQuestion(sectionId, prompt, options, correctIndex)
+            refreshSections()
+        }
+    }
+
+    private suspend fun refreshSections() {
+        val sections = repo.getSections()
+        _state.value = _state.value.copy(sections = sections)
     }
 
     fun selectSection(sectionId: Long) {
         _state.value = _state.value.copy(selectedSectionId = sectionId, studyIndex = 0)
-    }
-
-    fun addQuestion(sectionId: Long, prompt: String, options: List<String>, correctIndex: Int) {
-        val question = Question(
-            id = System.currentTimeMillis(),
-            prompt = prompt,
-            options = options.mapIndexed { idx, text -> ChoiceOption(text, idx == correctIndex) }
-        )
-        val next = _state.value.sections.map { s ->
-            if (s.id == sectionId) s.copy(questions = s.questions + question) else s
-        }
-        save(next)
-    }
+    }    
 
     fun nextStudyQuestion() {
         val section = currentSection() ?: return
