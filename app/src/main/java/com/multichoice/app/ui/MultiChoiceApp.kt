@@ -81,7 +81,7 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
 }
 
 @Composable
-private fun CreateSectionForm(onSave: (String, String) -> Unit, onCancel: () -> Unit) {
+fun CreateSectionForm(onSave: (String, String) -> Unit, onCancel: () -> Unit) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -95,7 +95,7 @@ private fun CreateSectionForm(onSave: (String, String) -> Unit, onCancel: () -> 
 }
 
 @Composable
-private fun CreateQuestionForm(onSave: (String, List<String>, Int) -> Unit, onCancel: () -> Unit) {
+fun CreateQuestionForm(onSave: (String, List<String>, Int) -> Unit, onCancel: () -> Unit) {
     var prompt by remember { mutableStateOf("") }
     var o1 by remember { mutableStateOf("") }
     var o2 by remember { mutableStateOf("") }
