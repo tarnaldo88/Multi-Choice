@@ -22,4 +22,8 @@ interface MultiChoiceDao {
 
     @Query("SELECT COUNT(*) FROM sections")
     suspend fun countSections(): Int
+
+    @Query("UPDATE sections SET highScore = :highScore WHERE id = :sectionId")
+    suspend fun updateHighScore(sectionId: Long, highScore: Int)
+
 }

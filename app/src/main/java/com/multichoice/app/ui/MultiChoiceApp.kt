@@ -100,6 +100,9 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
                     SectionPage(
                         sectionTitle = section.title,
                         questions = section.questions,
+                        sessionCorrect = state.sessionCorrect,
+                        highScore = section.highScore,
+                        onAnswer = { questionId, isCorrect -> vm.submitAnswer(questionId, isCorrect) },
                         onBack = { nav.popBackStack() },
                         onAddQuestion = { nav.navigate(Routes.addQuestion(sectionId)) }
                     )
@@ -135,7 +138,7 @@ private fun HomePage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(26.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -178,30 +181,28 @@ private fun HomePage(
 private fun CreateSectionPage(onSave: (String, String) -> Unit, onCancel: () -> Unit) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
+    
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text("Create Section", style = MaterialTheme.typography.headlineSmall)
+        OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Title") })
+        OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Description") })
 
-    MultiChoiceTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Text("Create Section", style = MaterialTheme.typography.headlineSmall)
-            OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Title") })
-            OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Description") })
-
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = { if (title.isNotBlank()) onSave(title.trim(), description.trim()) },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Save") }
-                Button(onClick = onCancel,
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Cancel") }
-            }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Button(onClick = { if (title.isNotBlank()) onSave(title.trim(), description.trim()) },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Save") }
+            Button(onClick = onCancel,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Cancel") }
         }
     }
 }
@@ -210,47 +211,52 @@ private fun CreateSectionPage(onSave: (String, String) -> Unit, onCancel: () -> 
 private fun SectionPage(
     sectionTitle: String,
     questions: List<Question>,
+    sessionCorrect: Int,
+    highScore: Int,
+    onAnswer: (Long, Boolean) -> Unit,
     onBack: () -> Unit,
     onAddQuestion: () -> Unit
 ) {
     var questionIndex by remember { mutableIntStateOf(0) }
+    
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text(sectionTitle, style = MaterialTheme.typography.headlineSmall)
+        Text("Questions: ${questions.size}")
+        Text("Correct this session: $sessionCorrect")
+        Text("All-time high: $highScore")
 
-    MultiChoiceTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Text(sectionTitle, style = MaterialTheme.typography.headlineSmall)
-            Text("Questions: ${questions.size}")
 
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = onAddQuestion,
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Add Question") }
-                Button(onClick = onBack,
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Back") }
-            }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Button(onClick = onAddQuestion,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Add Question") }
+            Button(onClick = onBack,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Back") }
+        }
 
-            if (questions.isNotEmpty()) {
-                val question = questions[questionIndex]
-                StudyQuestionCard(question = question)
+        if (questions.isNotEmpty()) {
+            val question = questions[questionIndex]
+            StudyQuestionCard(question = question,
+                onAnswered = { isCorrect -> onAnswer(question.id, isCorrect) })
 
-                Button(
-                    onClick = { questionIndex = (questionIndex + 1) % questions.size },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF08C0B0),
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )
-                ) {
-                    Text("Next Question")
-                }
+            Button(
+                onClick = { questionIndex = (questionIndex + 1) % questions.size },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF08C0B0),
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
+            ) {
+                Text("Next Question")
             }
         }
     }
@@ -266,45 +272,46 @@ private fun AddQuestionPage(
     var o2 by remember { mutableStateOf("") }
     var o3 by remember { mutableStateOf("") }
     var o4 by remember { mutableStateOf("") }
+    
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text("Add Question", style = MaterialTheme.typography.headlineSmall)
+        OutlinedTextField(value = prompt, onValueChange = { prompt = it }, label = { Text("Prompt") })
+        OutlinedTextField(value = o1, onValueChange = { o1 = it }, label = { Text("Option 1 (Correct)") })
+        OutlinedTextField(value = o2, onValueChange = { o2 = it }, label = { Text("Option 2") })
+        OutlinedTextField(value = o3, onValueChange = { o3 = it }, label = { Text("Option 3") })
+        OutlinedTextField(value = o4, onValueChange = { o4 = it }, label = { Text("Option 4") })
 
-    MultiChoiceTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Text("Add Question", style = MaterialTheme.typography.headlineSmall)
-            OutlinedTextField(value = prompt, onValueChange = { prompt = it }, label = { Text("Prompt") })
-            OutlinedTextField(value = o1, onValueChange = { o1 = it }, label = { Text("Option 1 (Correct)") })
-            OutlinedTextField(value = o2, onValueChange = { o2 = it }, label = { Text("Option 2") })
-            OutlinedTextField(value = o3, onValueChange = { o3 = it }, label = { Text("Option 3") })
-            OutlinedTextField(value = o4, onValueChange = { o4 = it }, label = { Text("Option 4") })
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Button(onClick = {
+                val options = listOf(o1, o2, o3, o4).map { it.trim() }
+                if (prompt.isNotBlank() && options.none { it.isBlank() }) {
+                    onSave(prompt.trim(), options, 0) // option 1 treated as correct for now
+                }
+            },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Save") }
 
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = {
-                    val options = listOf(o1, o2, o3, o4).map { it.trim() }
-                    if (prompt.isNotBlank() && options.none { it.isBlank() }) {
-                        onSave(prompt.trim(), options, 0) // option 1 treated as correct for now
-                    }
-                },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Save") }
-
-                Button(onClick = onCancel,
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
-                    )) { Text("Cancel") }
-            }
+            Button(onClick = onCancel,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )) { Text("Cancel") }
         }
-    }
+    }    
 }
 
 @Composable
-private fun StudyQuestionCard(question: Question) {
+private fun StudyQuestionCard(
+    question: Question,
+    onAnswered: (Boolean) -> Unit
+) {
     var selectedIndex by remember(question.id) { mutableIntStateOf(-1) }
 
     // Randomize answer order for this question display
@@ -312,44 +319,56 @@ private fun StudyQuestionCard(question: Question) {
         question.options.shuffled()
     }
 
-    MultiChoiceTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(question.prompt, style = MaterialTheme.typography.titleMedium)
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(question.prompt, style = MaterialTheme.typography.titleMedium)
 
-            shuffledOptions.forEachIndexed { index, option ->
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Button(
-                        onClick = { selectedIndex = index },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary,
-                            contentColor = MaterialTheme.colorScheme.onPrimary
-                        )
-                    ) {
-                        Text(option.text)
-                    }
+        shuffledOptions.forEachIndexed { index, option ->
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(
+                    onClick = {
+                        if (selectedIndex == -1) {
+                            selectedIndex = index
+                            onAnswered(option.isCorrect) // count only first answer
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )
+                ) {
+                    Text(option.text)
                 }
             }
+        }
 
-            if (selectedIndex >= 0) {
-                val isCorrect = shuffledOptions[selectedIndex].isCorrect
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    if (isCorrect) {
-                        Icon(
-                            imageVector = Icons.Filled.CheckCircle,
-                            contentDescription = "Correct",
-                            tint = Color(0xFF22C55E) // green
-                        )
-                        Text("Correct", color = Color(0xFF22C55E), style = MaterialTheme.typography.titleLarge)
-                    } else {
-                        Icon(
-                            imageVector = Icons.Filled.Close,
-                            contentDescription = "Incorrect",
-                            tint = Color(0xFFEF4444) // red
-                        )
-                        Text("Incorrect", color = Color(0xFFEF4444), style = MaterialTheme.typography.titleLarge)
-                    }
+        if (selectedIndex >= 0) {
+            val isCorrect = shuffledOptions[selectedIndex].isCorrect
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                if (isCorrect) {
+                    Icon(
+                        imageVector = Icons.Filled.CheckCircle,
+                        contentDescription = "Correct",
+                        tint = Color(0xFF22C55E)
+                    )
+                    Text(
+                        "Correct",
+                        color = Color(0xFF22C55E),
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                } else {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        contentDescription = "Incorrect",
+                        tint = Color(0xFFEF4444)
+                    )
+                    Text(
+                        "Incorrect",
+                        color = Color(0xFFEF4444),
+                        style = MaterialTheme.typography.titleLarge
+                    )
                 }
             }
         }
     }
 }
+

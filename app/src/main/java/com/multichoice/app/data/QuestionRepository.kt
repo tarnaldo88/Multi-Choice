@@ -20,10 +20,16 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
                         prompt = qwo.question.prompt,
                         options = qwo.options.map { ChoiceOption(it.text, it.isCorrect) }
                     )
-                }
+                },
+                highScore = swq.section.highScore
             )
         }
     }
+
+    suspend fun updateHighScore(sectionId: Long, highScore: Int) {
+        dao.updateHighScore(sectionId, highScore)
+    }
+
 
     suspend fun addSection(title: String, description: String) {
         dao.insertSection(SectionEntity(title = title, description = description))

@@ -15,11 +15,13 @@ import kotlinx.coroutines.launch
 data class AppState(
     val sections: List<Section> = emptyList(),
     val selectedSectionId: Long? = null,
-    val studyIndex: Int = 0
+    val studyIndex: Int = 0,
+    val sessionCorrect: Int = 0
 )
 
 class AppViewModel(app: Application) : AndroidViewModel(app) {
     private val repo = QuestionRepository(AppDatabase.getInstance(app).dao())
+    private val answeredQuestionIds = mutableSetOf<Long>()
     private val _state = MutableStateFlow(AppState())
     val state: StateFlow<AppState> = _state.asStateFlow()
 
@@ -54,10 +56,6 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _state.value = _state.value.copy(sections = sections)
     }
 
-    fun selectSection(sectionId: Long) {
-        _state.value = _state.value.copy(selectedSectionId = sectionId, studyIndex = 0)
-    }
-
     fun nextStudyQuestion() {
         val section = currentSection() ?: return
         if (section.questions.isEmpty()) return
@@ -67,4 +65,30 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun currentSection(): Section? =
         _state.value.sections.firstOrNull { it.id == _state.value.selectedSectionId }
+    
+    fun selectSection(sectionId: Long) {
+        answeredQuestionIds.clear()
+        _state.value = _state.value.copy(
+            selectedSectionId = sectionId,
+            studyIndex = 0,
+            sessionCorrect = 0
+        )
+    }
+    fun submitAnswer(questionId: Long, isCorrect: Boolean) {
+        if (!answeredQuestionIds.add(questionId)) return // count first attempt only
+
+        if (isCorrect) {
+            val newScore = _state.value.sessionCorrect + 1
+            _state.value = _state.value.copy(sessionCorrect = newScore)
+
+            val section = currentSection() ?: return
+            if (newScore > section.highScore) {
+                viewModelScope.launch {
+                    repo.updateHighScore(section.id, newScore)
+                    refreshSections()
+                }
+            }
+        }
+    }
+
 }

@@ -9,7 +9,8 @@ import androidx.room.PrimaryKey
 data class SectionEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
-    val description: String
+    val description: String,
+    val highScore: Int = 0
 )
 
 @Entity(
