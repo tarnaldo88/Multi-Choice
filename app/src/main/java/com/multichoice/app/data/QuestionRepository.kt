@@ -18,10 +18,11 @@ class QuestionRepository(context: Context) {
     }
 
     private fun toJson(sections: List<Section>): JSONArray {
-        val array = JSONArray()
+        val arr = JSONArray()
         sections.forEach { s ->
             val qArr = JSONArray()
             s.questions.forEach { q ->
+                val oArr = JSONArray()
                 q.options.forEach { o ->
                     oArr.put(JSONObject().put("text", o.text).put("isCorrect", o.isCorrect))
                 }
@@ -37,7 +38,7 @@ class QuestionRepository(context: Context) {
                     .put("questions", qArr)
             )
         }
-        return array
+        return arr
     }
 
     private  fun parseSections(arr: JSONArray): List<Section> {
