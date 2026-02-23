@@ -93,3 +93,46 @@ private fun CreateSectionForm(onSave: (String, String) -> Unit, onCancel: () -> 
         }
     }
 }
+
+@Composable
+private fun CreateQuestionForm(onSave: (String, List<String>, Int) -> Unit, onCancel: () -> Unit) {
+    var prompt by remember { mutableStateOf("") }
+    var o1 by remember { mutableStateOf("") }
+    var o2 by remember { mutableStateOf("") }
+    var o3 by remember { mutableStateOf("") }
+    var o4 by remember { mutableStateOf("") }
+    var correct by remember { mutableIntStateOf(0) }
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        OutlinedTextField(prompt, { prompt = it }, label = { Text("Question prompt") })
+        listOf(
+            "Option 1" to o1,
+            "Option 2" to o2,
+            "Option 3" to o3,
+            "Option 4" to o4
+        ).forEachIndexed { index, pair ->
+            Row {
+                RadioButton(selected = correct == index, onClick = { correct = index })
+                OutlinedTextField(
+                    value = pair.second,
+                    onValueChange = {
+                        when (index) {
+                            0 -> o1 = it
+                            1 -> o2 = it
+                            2 -> o3 = it
+                            else -> o4 = it
+                        }
+                    },
+                    label = { Text(pair.first) }
+                )
+            }
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Button(onClick = {
+                val opts = listOf(o1, o2, o3, o4).map { it.trim() }
+                if (prompt.isNotBlank() && opts.none { it.isBlank() }) onSave(prompt.trim(), opts, correct)
+            }) { Text("Save") }
+            Button(onClick = onCancel) { Text("Cancel") }
+        }
+    }
+}
