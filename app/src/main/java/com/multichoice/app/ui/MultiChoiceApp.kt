@@ -45,6 +45,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.layout.ContentScale
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 
@@ -120,6 +123,9 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
                         questions = section.questions,
                         sessionCorrect = state.sessionCorrect,
                         highScore = section.highScore,
+                        totalAttempts = section.totalAttempts,
+                        accuracyPercent = section.accuracyPercent,
+                        lastStudiedAt = section.lastStudiedAt,
                         onAnswer = { questionId, isCorrect -> vm.submitAnswer(questionId, isCorrect) },
                         onRetrySession = { vm.selectSection(sectionId) },
                         onBack = { nav.popBackStack() },
@@ -181,6 +187,17 @@ private fun HomePage(
             }
 
             Text("Your Sections", style = MaterialTheme.typography.titleMedium)
+            val weakTopics = sections
+                .filter { it.totalAttempts > 0 }
+                .sortedBy { it.accuracyPercent }
+                .take(3)
+
+            if (weakTopics.isNotEmpty()) {
+                Text("Weak Topics", style = MaterialTheme.typography.titleMedium)
+                weakTopics.forEach { section ->
+                    Text("- ${section.title}: ${section.accuracyPercent}% (${section.totalCorrect}/${section.totalAttempts})")
+                }
+            }
 
             LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(sections) { section ->
@@ -189,6 +206,9 @@ private fun HomePage(
                             Text(section.title, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onBackground)
                             Text(section.description)
                             Text("Questions: ${section.questions.size}")
+                            Text("Attempts: ${section.totalAttempts}")
+                            Text("Accuracy: ${section.accuracyPercent}%")
+                            Text("Last studied: ${formatLastStudied(section.lastStudiedAt)}")
                         }
                     }
                 }
@@ -233,6 +253,9 @@ private fun SectionPage(
     questions: List<Question>,
     sessionCorrect: Int,
     highScore: Int,
+    totalAttempts: Int,
+    accuracyPercent: Int,
+    lastStudiedAt: Long,
     onAnswer: (Long, Boolean) -> Unit,
     onRetrySession: () -> Unit,
     onBack: () -> Unit,
@@ -255,6 +278,9 @@ private fun SectionPage(
         Text("Questions: ${randomizedQuestions.size}")
         Text("Correct this session: $sessionCorrect")
         Text("All-time high: $highScore")
+        Text("Attempts: $totalAttempts")
+        Text("Accuracy: $accuracyPercent%")
+        Text("Last studied: ${formatLastStudied(lastStudiedAt)}")
 
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -323,6 +349,12 @@ private fun SectionPage(
             }
         }
     }
+}
+
+private fun formatLastStudied(timestamp: Long): String {
+    if (timestamp <= 0L) return "Never"
+    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+    return formatter.format(Date(timestamp))
 }
 
 @Composable
