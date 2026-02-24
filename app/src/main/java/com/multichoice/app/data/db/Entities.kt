@@ -10,7 +10,10 @@ data class SectionEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
     val description: String,
-    val highScore: Int = 0
+    val highScore: Int = 0,
+    val totalAttempts: Int = 0,
+    val totalCorrect: Int = 0,
+    val lastStudiedAt: Long = 0L
 )
 
 @Entity(
