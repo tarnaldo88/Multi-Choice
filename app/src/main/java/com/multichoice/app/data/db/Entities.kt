@@ -28,7 +28,8 @@ data class SectionEntity(
 data class QuestionEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val sectionId: Long,
-    val prompt: String
+    val prompt: String,
+    val explanation: String = ""
 )
 
 @Entity(
