@@ -406,6 +406,7 @@ private fun StudyQuestionCard(
 
         if (selectedIndex >= 0) {
             val isCorrect = shuffledOptions[selectedIndex].isCorrect
+            val correctAnswer = shuffledOptions.firstOrNull { it.isCorrect }?.text ?: "N/A"
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 if (isCorrect) {
                     Icon(
@@ -430,6 +431,13 @@ private fun StudyQuestionCard(
                         style = MaterialTheme.typography.titleLarge
                     )
                 }
+            }
+            if (!isCorrect) {
+                Text(
+                    "Correct answer: $correctAnswer",
+                    color = Color(0xFF22C55E),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             }
         }
     }
