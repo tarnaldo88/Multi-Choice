@@ -22,13 +22,20 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
                         explanation = qwo.question.explanation
                     )
                 },
-                highScore = swq.section.highScore
+                highScore = swq.section.highScore,
+                totalAttempts = swq.section.totalAttempts,
+                totalCorrect = swq.section.totalCorrect,
+                lastStudiedAt = swq.section.lastStudiedAt
             )
         }
     }
 
     suspend fun updateHighScore(sectionId: Long, highScore: Int) {
         dao.updateHighScore(sectionId, highScore)
+    }
+
+    suspend fun recordAttempt(sectionId: Long, isCorrect: Boolean, studiedAt: Long) {
+        dao.recordAttempt(sectionId, if (isCorrect) 1 else 0, studiedAt)
     }
 
 
