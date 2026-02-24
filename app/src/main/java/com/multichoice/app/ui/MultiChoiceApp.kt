@@ -41,6 +41,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.layout.ContentScale
+
 
 
 
@@ -61,9 +65,22 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
     val nav = rememberNavController()
 
     MultiChoiceTheme  {
+        Box(
+            modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF0D1117)) // GitHub dark
+        ) {
+        Image(
+            painter = painterResource(id = R.drawable.bg), // your png name
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+            alpha = 0.30f
+        )
+
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background,
+            color = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground
         ) {
             NavHost(navController = nav, startDestination = Routes.HOME) {
@@ -126,6 +143,7 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
             }
         }
     }
+    }
 }
 
 @Composable
@@ -146,10 +164,10 @@ private fun HomePage(
                     painter = painterResource(id = R.mipmap.ic_launcher_foreground),
                     contentDescription = "App icon"
                 )
-                Text("Multi-Choice", modifier = Modifier
-                    .padding(top = 20.dp)      // marginTop-ish
-                    .fillMaxWidth(),
-                    style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
+                Image(
+                    painter = painterResource(id = R.drawable.multichoice),
+                    contentDescription = "App logo"
+                )
             }
 
             Button(onClick = onCreateSection, modifier = Modifier.fillMaxWidth(),
@@ -218,6 +236,8 @@ private fun SectionPage(
     onAddQuestion: () -> Unit
 ) {
     var questionIndex by remember { mutableIntStateOf(0) }
+    // Shuffle once per section screen entry so each open gets a random question order.
+    val randomizedQuestions = remember(questions) { questions.shuffled() }
     
     Column(
         modifier = Modifier
@@ -226,7 +246,7 @@ private fun SectionPage(
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Text(sectionTitle, style = MaterialTheme.typography.headlineSmall)
-        Text("Questions: ${questions.size}")
+        Text("Questions: ${randomizedQuestions.size}")
         Text("Correct this session: $sessionCorrect")
         Text("All-time high: $highScore")
 
@@ -244,13 +264,13 @@ private fun SectionPage(
                 )) { Text("Back") }
         }
 
-        if (questions.isNotEmpty()) {
-            val question = questions[questionIndex]
+        if (randomizedQuestions.isNotEmpty()) {
+            val question = randomizedQuestions[questionIndex]
             StudyQuestionCard(question = question,
                 onAnswered = { isCorrect -> onAnswer(question.id, isCorrect) })
 
             Button(
-                onClick = { questionIndex = (questionIndex + 1) % questions.size },
+                onClick = { questionIndex = (questionIndex + 1) % randomizedQuestions.size },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF08C0B0),
                     contentColor = MaterialTheme.colorScheme.onPrimary

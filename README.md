@@ -9,7 +9,7 @@ The app lets users:
 
 - Create sections (for example Kotlin, Android, System Design)
 - Add multiple choice questions to each section
-- Study questions with randomized answer order
+- Study questions with randomized question order and randomized answer order
 - Track correct answers for the current section session
 - Store and update an all time high score per section
 - Persist all data locally so the app works offline
@@ -28,7 +28,7 @@ The app lets users:
 - Mark one option as the correct answer
 
 ### Study Experience
-- Questions shown per section
+- Questions are shuffled each time a section is opened
 - Answer options are shuffled when displayed so correct answers are not always in the same position
 - Immediate feedback after answering:
   - Correct with green check icon
@@ -121,6 +121,12 @@ Or from terminal:
 .\gradlew.bat clean :app:assembleDebug
 ```
 
+For a lock-safe local build on Windows, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build-debug.ps1
+```
+
 ## Seed Data
 
 Seed data file:
@@ -155,6 +161,9 @@ Remove-Item -Recurse -Force .\app\build
 ```
 
 3. If still locked, close Android Studio and retry command
+
+Alternative:
+- Use `scripts/build-debug.ps1` to automatically stop daemons, clear build outputs, and rebuild.
 
 ### App crashes on startup after schema changes
 Use destructive migration in development or clear app data if schema changed without migration.
