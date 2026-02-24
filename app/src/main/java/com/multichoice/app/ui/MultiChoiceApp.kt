@@ -121,6 +121,7 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
                         sessionCorrect = state.sessionCorrect,
                         highScore = section.highScore,
                         onAnswer = { questionId, isCorrect -> vm.submitAnswer(questionId, isCorrect) },
+                        onRetrySession = { vm.selectSection(sectionId) },
                         onBack = { nav.popBackStack() },
                         onAddQuestion = { nav.navigate(Routes.addQuestion(sectionId)) }
                     )
@@ -233,11 +234,13 @@ private fun SectionPage(
     sessionCorrect: Int,
     highScore: Int,
     onAnswer: (Long, Boolean) -> Unit,
+    onRetrySession: () -> Unit,
     onBack: () -> Unit,
     onAddQuestion: () -> Unit
 ) {
+    var sessionVersion by remember { mutableIntStateOf(0) }
     // Shuffle once per section screen entry so each open gets a random question order.
-    val randomizedQuestions = remember(questions) { questions.shuffled() }
+    val randomizedQuestions = remember(questions, sessionVersion) { questions.shuffled() }
     // Track whether each answered question was correct (first attempt only).
     val sessionAnswers = remember(randomizedQuestions) { mutableStateMapOf<Long, Boolean>() }
     val unansweredQuestion = randomizedQuestions.firstOrNull { !sessionAnswers.containsKey(it.id) }
@@ -298,13 +301,26 @@ private fun SectionPage(
                 }
             }
 
-            Button(
-                onClick = onBack,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
-                )
-            ) { Text("Back to Sections") }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(
+                    onClick = {
+                        onRetrySession()
+                        sessionVersion++
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF08C0B0),
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )
+                ) { Text("Retry Session") }
+
+                Button(
+                    onClick = onBack,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )
+                ) { Text("Back to Sections") }
+            }
         }
     }
 }
