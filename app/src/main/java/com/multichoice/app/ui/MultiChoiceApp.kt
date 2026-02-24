@@ -135,8 +135,8 @@ fun MultiChoiceApp(vm: AppViewModel = viewModel()) {
                     val sectionId =
                         backStackEntry.arguments?.getLong("sectionId") ?: return@composable
                     AddQuestionPage(
-                        onSave = { prompt, options, correctIndex ->
-                            vm.addQuestion(sectionId, prompt, options, correctIndex)
+                        onSave = { prompt, options, correctIndex, explanation ->
+                            vm.addQuestion(sectionId, prompt, options, correctIndex, explanation)
                             nav.popBackStack()
                         },
                         onCancel = { nav.popBackStack() }
@@ -327,7 +327,7 @@ private fun SectionPage(
 
 @Composable
 private fun AddQuestionPage(
-    onSave: (String, List<String>, Int) -> Unit,
+    onSave: (String, List<String>, Int, String) -> Unit,
     onCancel: () -> Unit
 ) {
     var prompt by remember { mutableStateOf("") }
@@ -335,6 +335,7 @@ private fun AddQuestionPage(
     var o2 by remember { mutableStateOf("") }
     var o3 by remember { mutableStateOf("") }
     var o4 by remember { mutableStateOf("") }
+    var explanation by remember { mutableStateOf("") }
     
     Column(
         modifier = Modifier
@@ -348,12 +349,17 @@ private fun AddQuestionPage(
         OutlinedTextField(value = o2, onValueChange = { o2 = it }, label = { Text("Option 2") })
         OutlinedTextField(value = o3, onValueChange = { o3 = it }, label = { Text("Option 3") })
         OutlinedTextField(value = o4, onValueChange = { o4 = it }, label = { Text("Option 4") })
+        OutlinedTextField(
+            value = explanation,
+            onValueChange = { explanation = it },
+            label = { Text("Explanation (optional)") }
+        )
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(onClick = {
                 val options = listOf(o1, o2, o3, o4).map { it.trim() }
                 if (prompt.isNotBlank() && options.none { it.isBlank() }) {
-                    onSave(prompt.trim(), options, 0) // option 1 treated as correct for now
+                    onSave(prompt.trim(), options, 0, explanation.trim()) // option 1 treated as correct for now
                 }
             },
                 colors = ButtonDefaults.buttonColors(
@@ -436,6 +442,12 @@ private fun StudyQuestionCard(
                 Text(
                     "Correct answer: $correctAnswer",
                     color = Color(0xFF22C55E),
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+            if (question.explanation.isNotBlank()) {
+                Text(
+                    "Explanation: ${question.explanation}",
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
