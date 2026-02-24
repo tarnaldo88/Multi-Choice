@@ -26,4 +26,15 @@ interface MultiChoiceDao {
     @Query("UPDATE sections SET highScore = :highScore WHERE id = :sectionId")
     suspend fun updateHighScore(sectionId: Long, highScore: Int)
 
+    @Query(
+        """
+        UPDATE sections
+        SET totalAttempts = totalAttempts + 1,
+            totalCorrect = totalCorrect + :correctDelta,
+            lastStudiedAt = :studiedAt
+        WHERE id = :sectionId
+        """
+    )
+    suspend fun recordAttempt(sectionId: Long, correctDelta: Int, studiedAt: Long)
+
 }
