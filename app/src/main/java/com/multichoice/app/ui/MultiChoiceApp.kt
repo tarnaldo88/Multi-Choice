@@ -20,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -235,9 +236,11 @@ private fun SectionPage(
     onBack: () -> Unit,
     onAddQuestion: () -> Unit
 ) {
-    var questionIndex by remember { mutableIntStateOf(0) }
     // Shuffle once per section screen entry so each open gets a random question order.
     val randomizedQuestions = remember(questions) { questions.shuffled() }
+    // Track whether each answered question was correct (first attempt only).
+    val sessionAnswers = remember(randomizedQuestions) { mutableStateMapOf<Long, Boolean>() }
+    val unansweredQuestion = randomizedQuestions.firstOrNull { !sessionAnswers.containsKey(it.id) }
     
     Column(
         modifier = Modifier
@@ -264,20 +267,44 @@ private fun SectionPage(
                 )) { Text("Back") }
         }
 
-        if (randomizedQuestions.isNotEmpty()) {
-            val question = randomizedQuestions[questionIndex]
-            StudyQuestionCard(question = question,
-                onAnswered = { isCorrect -> onAnswer(question.id, isCorrect) })
+        if (randomizedQuestions.isEmpty()) {
+            Text("No questions in this section yet.")
+            return@Column
+        }
+
+        if (unansweredQuestion != null) {
+            Text("Remaining: ${randomizedQuestions.size - sessionAnswers.size}")
+            StudyQuestionCard(
+                question = unansweredQuestion,
+                onAnswered = { isCorrect ->
+                    // Record first answer result for summary and high score handling.
+                    sessionAnswers[unansweredQuestion.id] = isCorrect
+                    onAnswer(unansweredQuestion.id, isCorrect)
+                }
+            )
+        } else {
+            Text("Session Complete", style = MaterialTheme.typography.headlineSmall)
+            Text("Final Score: $sessionCorrect / ${randomizedQuestions.size}")
+
+            val incorrectQuestions = randomizedQuestions.filter { q -> sessionAnswers[q.id] == false }
+            if (incorrectQuestions.isEmpty()) {
+                Text("Perfect score. You answered all questions correctly.")
+            } else {
+                Text("Incorrectly Answered Questions", style = MaterialTheme.typography.titleMedium)
+                incorrectQuestions.forEachIndexed { index, q ->
+                    val correctAnswer = q.options.firstOrNull { it.isCorrect }?.text ?: "N/A"
+                    Text("${index + 1}. ${q.prompt}")
+                    Text("Correct answer: $correctAnswer", color = Color(0xFF22C55E))
+                }
+            }
 
             Button(
-                onClick = { questionIndex = (questionIndex + 1) % randomizedQuestions.size },
+                onClick = onBack,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF08C0B0),
+                    containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary
                 )
-            ) {
-                Text("Next Question")
-            }
+            ) { Text("Back to Sections") }
         }
     }
 }
