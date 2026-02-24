@@ -83,17 +83,22 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun submitAnswer(questionId: Long, isCorrect: Boolean) {
         if (!answeredQuestionIds.add(questionId)) return // count first attempt only
 
+        val section = currentSection() ?: return
+        val newScore = if (isCorrect) _state.value.sessionCorrect + 1 else _state.value.sessionCorrect
         if (isCorrect) {
-            val newScore = _state.value.sessionCorrect + 1
             _state.value = _state.value.copy(sessionCorrect = newScore)
+        }
 
-            val section = currentSection() ?: return
-            if (newScore > section.highScore) {
-                viewModelScope.launch {
-                    repo.updateHighScore(section.id, newScore)
-                    refreshSections()
-                }
+        viewModelScope.launch {
+            repo.recordAttempt(
+                sectionId = section.id,
+                isCorrect = isCorrect,
+                studiedAt = System.currentTimeMillis()
+            )
+            if (isCorrect && newScore > section.highScore) {
+                repo.updateHighScore(section.id, newScore)
             }
+            refreshSections()
         }
     }
 
