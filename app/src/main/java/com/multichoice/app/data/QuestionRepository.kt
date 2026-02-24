@@ -18,7 +18,8 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
                     Question(
                         id = qwo.question.id,
                         prompt = qwo.question.prompt,
-                        options = qwo.options.map { ChoiceOption(it.text, it.isCorrect) }
+                        options = qwo.options.map { ChoiceOption(it.text, it.isCorrect) },
+                        explanation = qwo.question.explanation
                     )
                 },
                 highScore = swq.section.highScore
@@ -35,8 +36,20 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
         dao.insertSection(SectionEntity(title = title, description = description))
     }
 
-    suspend fun addQuestion(sectionId: Long, prompt: String, options: List<String>, correctIndex: Int) {
-        val questionId = dao.insertQuestion(QuestionEntity(sectionId = sectionId, prompt = prompt))
+    suspend fun addQuestion(
+        sectionId: Long,
+        prompt: String,
+        options: List<String>,
+        correctIndex: Int,
+        explanation: String
+    ) {
+        val questionId = dao.insertQuestion(
+            QuestionEntity(
+                sectionId = sectionId,
+                prompt = prompt,
+                explanation = explanation
+            )
+        )
         val optionEntities = options.mapIndexed { index, text ->
             OptionEntity(questionId = questionId, text = text, isCorrect = index == correctIndex)
         }
@@ -60,7 +73,11 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
             for (j in 0 until questions.length()) {
                 val qObj = questions.getJSONObject(j)
                 val questionId = dao.insertQuestion(
-                    QuestionEntity(sectionId = sectionId, prompt = qObj.getString("prompt"))
+                    QuestionEntity(
+                        sectionId = sectionId,
+                        prompt = qObj.getString("prompt"),
+                        explanation = qObj.optString("explanation", "")
+                    )
                 )
 
                 val opts = qObj.getJSONArray("options")
