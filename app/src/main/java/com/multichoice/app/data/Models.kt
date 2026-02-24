@@ -12,5 +12,11 @@ data class Section(
     val title: String,
     val description: String,
     val questions: List<Question> = emptyList(),
-    val highScore: Int = 0
-)
+    val highScore: Int = 0,
+    val totalAttempts: Int = 0,
+    val totalCorrect: Int = 0,
+    val lastStudiedAt: Long = 0L
+) {
+    val accuracyPercent: Int
+        get() = if (totalAttempts == 0) 0 else (totalCorrect * 100) / totalAttempts
+}
