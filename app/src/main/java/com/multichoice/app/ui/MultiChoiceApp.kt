@@ -266,7 +266,8 @@ private fun SectionPage(
     val randomizedQuestions = remember(questions, sessionVersion) { questions.shuffled() }
     // Track whether each answered question was correct (first attempt only).
     val sessionAnswers = remember(randomizedQuestions) { mutableStateMapOf<Long, Boolean>() }
-    val unansweredQuestion = randomizedQuestions.firstOrNull { !sessionAnswers.containsKey(it.id) }
+    var currentQuestionIndex by remember(randomizedQuestions) { mutableIntStateOf(0) }
+    var summaryVisible by remember(randomizedQuestions) { mutableStateOf(false) }
     
     Column(
         modifier = Modifier
@@ -301,16 +302,40 @@ private fun SectionPage(
             return@Column
         }
 
-        if (unansweredQuestion != null) {
-            Text("Remaining: ${randomizedQuestions.size - sessionAnswers.size}")
+        if (!summaryVisible) {
+            val currentQuestion = randomizedQuestions.getOrNull(currentQuestionIndex)
+            if (currentQuestion == null) return@Column
+
+            Text("Question ${currentQuestionIndex + 1} of ${randomizedQuestions.size}")
             StudyQuestionCard(
-                question = unansweredQuestion,
+                question = currentQuestion,
                 onAnswered = { isCorrect ->
                     // Record first answer result for summary and high score handling.
-                    sessionAnswers[unansweredQuestion.id] = isCorrect
-                    onAnswer(unansweredQuestion.id, isCorrect)
+                    if (!sessionAnswers.containsKey(currentQuestion.id)) {
+                        sessionAnswers[currentQuestion.id] = isCorrect
+                        onAnswer(currentQuestion.id, isCorrect)
+                    }
                 }
             )
+
+            val answeredCurrent = sessionAnswers.containsKey(currentQuestion.id)
+            val isLastQuestion = currentQuestionIndex == randomizedQuestions.lastIndex
+            Button(
+                onClick = {
+                    if (isLastQuestion) {
+                        summaryVisible = true
+                    } else {
+                        currentQuestionIndex += 1
+                    }
+                },
+                enabled = answeredCurrent,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF08C0B0),
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
+            ) {
+                Text(if (isLastQuestion) "Finish Session" else "Next Question")
+            }
         } else {
             Text("Session Complete", style = MaterialTheme.typography.headlineSmall)
             Text("Final Score: $sessionCorrect / ${randomizedQuestions.size}")
@@ -332,6 +357,8 @@ private fun SectionPage(
                     onClick = {
                         onRetrySession()
                         sessionVersion++
+                        summaryVisible = false
+                        currentQuestionIndex = 0
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF08C0B0),

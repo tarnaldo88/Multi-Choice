@@ -22,7 +22,8 @@
                                                   "text":  "const",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "val declares a read-only reference that cannot be reassigned."
                           },
                           {
                               "prompt":  "K2. Which keyword declares a mutable variable?",
@@ -43,7 +44,8 @@
                                                   "text":  "set",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "var declares a mutable reference that can be reassigned."
                           },
                           {
                               "prompt":  "K3. What does the safe-call operator do?",
@@ -64,7 +66,8 @@
                                                   "text":  "Casts to nullable type",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Safe-call ?. invokes member access only when receiver is non-null."
                           },
                           {
                               "prompt":  "K4. What does the Elvis operator (?:) provide?",
@@ -85,7 +88,8 @@
                                                   "text":  "Null assertion",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Elvis ?: provides a fallback when the left expression is null."
                           },
                           {
                               "prompt":  "K5. Which type can hold null by default?",
@@ -106,7 +110,8 @@
                                                   "text":  "Boolean",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Only nullable types like String? can hold null safely."
                           },
                           {
                               "prompt":  "K6. What is a data class primarily used for?",
@@ -127,7 +132,8 @@
                                                   "text":  "Declaring annotations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Data classes auto-generate equality, copy, and string helpers for state objects."
                           },
                           {
                               "prompt":  "K7. Which keyword defines a singleton?",
@@ -148,7 +154,8 @@
                                                   "text":  "static",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "object creates a singleton instance declaration in Kotlin."
                           },
                           {
                               "prompt":  "K8. Where do you define Java-like static members in Kotlin?",
@@ -169,7 +176,8 @@
                                                   "text":  "static block",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Companion objects hold class-level members similar to static usage."
                           },
                           {
                               "prompt":  "K9. Extension functions allow you to:",
@@ -190,7 +198,8 @@
                                                   "text":  "Create runtime bytecode proxies only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Extensions add callable APIs to existing types without subclassing."
                           },
                           {
                               "prompt":  "K10. A higher-order function is one that:",
@@ -211,7 +220,8 @@
                                                   "text":  "Must be inline",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Higher-order functions accept or return functions as values."
                           },
                           {
                               "prompt":  "K11. Which collection is read-only by default?",
@@ -232,7 +242,8 @@
                                                   "text":  "hashMapOf(...)",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "listOf returns a read-only list interface by default."
                           },
                           {
                               "prompt":  "K12. Which call creates a mutable list?",
@@ -253,7 +264,8 @@
                                                   "text":  "sequenceOf(1,2,3)",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "mutableListOf returns a list that supports add/remove updates."
                           },
                           {
                               "prompt":  "K13. Which function transforms each element and keeps list size?",
@@ -274,7 +286,8 @@
                                                   "text":  "forEach",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "map transforms each element and keeps element count."
                           },
                           {
                               "prompt":  "K14. Which function keeps only items matching a condition?",
@@ -295,7 +308,8 @@
                                                   "text":  "fold",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "filter keeps only elements that satisfy predicate conditions."
                           },
                           {
                               "prompt":  "K15. Sealed classes are useful for:",
@@ -316,7 +330,8 @@
                                                   "text":  "Only serialization",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Sealed hierarchies let when be exhaustive over known subclasses."
                           },
                           {
                               "prompt":  "K16. What does `when` replace in many cases?",
@@ -337,7 +352,8 @@
                                                   "text":  "null safety",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "when provides switch-like branching with richer matching support."
                           },
                           {
                               "prompt":  "K17. Which coroutine builder returns a Job?",
@@ -358,7 +374,8 @@
                                                   "text":  "runBlocking",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "launch starts a coroutine and returns a Job handle."
                           },
                           {
                               "prompt":  "K18. Which coroutine builder returns Deferred\u003cT\u003e?",
@@ -379,7 +396,8 @@
                                                   "text":  "yield",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "async starts a coroutine and returns Deferred for awaited result."
                           },
                           {
                               "prompt":  "K19. A `suspend` function can be called from:",
@@ -400,7 +418,8 @@
                                                   "text":  "XML layouts",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Suspend functions require coroutine or suspend context to call."
                           },
                           {
                               "prompt":  "K20. `Dispatchers.IO` is intended for:",
@@ -421,7 +440,8 @@
                                                   "text":  "Unit testing only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Dispatchers.IO is optimized for blocking I/O workloads."
                           },
                           {
                               "prompt":  "K21. Kotlin Flow is:",
@@ -442,7 +462,8 @@
                                                   "text":  "A database API",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Flow is cold and starts emitting when collected."
                           },
                           {
                               "prompt":  "K22. `StateFlow` always has:",
@@ -463,7 +484,8 @@
                                                   "text":  "Automatic persistence to disk",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "StateFlow always exposes a current value snapshot."
                           },
                           {
                               "prompt":  "K23. `withContext(...)` is used to:",
@@ -484,7 +506,8 @@
                                                   "text":  "Define class context receiver only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "withContext switches dispatcher/context and returns block result."
                           },
                           {
                               "prompt":  "K24. `try` in Kotlin is:",
@@ -505,7 +528,8 @@
                                                   "text":  "Not usable with catch",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "try is an expression and can yield a value."
                           },
                           {
                               "prompt":  "K25. Smart cast works when:",
@@ -526,7 +550,8 @@
                                                   "text":  "Inside annotation classes only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Smart casts work when compiler can prove type and immutability safety."
                           },
                           {
                               "prompt":  "K26. `typealias` does what?",
@@ -547,7 +572,8 @@
                                                   "text":  "Converts class to interface",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "typealias defines an alternate name for an existing type."
                           },
                           {
                               "prompt":  "K27. `infix` functions allow:",
@@ -568,7 +594,8 @@
                                                   "text":  "Compile-time macros",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "infix allows dot-less call style for eligible single-arg functions."
                           },
                           {
                               "prompt":  "K28. `operator fun plus(...)` enables:",
@@ -589,7 +616,8 @@
                                                   "text":  "Native memory management",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Operator overloading maps symbols like plus to operator functions."
                           },
                           {
                               "prompt":  "K29. `by lazy { ... }` initializes value:",
@@ -610,7 +638,8 @@
                                                   "text":  "On every access",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "lazy defers initialization until first property access."
                           },
                           {
                               "prompt":  "K30. `lateinit` can be used with:",
@@ -631,7 +660,8 @@
                                                   "text":  "Nullable types only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "lateinit is for non-null mutable reference vars initialized later."
                           },
                           {
                               "prompt":  "K31. Default arguments allow:",
@@ -652,7 +682,8 @@
                                                   "text":  "Using null for all params",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Default args let callers omit optional parameters cleanly."
                           },
                           {
                               "prompt":  "K32. Named arguments are helpful for:",
@@ -673,7 +704,8 @@
                                                   "text":  "Forcing inline functions",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Named args improve readability for multi-parameter function calls."
                           },
                           {
                               "prompt":  "K33. `Unit` in Kotlin is similar to:",
@@ -694,7 +726,8 @@
                                                   "text":  "Any",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Unit corresponds to no meaningful return value, like Java void."
                           },
                           {
                               "prompt":  "K34. `Nothing` means:",
@@ -715,7 +748,8 @@
                                                   "text":  "Unit alias",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Nothing indicates code path that never returns normally."
                           },
                           {
                               "prompt":  "K35. Visibility modifier that limits access to same module:",
@@ -736,7 +770,8 @@
                                                   "text":  "public",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "internal visibility scopes declarations to current module."
                           },
                           {
                               "prompt":  "K36. Kotlin classes are final by default. To allow inheritance use:",
@@ -757,7 +792,8 @@
                                                   "text":  "public",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Classes are final by default; open allows inheritance."
                           },
                           {
                               "prompt":  "K37. Interface methods in Kotlin can:",
@@ -778,7 +814,8 @@
                                                   "text":  "Be private only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Interfaces can contain default method implementations in Kotlin."
                           },
                           {
                               "prompt":  "K38. `init` block executes:",
@@ -799,7 +836,8 @@
                                                   "text":  "Only for data classes",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "init runs during object construction after primary constructor params."
                           },
                           {
                               "prompt":  "K39. Secondary constructors use keyword:",
@@ -820,7 +858,8 @@
                                                   "text":  "create",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Secondary constructors are declared with the constructor keyword."
                           },
                           {
                               "prompt":  "K40. Destructuring works if class provides:",
@@ -841,7 +880,8 @@
                                                   "text":  "clone method",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Destructuring uses componentN functions generated or defined by type."
                           },
                           {
                               "prompt":  "K41. `Pair` holds:",
@@ -862,7 +902,8 @@
                                                   "text":  "A key-value map with many entries",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Pair stores exactly two associated values."
                           },
                           {
                               "prompt":  "K42. Which range includes end value by default?",
@@ -883,7 +924,8 @@
                                                   "text":  "indices",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Double-dot creates inclusive range containing both endpoints."
                           },
                           {
                               "prompt":  "K43. Sequences in Kotlin are:",
@@ -904,7 +946,8 @@
                                                   "text":  "Deprecated",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Sequences evaluate lazily and process elements on demand."
                           },
                           {
                               "prompt":  "K44. `tailrec` keyword is for:",
@@ -925,7 +968,8 @@
                                                   "text":  "Mutable recursion",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "tailrec marks eligible tail-recursive functions for optimization."
                           },
                           {
                               "prompt":  "K45. `!!` operator does what?",
@@ -946,7 +990,8 @@
                                                   "text":  "Elvis fallback",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Double-bang asserts non-null and throws if value is actually null."
                           },
                           {
                               "prompt":  "K46. In Kotlin, `==` checks:",
@@ -967,7 +1012,8 @@
                                                   "text":  "Type compatibility only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Double-equals checks structural equality via equals contract."
                           },
                           {
                               "prompt":  "K47. In Kotlin, `===` checks:",
@@ -988,7 +1034,8 @@
                                                   "text":  "Generic bounds",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Triple-equals checks reference identity, not value equality."
                           },
                           {
                               "prompt":  "K48. `copy()` is auto-generated for:",
@@ -1009,7 +1056,8 @@
                                                   "text":  "object declarations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "copy is auto-generated for data classes for convenient cloning."
                           },
                           {
                               "prompt":  "K49. Reified type parameters require:",
@@ -1030,7 +1078,8 @@
                                                   "text":  "companion object",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Reified type params require inline functions for runtime type access."
                           },
                           {
                               "prompt":  "K50. Best reason to prefer immutable data where possible:",
@@ -1051,7 +1100,8 @@
                                                   "text":  "Only works with Room",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Immutable data reduces side effects and simplifies reasoning/testing."
                           }
                       ]
     },
@@ -1078,7 +1128,8 @@
                                                   "text":  "onRestart()",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "onCreate is the first lifecycle callback where initial setup is typically done."
                           },
                           {
                               "prompt":  "A2. Which callback means Activity became visible?",
@@ -1099,7 +1150,8 @@
                                                   "text":  "onDestroy()",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "onStart indicates the Activity is now visible to the user."
                           },
                           {
                               "prompt":  "A3. Which callback means Activity is in foreground and interactive?",
@@ -1120,7 +1172,8 @@
                                                   "text":  "onSaveInstanceState()",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "onResume indicates the Activity is in foreground and interactive."
                           },
                           {
                               "prompt":  "A4. ViewModel is primarily used to:",
@@ -1141,7 +1194,8 @@
                                                   "text":  "Request manifest permissions",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ViewModel survives configuration changes and holds screen state safely."
                           },
                           {
                               "prompt":  "A5. Which annotation marks a Room table model?",
@@ -1162,7 +1216,8 @@
                                                   "text":  "@Record",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "@Entity marks a Room data class as a database table."
                           },
                           {
                               "prompt":  "A6. In Room, DAO stands for:",
@@ -1183,7 +1238,8 @@
                                                   "text":  "Database Android Option",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "DAO means Data Access Object, the API layer for database operations."
                           },
                           {
                               "prompt":  "A7. Why are Room migrations needed?",
@@ -1204,7 +1260,8 @@
                                                   "text":  "To change app package name",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Migrations preserve user data across schema changes between DB versions."
                           },
                           {
                               "prompt":  "A8. Which composable is used for vertical lists in Compose?",
@@ -1225,7 +1282,8 @@
                                                   "text":  "GridLayout",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "LazyColumn is Compose\u0027s efficient vertically scrolling list container."
                           },
                           {
                               "prompt":  "A9. Explicit Intents are typically used to:",
@@ -1246,7 +1304,8 @@
                                                   "text":  "Draw custom views",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Explicit intents target a specific component class, usually in your app."
                           },
                           {
                               "prompt":  "A10. Runtime permission requests are required for:",
@@ -1267,7 +1326,8 @@
                                                   "text":  "No permissions on Android 6+",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Dangerous permissions require runtime user consent on modern Android."
                           },
                           {
                               "prompt":  "A11. Best API for guaranteed deferrable background work:",
@@ -1288,7 +1348,8 @@
                                                   "text":  "TimerTask",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "WorkManager is the recommended API for deferrable guaranteed background work."
                           },
                           {
                               "prompt":  "A12. Foreground service requirement includes:",
@@ -1309,7 +1370,8 @@
                                                   "text":  "No lifecycle",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Foreground services must show an ongoing notification while running."
                           },
                           {
                               "prompt":  "A13. Which file usually stores translatable UI strings?",
@@ -1330,7 +1392,8 @@
                                                   "text":  "proguard-rules.pro",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "strings.xml stores externalized text for localization and reuse."
                           },
                           {
                               "prompt":  "A14. `dp` is used mainly for:",
@@ -1351,7 +1414,8 @@
                                                   "text":  "Image file size",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "dp scales with density for consistent physical sizing across devices."
                           },
                           {
                               "prompt":  "A15. `sp` is recommended for:",
@@ -1372,7 +1436,8 @@
                                                   "text":  "Bitmap width",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "sp respects user font scaling and is recommended for text sizes."
                           },
                           {
                               "prompt":  "A16. ANR often occurs when:",
@@ -1393,7 +1458,8 @@
                                                   "text":  "Using MaterialTheme",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ANR occurs when main thread is blocked and app cannot respond quickly."
                           },
                           {
                               "prompt":  "A17. Network calls should run on:",
@@ -1414,7 +1480,8 @@
                                                   "text":  "Render thread only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Network calls should run off the main thread to keep UI responsive."
                           },
                           {
                               "prompt":  "A18. Retrofit is commonly used for:",
@@ -1435,7 +1502,8 @@
                                                   "text":  "Bluetooth pairing",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Retrofit is a type-safe HTTP client for REST APIs on Android."
                           },
                           {
                               "prompt":  "A19. OkHttp interceptors can:",
@@ -1456,7 +1524,8 @@
                                                   "text":  "Grant permissions",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Interceptors can inspect or modify outbound requests and inbound responses."
                           },
                           {
                               "prompt":  "A20. DataStore is generally preferred over SharedPreferences for:",
@@ -1477,7 +1546,8 @@
                                                   "text":  "Push notifications",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "DataStore offers async, safer key-value persistence than SharedPreferences."
                           },
                           {
                               "prompt":  "A21. Which build type is typically for shipping to users?",
@@ -1498,7 +1568,8 @@
                                                   "text":  "benchmark only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Release build type is intended for distribution to end users."
                           },
                           {
                               "prompt":  "A22. Product flavors are used to:",
@@ -1519,7 +1590,8 @@
                                                   "text":  "Disable manifest",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Product flavors produce multiple app variants from one codebase."
                           },
                           {
                               "prompt":  "A23. Resource qualifier for Spanish strings is usually:",
@@ -1540,7 +1612,8 @@
                                                   "text":  "locale-es",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "values-es is the standard resource qualifier folder for Spanish text."
                           },
                           {
                               "prompt":  "A24. Which class handles in-app navigation in Compose apps?",
@@ -1561,7 +1634,8 @@
                                                   "text":  "PackageManager",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "NavController manages destinations and back stack in Compose navigation."
                           },
                           {
                               "prompt":  "A25. `remember` in Compose keeps state:",
@@ -1582,7 +1656,8 @@
                                                   "text":  "Across app reinstall",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "remember keeps state during recompositions while composable remains active."
                           },
                           {
                               "prompt":  "A26. `rememberSaveable` helps survive:",
@@ -1603,7 +1678,8 @@
                                                   "text":  "Network loss",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "rememberSaveable persists simple UI state across recreation when possible."
                           },
                           {
                               "prompt":  "A27. `LaunchedEffect` is used to:",
@@ -1624,7 +1700,8 @@
                                                   "text":  "Create Gradle tasks",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "LaunchedEffect runs suspend side effects tied to composition lifecycle keys."
                           },
                           {
                               "prompt":  "A28. Best way to collect Flow with lifecycle in Activity/Fragment:",
@@ -1645,7 +1722,8 @@
                                                   "text":  "Thread.run",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "repeatOnLifecycle starts and stops collection aligned with lifecycle state."
                           },
                           {
                               "prompt":  "A29. Which test runs on JVM without emulator/device?",
@@ -1666,7 +1744,8 @@
                                                   "text":  "Macrobenchmark only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Local unit tests run on JVM without emulator or device dependencies."
                           },
                           {
                               "prompt":  "A30. Which test typically runs on device/emulator for UI?",
@@ -1687,7 +1766,8 @@
                                                   "text":  "KSP task",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Instrumentation tests execute on device or emulator for integrated behavior."
                           },
                           {
                               "prompt":  "A31. Notification channels are required on Android:",
@@ -1708,7 +1788,8 @@
                                                   "text":  "Only Android 14+",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Notification channels are required from Android 8.0 (API 26) and above."
                           },
                           {
                               "prompt":  "A32. Deep links are configured mainly in:",
@@ -1729,7 +1810,8 @@
                                                   "text":  "local.properties",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Deep links are declared via intent filters with matching URI patterns."
                           },
                           {
                               "prompt":  "A33. `applicationContext` should be preferred when:",
@@ -1750,7 +1832,8 @@
                                                   "text":  "Inflating Activity-only UI",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "applicationContext outlives Activity and is safer for long-lived components."
                           },
                           {
                               "prompt":  "A34. Which storage is relational and structured?",
@@ -1771,7 +1854,8 @@
                                                   "text":  "Intent extras",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Room is Android\u0027s relational persistence layer over SQLite."
                           },
                           {
                               "prompt":  "A35. In Room, relations across multiple tables are often loaded with:",
@@ -1792,7 +1876,8 @@
                                                   "text":  "@JvmStatic",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Transaction relation queries load consistent multi-table graphs."
                           },
                           {
                               "prompt":  "A36. R8/ProGuard minification primarily helps:",
@@ -1813,7 +1898,8 @@
                                                   "text":  "Replace Kotlin compiler",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "R8 shrinks and obfuscates release artifacts for size and reverse-engineering resistance."
                           },
                           {
                               "prompt":  "A37. Which manager is better for exact one-time alarm-like tasks?",
@@ -1834,7 +1920,8 @@
                                                   "text":  "ViewBinding",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "AlarmManager handles exact alarm-like scheduling under OS constraints."
                           },
                           {
                               "prompt":  "A38. Why avoid heavy work in BroadcastReceiver onReceive?",
@@ -1855,7 +1942,8 @@
                                                   "text":  "It has no lifecycle",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "onReceive has strict time limits, so heavy work must be offloaded."
                           },
                           {
                               "prompt":  "A39. Compose recomposition happens when:",
@@ -1876,7 +1964,8 @@
                                                   "text":  "Room migration occurs",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Compose recomposes when observed state read by UI changes."
                           },
                           {
                               "prompt":  "A40. Modifier order in Compose:",
@@ -1897,7 +1986,8 @@
                                                   "text":  "Ignored when using MaterialTheme",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Modifier order is significant because each modifier wraps the previous one."
                           },
                           {
                               "prompt":  "A41. Which API helps derive computed state efficiently in Compose?",
@@ -1918,7 +2008,8 @@
                                                   "text":  "SharedPreferences",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "derivedStateOf memoizes computed state to reduce unnecessary recompositions."
                           },
                           {
                               "prompt":  "A42. Best pattern for one source of truth for UI screen state:",
@@ -1939,7 +2030,8 @@
                                                   "text":  "Manifest metadata only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ViewModel-exposed state centralizes truth and keeps UI predictable."
                           },
                           {
                               "prompt":  "A43. Hilt is mainly used for:",
@@ -1960,7 +2052,8 @@
                                                   "text":  "Database migrations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Hilt provides dependency injection scaffolding and lifecycle-aware bindings."
                           },
                           {
                               "prompt":  "A44. Why use dependency injection?",
@@ -1981,7 +2074,8 @@
                                                   "text":  "Prevents crashes automatically",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "DI reduces coupling and improves testability via replaceable dependencies."
                           },
                           {
                               "prompt":  "A45. Which is true about `collectAsState()` in Compose?",
@@ -2002,7 +2096,8 @@
                                                   "text":  "It blocks main thread by default",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "collectAsState converts Flow emissions into Compose-observable state."
                           },
                           {
                               "prompt":  "A46. App startup crashes after DB schema change without migration are often fixed in dev by:",
@@ -2023,7 +2118,8 @@
                                                   "text":  "Disabling Kotlin",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Destructive fallback recreates DB when migration path is missing in development."
                           },
                           {
                               "prompt":  "A47. Which is safer for secrets than plain SharedPreferences?",
@@ -2044,7 +2140,8 @@
                                                   "text":  "strings.xml",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "EncryptedSharedPreferences protects sensitive key-value data at rest."
                           },
                           {
                               "prompt":  "A48. `minSdk` means:",
@@ -2065,7 +2162,8 @@
                                                   "text":  "Minimum RAM required",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "minSdk defines the lowest Android API level the app can install on."
                           },
                           {
                               "prompt":  "A49. `targetSdk` mainly indicates:",
@@ -2086,7 +2184,8 @@
                                                   "text":  "Only Compose compiler version",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "targetSdk signals compatibility behavior target for recent platform changes."
                           },
                           {
                               "prompt":  "A50. Good first step when investigating app crash:",
@@ -2107,7 +2206,8 @@
                                                   "text":  "Delete all resources",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Root-cause stack trace analysis is the fastest path to actionable crash fixes."
                           }
                       ]
     },
@@ -4346,7 +4446,8 @@
                                                   "text":  "C#",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "TypeScript extends JavaScript with static typing and tooling support."
                           },
                           {
                               "prompt":  "TS2. TypeScript code is executed in browser after:",
@@ -4367,7 +4468,8 @@
                                                   "text":  "No build step ever",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Browsers run JavaScript, so TypeScript is transpiled to JS first."
                           },
                           {
                               "prompt":  "TS3. Which command initializes a tsconfig file?",
@@ -4388,7 +4490,8 @@
                                                   "text":  "node --tsconfig",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`tsc --init` generates a starter tsconfig.json file."
                           },
                           {
                               "prompt":  "TS4. Which type is assignable to every type when strict null checks are off?",
@@ -4409,7 +4512,8 @@
                                                   "text":  "void",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`any` bypasses type checking and can be assigned broadly."
                           },
                           {
                               "prompt":  "TS5. `unknown` is safer than `any` because:",
@@ -4430,7 +4534,8 @@
                                                   "text":  "It can call any method directly",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`unknown` forces explicit narrowing before property access or calls."
                           },
                           {
                               "prompt":  "TS6. Which type represents values that never occur?",
@@ -4451,7 +4556,8 @@
                                                   "text":  "undefined",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`never` represents impossible values, such as unreachable code paths."
                           },
                           {
                               "prompt":  "TS7. What does `void` typically represent?",
@@ -4472,7 +4578,8 @@
                                                   "text":  "Any primitive type",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`void` indicates no meaningful return value from a function."
                           },
                           {
                               "prompt":  "TS8. `let x: string | number` means:",
@@ -4493,7 +4600,8 @@
                                                   "text":  "x is tuple only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "A union allows one of several possible types at compile time."
                           },
                           {
                               "prompt":  "TS9. Type narrowing is:",
@@ -4514,7 +4622,8 @@
                                                   "text":  "Changing runtime prototype",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Narrowing refines a broad type to a specific safe type in context."
                           },
                           {
                               "prompt":  "TS10. Which is a common narrowing check?",
@@ -4535,7 +4644,8 @@
                                                   "text":  "instanceof primitive",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`typeof` checks are standard runtime guards used for narrowing."
                           },
                           {
                               "prompt":  "TS11. Interfaces in TypeScript are used to:",
@@ -4556,7 +4666,8 @@
                                                   "text":  "Replace enums only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Interfaces define contracts for object shapes and callable signatures."
                           },
                           {
                               "prompt":  "TS12. Type alias is declared with:",
@@ -4577,7 +4688,8 @@
                                                   "text":  "shape",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`type` creates aliases for unions, primitives, objects, and more."
                           },
                           {
                               "prompt":  "TS13. Key difference: interfaces can be merged by:",
@@ -4598,7 +4710,8 @@
                                                   "text":  "Tuple spread",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Interfaces support declaration merging across multiple declarations."
                           },
                           {
                               "prompt":  "TS14. Optional property syntax is:",
@@ -4619,7 +4732,8 @@
                                                   "text":  "name~: string",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`?` marks a property as optional in an object type."
                           },
                           {
                               "prompt":  "TS15. `readonly` on property means:",
@@ -4640,7 +4754,8 @@
                                                   "text":  "Always deep immutable",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`readonly` blocks reassignment of that property after initialization."
                           },
                           {
                               "prompt":  "TS16. Tuple type example is:",
@@ -4661,7 +4776,8 @@
                                                   "text":  "Array\u003cstring, number\u003e",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Tuples model fixed-length arrays with known element types/order."
                           },
                           {
                               "prompt":  "TS17. Generic function syntax is:",
@@ -4682,7 +4798,8 @@
                                                   "text":  "generic function id(x)",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Generics parameterize types for reusable, type-safe functions."
                           },
                           {
                               "prompt":  "TS18. Generic constraints are expressed with:",
@@ -4703,7 +4820,8 @@
                                                   "text":  "requires",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`extends` constrains generic parameters to required capabilities."
                           },
                           {
                               "prompt":  "TS19. `keyof T` produces:",
@@ -4724,7 +4842,8 @@
                                                   "text":  "Tuple indices only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`keyof T` returns union of property names of type T."
                           },
                           {
                               "prompt":  "TS20. `typeof` in a type position gets:",
@@ -4745,7 +4864,8 @@
                                                   "text":  "Enum members list",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Type-position `typeof` captures the static type of a value."
                           },
                           {
                               "prompt":  "TS21. Utility type `Partial\u003cT\u003e` makes properties:",
@@ -4766,7 +4886,8 @@
                                                   "text":  "Nullable",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Partial\u003cT\u003e` converts all properties to optional."
                           },
                           {
                               "prompt":  "TS22. Utility type `Required\u003cT\u003e` makes properties:",
@@ -4787,7 +4908,8 @@
                                                   "text":  "Never",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Required\u003cT\u003e` converts all optional properties to required."
                           },
                           {
                               "prompt":  "TS23. Utility type `Pick\u003cT, K\u003e` does:",
@@ -4808,7 +4930,8 @@
                                                   "text":  "Maps values to boolean",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Pick\u003cT,K\u003e` keeps only selected keys from a type."
                           },
                           {
                               "prompt":  "TS24. Utility type `Omit\u003cT, K\u003e` does:",
@@ -4829,7 +4952,8 @@
                                                   "text":  "Converts to tuple",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Omit\u003cT,K\u003e` removes selected keys from a type."
                           },
                           {
                               "prompt":  "TS25. `Record\u003cK, V\u003e` creates:",
@@ -4850,7 +4974,8 @@
                                                   "text":  "Readonly map class",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Record\u003cK,V\u003e` builds an object mapping keys K to values V."
                           },
                           {
                               "prompt":  "TS26. `Exclude\u003cA, B\u003e` returns:",
@@ -4871,7 +4996,8 @@
                                                   "text":  "Only never",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Exclude` subtracts union members assignable to another type."
                           },
                           {
                               "prompt":  "TS27. `Extract\u003cA, B\u003e` returns:",
@@ -4892,7 +5018,8 @@
                                                   "text":  "Tuple intersection only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Extract` keeps union members assignable to another type."
                           },
                           {
                               "prompt":  "TS28. Non-null assertion operator is:",
@@ -4913,7 +5040,8 @@
                                                   "text":  "??",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`!` asserts non-null to the compiler, skipping null checks."
                           },
                           {
                               "prompt":  "TS29. Optional chaining operator is:",
@@ -4934,7 +5062,8 @@
                                                   "text":  "=\u003e",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`?.` safely accesses nested members when receiver may be nullish."
                           },
                           {
                               "prompt":  "TS30. Nullish coalescing operator is:",
@@ -4955,7 +5084,8 @@
                                                   "text":  "?:",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`??` uses fallback only when value is null or undefined."
                           },
                           {
                               "prompt":  "TS31. `as const` assertion mainly:",
@@ -4976,7 +5106,8 @@
                                                   "text":  "Disables strict mode",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`as const` narrows literals and marks object/array readonly."
                           },
                           {
                               "prompt":  "TS32. Enums in TypeScript are:",
@@ -4997,7 +5128,8 @@
                                                   "text":  "Unsupported in TS",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Enums emit runtime objects representing named constants."
                           },
                           {
                               "prompt":  "TS33. `const enum` behavior:",
@@ -5018,7 +5150,8 @@
                                                   "text":  "Same as class enum",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`const enum` values are inlined by compiler when supported."
                           },
                           {
                               "prompt":  "TS34. Modules in TS/JS are imported with:",
@@ -5039,7 +5172,8 @@
                                                   "text":  "module.link()",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ES modules use `import`/`export` for composition and reuse."
                           },
                           {
                               "prompt":  "TS35. Default export import syntax is:",
@@ -5060,7 +5194,8 @@
                                                   "text":  "import * as X default",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Default export is imported without braces from module path."
                           },
                           {
                               "prompt":  "TS36. Named export import syntax is:",
@@ -5081,7 +5216,8 @@
                                                   "text":  "from \u0027./mod\u0027 import foo",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Named exports are imported using braces with exact export names."
                           },
                           {
                               "prompt":  "TS37. `strict` in tsconfig enables:",
@@ -5102,7 +5238,8 @@
                                                   "text":  "Faster transpilation only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`strict` enables multiple stronger compile-time safety checks."
                           },
                           {
                               "prompt":  "TS38. `noImplicitAny` prevents:",
@@ -5123,7 +5260,8 @@
                                                   "text":  "Declaration files",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`noImplicitAny` catches missing annotations/inference falling to any."
                           },
                           {
                               "prompt":  "TS39. Declaration files typically end with:",
@@ -5144,7 +5282,8 @@
                                                   "text":  ".def.tsx",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  ".d.ts files provide type declarations for JS or external libs."
                           },
                           {
                               "prompt":  "TS40. Type guards are functions returning:",
@@ -5165,7 +5304,8 @@
                                                   "text":  "never",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Type guards return predicates like `x is Foo` for narrowing."
                           },
                           {
                               "prompt":  "TS41. Discriminated unions usually need:",
@@ -5186,7 +5326,8 @@
                                                   "text":  "No overlap of fields",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Discriminated unions rely on a shared literal tag field."
                           },
                           {
                               "prompt":  "TS42. `satisfies` operator helps to:",
@@ -5207,7 +5348,8 @@
                                                   "text":  "Disable excess property checks",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`satisfies` validates compatibility while preserving inferred specifics."
                           },
                           {
                               "prompt":  "TS43. Excess property checks happen mostly when:",
@@ -5228,7 +5370,8 @@
                                                   "text":  "Importing modules",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Object literals receive extra-property checks against target types."
                           },
                           {
                               "prompt":  "TS44. Function overload signatures are:",
@@ -5249,7 +5392,8 @@
                                                   "text":  "Unsupported in TS",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Overloads declare multiple signatures with one implementation body."
                           },
                           {
                               "prompt":  "TS45. `this` parameter in function type can:",
@@ -5270,7 +5414,8 @@
                                                   "text":  "Replace arrow functions",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Explicit `this` parameter types callback context usage."
                           },
                           {
                               "prompt":  "TS46. In classes, `private` means:",
@@ -5291,7 +5436,8 @@
                                                   "text":  "Accessible everywhere",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`private` restricts access to within the declaring class."
                           },
                           {
                               "prompt":  "TS47. In classes, `protected` means:",
@@ -5312,7 +5458,8 @@
                                                   "text":  "Same as public",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`protected` allows class and subclass access, not public access."
                           },
                           {
                               "prompt":  "TS48. Abstract classes:",
@@ -5333,7 +5480,8 @@
                                                   "text":  "Cannot extend other classes",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Abstract classes define non-instantiable bases and optional abstract members."
                           },
                           {
                               "prompt":  "TS49. Difference between `interface` and `type` includes:",
@@ -5354,7 +5502,8 @@
                                                   "text":  "Types cannot do unions",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Interface merging is a practical difference vs type aliases."
                           },
                           {
                               "prompt":  "TS50. In React with TS, props are usually typed by:",
@@ -5375,7 +5524,8 @@
                                                   "text":  "No typing needed",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Typed props make React components safer and easier to maintain."
                           },
                           {
                               "prompt":  "TS51. `Promise\u003cT\u003e` represents:",
@@ -5396,7 +5546,8 @@
                                                   "text":  "Stream of many values",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Promise\u003cT\u003e models an async operation eventually resolving to T."
                           },
                           {
                               "prompt":  "TS52. `Awaited\u003cT\u003e` utility type gives:",
@@ -5417,7 +5568,8 @@
                                                   "text":  "Type key union",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Awaited\u003cT\u003e` unwraps promise-like types to resolved value type."
                           },
                           {
                               "prompt":  "TS53. `ReturnType\u003ctypeof fn\u003e` gives:",
@@ -5438,7 +5590,8 @@
                                                   "text":  "Promise resolved type always",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`ReturnType` extracts the return type from a function type."
                           },
                           {
                               "prompt":  "TS54. `Parameters\u003ctypeof fn\u003e` gives:",
@@ -5459,7 +5612,8 @@
                                                   "text":  "Return type union",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`Parameters` extracts a tuple of a function parameter types."
                           },
                           {
                               "prompt":  "TS55. Mapped types iterate over:",
@@ -5480,7 +5634,8 @@
                                                   "text":  "Enum values only at runtime",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Mapped types iterate over key unions to transform properties."
                           },
                           {
                               "prompt":  "TS56. Conditional types use syntax:",
@@ -5501,7 +5656,8 @@
                                                   "text":  "T =\u003e U ? X : Y",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Conditional types branch types based on assignability checks."
                           },
                           {
                               "prompt":  "TS57. The `infer` keyword is used in:",
@@ -5522,7 +5678,8 @@
                                                   "text":  "Enum declarations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`infer` captures intermediate types within conditional types."
                           },
                           {
                               "prompt":  "TS58. Good practice for API responses in TS is:",
@@ -5543,7 +5700,8 @@
                                                   "text":  "Skip runtime validation always",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Explicit API models plus narrowing improve robustness and readability."
                           },
                           {
                               "prompt":  "TS59. Why avoid overusing `any`?",
@@ -5564,7 +5722,8 @@
                                                   "text":  "It cannot compile",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Overusing `any` removes compile-time guarantees and hides defects."
                           },
                           {
                               "prompt":  "TS60. Best way to model fixed allowed string values:",
@@ -5585,7 +5744,8 @@
                                                   "text":  "unknown",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "String literal unions constrain values to a known finite set."
                           }
                       ]
     },
@@ -5612,7 +5772,8 @@
                                                   "text":  "Dalvik",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "C# executes on the CLR, which provides JIT, GC, and runtime services."
                           },
                           {
                               "prompt":  "CS2. What does `var` do in C#?",
@@ -5633,7 +5794,8 @@
                                                   "text":  "Disables type checking",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`var` performs compile-time type inference for local variables."
                           },
                           {
                               "prompt":  "CS3. Which keyword allows nullability for reference types context?",
@@ -5654,7 +5816,8 @@
                                                   "text":  "#strictnull",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`#nullable` enables nullable reference type analysis context in code."
                           },
                           {
                               "prompt":  "CS4. Difference between `==` and `Equals` often is:",
@@ -5675,7 +5838,8 @@
                                                   "text":  "`Equals` checks memory address only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`==` may be operator-overloaded; `Equals` is method-based equality logic."
                           },
                           {
                               "prompt":  "CS5. `string` in C# is:",
@@ -5696,7 +5860,8 @@
                                                   "text":  "An interface",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Strings are immutable, so operations create new string instances."
                           },
                           {
                               "prompt":  "CS6. Which collection is best for key-value lookups?",
@@ -5717,7 +5882,8 @@
                                                   "text":  "Stack\u003cT\u003e",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Dictionary provides efficient key-based lookup and update operations."
                           },
                           {
                               "prompt":  "CS7. `IEnumerable\u003cT\u003e` represents:",
@@ -5738,7 +5904,8 @@
                                                   "text":  "Thread-safe list always",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "IEnumerable\u003cT\u003e represents any sequence that can be iterated with foreach."
                           },
                           {
                               "prompt":  "CS8. LINQ `Where` does:",
@@ -5759,7 +5926,8 @@
                                                   "text":  "Sorts descending",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Where filters sequence elements by predicate condition."
                           },
                           {
                               "prompt":  "CS9. LINQ `Select` does:",
@@ -5780,7 +5948,8 @@
                                                   "text":  "Removes duplicates",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Select projects each input element into a new output shape."
                           },
                           {
                               "prompt":  "CS10. Deferred execution in LINQ means:",
@@ -5801,7 +5970,8 @@
                                                   "text":  "Query cannot be cached",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Deferred LINQ executes when enumerated, not when query is defined."
                           },
                           {
                               "prompt":  "CS11. `async`/`await` is primarily for:",
@@ -5822,7 +5992,8 @@
                                                   "text":  "Database migrations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "async/await allows non-blocking async workflows with readable control flow."
                           },
                           {
                               "prompt":  "CS12. Return type for async method with no result should be:",
@@ -5843,7 +6014,8 @@
                                                   "text":  "Thread",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Async methods without a value result should return Task."
                           },
                           {
                               "prompt":  "CS13. Why avoid `async void` (except event handlers)?",
@@ -5864,7 +6036,8 @@
                                                   "text":  "It is deprecated language feature",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "async void complicates error handling and cannot be awaited/composed."
                           },
                           {
                               "prompt":  "CS14. `Task\u003cT\u003e` represents:",
@@ -5885,7 +6058,8 @@
                                                   "text":  "A sync lock",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Task\u003cT\u003e represents an asynchronous computation that yields type T."
                           },
                           {
                               "prompt":  "CS15. `CancellationToken` is used to:",
@@ -5906,7 +6080,8 @@
                                                   "text":  "Serialize objects",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "CancellationToken enables cooperative cancellation rather than forceful stop."
                           },
                           {
                               "prompt":  "CS16. `using` statement ensures:",
@@ -5927,7 +6102,8 @@
                                                   "text":  "Object copied",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "using ensures Dispose is called for IDisposable resources."
                           },
                           {
                               "prompt":  "CS17. `IDisposable` is for:",
@@ -5948,7 +6124,8 @@
                                                   "text":  "Unit testing",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "IDisposable supports deterministic cleanup of unmanaged/expensive resources."
                           },
                           {
                               "prompt":  "CS18. A `struct` in C# is generally:",
@@ -5969,7 +6146,8 @@
                                                   "text":  "Abstract class only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "struct is a value type with copy semantics by default."
                           },
                           {
                               "prompt":  "CS19. `class` in C# is generally:",
@@ -5990,7 +6168,8 @@
                                                   "text":  "Tuple",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "class is a reference type allocated and passed by reference semantics."
                           },
                           {
                               "prompt":  "CS20. Inheritance in C# classes is:",
@@ -6011,7 +6190,8 @@
                                                   "text":  "Interfaces cannot be implemented",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "C# supports single class inheritance and multiple interface implementation."
                           },
                           {
                               "prompt":  "CS21. `virtual` keyword enables:",
@@ -6032,7 +6212,8 @@
                                                   "text":  "Thread-safe method by default",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "virtual marks base members overridable by derived implementations."
                           },
                           {
                               "prompt":  "CS22. `override` keyword means:",
@@ -6053,7 +6234,8 @@
                                                   "text":  "Call base method automatically",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "override replaces virtual/abstract base behavior in derived class."
                           },
                           {
                               "prompt":  "CS23. `new` keyword on member can:",
@@ -6074,7 +6256,8 @@
                                                   "text":  "Convert to extension method",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "new hides a base member; it does not participate in polymorphic override."
                           },
                           {
                               "prompt":  "CS24. Access modifier for same assembly visibility:",
@@ -6095,7 +6278,8 @@
                                                   "text":  "public",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "internal scope is limited to the same assembly boundary."
                           },
                           {
                               "prompt":  "CS25. `protected` member is accessible in:",
@@ -6116,7 +6300,8 @@
                                                   "text":  "Only interfaces",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "protected allows access from declaring class and subclasses."
                           },
                           {
                               "prompt":  "CS26. What is boxing?",
@@ -6137,7 +6322,8 @@
                                                   "text":  "Serializing to JSON",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Boxing wraps a value type into an object/reference representation."
                           },
                           {
                               "prompt":  "CS27. What is unboxing?",
@@ -6158,7 +6344,8 @@
                                                   "text":  "Compiling to IL",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Unboxing extracts value type from boxed object with type safety checks."
                           },
                           {
                               "prompt":  "CS28. Generics in C# provide:",
@@ -6179,7 +6366,8 @@
                                                   "text":  "No constraints allowed",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Generics provide reuse with strong typing and fewer runtime casts."
                           },
                           {
                               "prompt":  "CS29. Generic type constraint for reference type is:",
@@ -6200,7 +6388,8 @@
                                                   "text":  "where T : struct?",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`where T : class` constrains generic T to reference types."
                           },
                           {
                               "prompt":  "CS30. Generic constraint requiring parameterless constructor:",
@@ -6221,7 +6410,8 @@
                                                   "text":  "where T : default()",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`where T : new()` requires a public parameterless constructor on T."
                           },
                           {
                               "prompt":  "CS31. What does `readonly` field imply?",
@@ -6242,7 +6432,8 @@
                                                   "text":  "Private by default",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "readonly fields can be assigned at declaration or inside constructors only."
                           },
                           {
                               "prompt":  "CS32. `const` field in C# is:",
@@ -6263,7 +6454,8 @@
                                                   "text":  "Reference-only constant",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "const values are compile-time literals and implicitly static."
                           },
                           {
                               "prompt":  "CS33. Null-coalescing operator is:",
@@ -6284,7 +6476,8 @@
                                                   "text":  "::",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`??` returns fallback when left operand is null."
                           },
                           {
                               "prompt":  "CS34. Null-conditional operator is:",
@@ -6305,7 +6498,8 @@
                                                   "text":  "?:",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`?.` safely accesses members when receiver may be null."
                           },
                           {
                               "prompt":  "CS35. Pattern matching with `is` allows:",
@@ -6326,7 +6520,8 @@
                                                   "text":  "Compile-time code generation",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Pattern matching with `is` combines type test and variable capture."
                           },
                           {
                               "prompt":  "CS36. `switch` expressions in modern C# are:",
@@ -6347,7 +6542,8 @@
                                                   "text":  "Only for enums",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Switch expressions evaluate patterns and return a value expression."
                           },
                           {
                               "prompt":  "CS37. Record types are useful for:",
@@ -6368,7 +6564,8 @@
                                                   "text":  "Only database entities",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Records are optimized for immutable data and value-based equality."
                           },
                           {
                               "prompt":  "CS38. Difference between `==` for records vs classes default:",
@@ -6389,7 +6586,8 @@
                                                   "text":  "Records cannot use ==",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Record equality compares contents by default, unlike typical class references."
                           },
                           {
                               "prompt":  "CS39. ASP.NET Core middleware pipeline is:",
@@ -6410,7 +6608,8 @@
                                                   "text":  "Only authentication logic",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Middleware is an ordered pipeline that processes HTTP request/response flow."
                           },
                           {
                               "prompt":  "CS40. Dependency Injection in ASP.NET Core is configured in:",
@@ -6431,7 +6630,8 @@
                                                   "text":  "Program.cs comments",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ASP.NET Core DI is configured through the service collection container."
                           },
                           {
                               "prompt":  "CS41. Scoped service lifetime means:",
@@ -6452,7 +6652,8 @@
                                                   "text":  "Background singleton only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Scoped lifetime creates one instance per request scope."
                           },
                           {
                               "prompt":  "CS42. Singleton service lifetime means:",
@@ -6473,7 +6674,8 @@
                                                   "text":  "One per thread",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Singleton lifetime creates one shared instance for app lifetime."
                           },
                           {
                               "prompt":  "CS43. Transient service lifetime means:",
@@ -6494,7 +6696,8 @@
                                                   "text":  "Shared across app domains",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Transient lifetime creates a new instance each resolution/injection."
                           },
                           {
                               "prompt":  "CS44. Entity Framework Core DbContext is usually registered as:",
@@ -6515,7 +6718,8 @@
                                                   "text":  "ThreadLocal",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "DbContext is usually scoped to align with request unit-of-work."
                           },
                           {
                               "prompt":  "CS45. EF Core migration command (common) is:",
@@ -6536,7 +6740,8 @@
                                                   "text":  "efcore migrate new",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`dotnet ef migrations add` creates a new EF Core migration."
                           },
                           {
                               "prompt":  "CS46. To apply EF Core migrations you commonly run:",
@@ -6557,7 +6762,8 @@
                                                   "text":  "dotnet restore migrations",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`dotnet ef database update` applies pending migrations to database."
                           },
                           {
                               "prompt":  "CS47. `IQueryable\u003cT\u003e` differs from `IEnumerable\u003cT\u003e` because:",
@@ -6578,7 +6784,8 @@
                                                   "text":  "Is write-only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "IQueryable can translate expression trees to provider queries (for example SQL)."
                           },
                           {
                               "prompt":  "CS48. In ASP.NET Core, configuration commonly comes from:",
@@ -6599,7 +6806,8 @@
                                                   "text":  "Only IIS web.config",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Configuration aggregates multiple providers like files, env vars, and secrets."
                           },
                           {
                               "prompt":  "CS49. Purpose of `appsettings.Development.json` is:",
@@ -6620,7 +6828,8 @@
                                                   "text":  "NuGet package list",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "appsettings.Development.json overrides settings for Development environment."
                           },
                           {
                               "prompt":  "CS50. `dotnet restore` does:",
@@ -6641,7 +6850,8 @@
                                                   "text":  "Publishes app",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "dotnet restore downloads and resolves NuGet package dependencies."
                           },
                           {
                               "prompt":  "CS51. `dotnet build` does:",
@@ -6662,7 +6872,8 @@
                                                   "text":  "Updates database automatically",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "dotnet build compiles project sources and dependencies."
                           },
                           {
                               "prompt":  "CS52. `dotnet test` does:",
@@ -6683,7 +6894,8 @@
                                                   "text":  "Formats code only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "dotnet test builds and executes test projects."
                           },
                           {
                               "prompt":  "CS53. In C#, exception handling uses:",
@@ -6704,7 +6916,8 @@
                                                   "text":  "attempt/except",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "C# uses try/catch/finally for exception handling flows."
                           },
                           {
                               "prompt":  "CS54. Best practice when rethrowing caught exception to preserve stack trace:",
@@ -6725,7 +6938,8 @@
                                                   "text":  "Use `new Exception(ex)` always",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "`throw;` preserves original stack trace when rethrowing."
                           },
                           {
                               "prompt":  "CS55. Logging in ASP.NET Core is commonly done with:",
@@ -6746,7 +6960,8 @@
                                                   "text":  "Debugger.Break only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ILogger\u003cT\u003e provides structured, provider-agnostic logging in ASP.NET Core."
                           },
                           {
                               "prompt":  "CS56. `Span\u003cT\u003e` is primarily for:",
@@ -6767,7 +6982,8 @@
                                                   "text":  "Dependency injection",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Span\u003cT\u003e enables allocation-free memory slicing in safe high-performance code."
                           },
                           {
                               "prompt":  "CS57. What does garbage collector do?",
@@ -6788,7 +7004,8 @@
                                                   "text":  "Compiles IL to native only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "GC reclaims unreachable managed objects automatically."
                           },
                           {
                               "prompt":  "CS58. ValueTask can be useful when:",
@@ -6809,7 +7026,8 @@
                                                   "text":  "You want dynamic typing",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "ValueTask can reduce allocations when results often complete synchronously."
                           },
                           {
                               "prompt":  "CS59. Minimal APIs in ASP.NET Core allow:",
@@ -6830,7 +7048,8 @@
                                                   "text":  "No routing",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Minimal APIs define lightweight endpoints with reduced boilerplate."
                           },
                           {
                               "prompt":  "CS60. Good first step when diagnosing .NET app crash:",
@@ -6851,7 +7070,8 @@
                                                   "text":  "Delete bin/obj only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Start with stack trace and logs to isolate the root failure cause quickly."
                           }
                       ]
     }
