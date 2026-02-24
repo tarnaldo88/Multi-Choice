@@ -2134,7 +2134,8 @@
                                                   "text":  "Disable caching",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Horizontal scaling adds more servers to handle increased load and fault tolerance."
                           },
                           {
                               "prompt":  "SD2. Vertical scaling means:",
@@ -2155,7 +2156,8 @@
                                                   "text":  "Using multiple CDNs",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Vertical scaling upgrades a single node with more CPU/RAM/storage."
                           },
                           {
                               "prompt":  "SD3. Load balancers are used to:",
@@ -2176,7 +2178,8 @@
                                                   "text":  "Encrypt database rows",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Load balancers route traffic across instances to improve availability and utilization."
                           },
                           {
                               "prompt":  "SD4. Why use caching?",
@@ -2197,7 +2200,8 @@
                                                   "text":  "Avoid authentication",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Caching reduces repeated expensive reads and lowers response latency."
                           },
                           {
                               "prompt":  "SD5. A cache-aside pattern means:",
@@ -2218,7 +2222,8 @@
                                                   "text":  "Cache stores only logs",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Cache-aside checks cache first and falls back to DB on miss, then populates cache."
                           },
                           {
                               "prompt":  "SD6. TTL in caching stands for:",
@@ -2239,7 +2244,8 @@
                                                   "text":  "Transaction Table Lock",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "TTL controls how long a cache entry remains valid before expiration."
                           },
                           {
                               "prompt":  "SD7. CAP theorem tradeoff is about:",
@@ -2260,7 +2266,8 @@
                                                   "text":  "Concurrency, Accuracy, Privacy",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "CAP describes tradeoffs among consistency, availability, and partition tolerance."
                           },
                           {
                               "prompt":  "SD8. Eventual consistency means:",
@@ -2281,7 +2288,8 @@
                                                   "text":  "Writes are forbidden during reads",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Eventual consistency allows temporary staleness while replicas converge over time."
                           },
                           {
                               "prompt":  "SD9. SQL databases are generally best when:",
@@ -2302,7 +2310,8 @@
                                                   "text":  "No joins are needed ever",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "SQL fits strong relational models and transactional integrity needs."
                           },
                           {
                               "prompt":  "SD10. NoSQL is often chosen when:",
@@ -2323,7 +2332,8 @@
                                                   "text":  "You have no data model",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "NoSQL is often chosen for flexible schemas and horizontal distribution."
                           },
                           {
                               "prompt":  "SD11. Database indexing primarily improves:",
@@ -2344,7 +2354,8 @@
                                                   "text":  "Code formatting",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Indexes speed lookups by avoiding full scans on query predicates."
                           },
                           {
                               "prompt":  "SD12. A common tradeoff of adding many indexes is:",
@@ -2365,7 +2376,8 @@
                                                   "text":  "No maintenance cost",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Extra indexes improve reads but cost write performance and storage."
                           },
                           {
                               "prompt":  "SD13. Sharding is:",
@@ -2386,7 +2398,8 @@
                                                   "text":  "Encrypting traffic",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Sharding splits data across nodes to distribute storage and traffic."
                           },
                           {
                               "prompt":  "SD14. Replication helps with:",
@@ -2407,7 +2420,8 @@
                                                   "text":  "Making writes single-threaded",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Replication provides redundancy and can improve read scalability."
                           },
                           {
                               "prompt":  "SD15. A single point of failure is:",
@@ -2428,7 +2442,8 @@
                                                   "text":  "Only client-side code",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "A single point of failure can take down the whole system if it fails."
                           },
                           {
                               "prompt":  "SD16. Idempotency in APIs means:",
@@ -2449,7 +2464,8 @@
                                                   "text":  "Request must be GET",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Idempotency allows safe retries without duplicate side effects."
                           },
                           {
                               "prompt":  "SD17. Which HTTP method is usually idempotent?",
@@ -2470,7 +2486,8 @@
                                                   "text":  "CONNECT",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "PUT is designed to be idempotent when targeting the same resource state."
                           },
                           {
                               "prompt":  "SD18. Rate limiting is used to:",
@@ -2491,7 +2508,8 @@
                                                   "text":  "Force stronger consistency",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Rate limits protect services from abuse and accidental overload."
                           },
                           {
                               "prompt":  "SD19. API pagination helps by:",
@@ -2512,7 +2530,8 @@
                                                   "text":  "Avoiding authentication",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Pagination limits payload size and improves performance for large result sets."
                           },
                           {
                               "prompt":  "SD20. Cursor-based pagination is often preferred when:",
@@ -2533,7 +2552,8 @@
                                                   "text":  "No ordering field exists",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Cursor pagination is stable for changing datasets versus offset pagination."
                           },
                           {
                               "prompt":  "SD21. Message queues are useful for:",
@@ -2554,7 +2574,8 @@
                                                   "text":  "Compiling code",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Queues decouple producers and consumers and enable asynchronous processing."
                           },
                           {
                               "prompt":  "SD22. At-least-once delivery implies:",
@@ -2575,7 +2596,8 @@
                                                   "text":  "No retries happen",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "At-least-once delivery means duplicates are possible and must be handled."
                           },
                           {
                               "prompt":  "SD23. Why are idempotent consumers important with queues?",
@@ -2596,7 +2618,8 @@
                                                   "text":  "To disable retries",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Idempotent consumers avoid duplicate side effects when messages retry."
                           },
                           {
                               "prompt":  "SD24. Dead-letter queue (DLQ) stores:",
@@ -2617,7 +2640,8 @@
                                                   "text":  "Cache misses",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "DLQ captures poison messages for later inspection and remediation."
                           },
                           {
                               "prompt":  "SD25. Circuit breaker pattern helps:",
@@ -2638,7 +2662,8 @@
                                                   "text":  "Do client-side routing",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Circuit breakers fail fast to prevent cascading failures on unhealthy dependencies."
                           },
                           {
                               "prompt":  "SD26. Backpressure is about:",
@@ -2659,7 +2684,8 @@
                                                   "text":  "Improving DNS lookup",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Backpressure controls producer rate when consumers cannot keep up."
                           },
                           {
                               "prompt":  "SD27. Observability usually includes:",
@@ -2680,7 +2706,8 @@
                                                   "text":  "Only stack overflow posts",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Observability combines logs, metrics, and traces for diagnosis."
                           },
                           {
                               "prompt":  "SD28. P95 latency means:",
@@ -2701,7 +2728,8 @@
                                                   "text":  "Maximum latency",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "P95 indicates 95% of requests are faster than the reported latency."
                           },
                           {
                               "prompt":  "SD29. SLA defines:",
@@ -2722,7 +2750,8 @@
                                                   "text":  "Only monitoring dashboard color",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "SLA is an external agreement for service commitments and penalties."
                           },
                           {
                               "prompt":  "SD30. SLO is:",
@@ -2743,7 +2772,8 @@
                                                   "text":  "A database index",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "SLO is an internal measurable reliability objective supporting SLAs."
                           },
                           {
                               "prompt":  "SD31. Error budget represents:",
@@ -2764,7 +2794,8 @@
                                                   "text":  "Build time threshold",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Error budget is the allowable unreliability before violating SLO targets."
                           },
                           {
                               "prompt":  "SD32. Blue-green deployment goal is to:",
@@ -2785,7 +2816,8 @@
                                                   "text":  "Force canary for every release",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Blue-green keeps two environments for safer cutover and rollback."
                           },
                           {
                               "prompt":  "SD33. Canary deployment means:",
@@ -2806,7 +2838,8 @@
                                                   "text":  "Skip rollback strategy",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Canary releases expose small user segments before broad rollout."
                           },
                           {
                               "prompt":  "SD34. Strong consistency is most critical for:",
@@ -2827,7 +2860,8 @@
                                                   "text":  "Analytics dashboards only",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Financial correctness requires strong consistency for critical state."
                           },
                           {
                               "prompt":  "SD35. CDN is mainly used to:",
@@ -2848,7 +2882,8 @@
                                                   "text":  "Issue JWT tokens",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "CDNs cache static assets near users to reduce latency and origin load."
                           },
                           {
                               "prompt":  "SD36. Why partition by key in distributed systems?",
@@ -2869,7 +2904,8 @@
                                                   "text":  "Disable retries",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Partition keys distribute data and queries across cluster nodes."
                           },
                           {
                               "prompt":  "SD37. Hot partition problem occurs when:",
@@ -2890,7 +2926,8 @@
                                                   "text":  "Only read replicas exist",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Hot partitions occur when skewed keys overload a single partition."
                           },
                           {
                               "prompt":  "SD38. Quorum read/write in distributed DBs is used to:",
@@ -2911,7 +2948,8 @@
                                                   "text":  "Replace consensus protocol",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Quorum reads/writes trade off consistency, latency, and availability."
                           },
                           {
                               "prompt":  "SD39. Leader-follower replication typically supports:",
@@ -2932,7 +2970,8 @@
                                                   "text":  "No failover strategy",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Leader-follower centralizes write ordering and replicates to followers."
                           },
                           {
                               "prompt":  "SD40. Event sourcing stores:",
@@ -2953,7 +2992,8 @@
                                                   "text":  "Only API gateway routes",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Event sourcing stores immutable domain events to reconstruct state."
                           },
                           {
                               "prompt":  "SD41. CQRS separates:",
@@ -2974,7 +3014,8 @@
                                                   "text":  "TLS and DNS layers",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "CQRS separates read and write models to optimize each path."
                           },
                           {
                               "prompt":  "SD42. Consistent hashing is commonly used for:",
@@ -2995,7 +3036,8 @@
                                                   "text":  "Parsing JSON",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Consistent hashing minimizes key reshuffling when nodes join/leave."
                           },
                           {
                               "prompt":  "SD43. Why use retries with exponential backoff?",
@@ -3016,7 +3058,8 @@
                                                   "text":  "Increase payload size",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Exponential backoff reduces retry storms and gives dependencies recovery time."
                           },
                           {
                               "prompt":  "SD44. What is the thundering herd problem?",
@@ -3037,7 +3080,8 @@
                                                   "text":  "Only CDN invalidation event",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Thundering herd is a coordinated surge of requests causing downstream overload."
                           },
                           {
                               "prompt":  "SD45. Read-through cache means:",
@@ -3058,7 +3102,8 @@
                                                   "text":  "Cache never expires",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Read-through lets cache fetch missing data from backing store automatically."
                           },
                           {
                               "prompt":  "SD46. Write-through cache means:",
@@ -3079,7 +3124,8 @@
                                                   "text":  "Only reads update cache",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Write-through updates cache and store together for consistency."
                           },
                           {
                               "prompt":  "SD47. Stateless service instance means:",
@@ -3100,7 +3146,8 @@
                                                   "text":  "No authentication required",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Stateless services externalize session state for easier horizontal scaling."
                           },
                           {
                               "prompt":  "SD48. Why externalize session storage?",
@@ -3121,7 +3168,8 @@
                                                   "text":  "Avoid encryption",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "External session stores avoid affinity requirements and improve resilience."
                           },
                           {
                               "prompt":  "SD49. Bulkhead pattern aims to:",
@@ -3142,7 +3190,8 @@
                                                   "text":  "Route all traffic to one DB",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Bulkheads isolate resources so one failure domain does not sink others."
                           },
                           {
                               "prompt":  "SD50. First step in a system design interview usually is:",
@@ -3163,7 +3212,8 @@
                                                   "text":  "Skip non-functional requirements",
                                                   "isCorrect":  false
                                               }
-                                          ]
+                                          ],
+                              "explanation":  "Clarifying requirements first prevents solving the wrong problem."
                           }
                       ]
     },
