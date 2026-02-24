@@ -44,9 +44,15 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun addQuestion(sectionId: Long, prompt: String, options: List<String>, correctIndex: Int) {
+    fun addQuestion(
+        sectionId: Long,
+        prompt: String,
+        options: List<String>,
+        correctIndex: Int,
+        explanation: String
+    ) {
         viewModelScope.launch {
-            repo.addQuestion(sectionId, prompt, options, correctIndex)
+            repo.addQuestion(sectionId, prompt, options, correctIndex, explanation)
             refreshSections()
         }
     }
