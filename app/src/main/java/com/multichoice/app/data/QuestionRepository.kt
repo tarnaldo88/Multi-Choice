@@ -64,28 +64,32 @@ class QuestionRepository(private val dao: MultiChoiceDao) {
     }
 
     suspend fun seedIfEmpty(seedJson: String) {
-        if (dao.countSections() > 0) return
-
         val root = JSONArray(seedJson)
         for (i in 0 until root.length()) {
             val sectionObj = root.getJSONObject(i)
-            val sectionId = dao.insertSection(
-                SectionEntity(
-                    title = sectionObj.getString("title"),
-                    description = sectionObj.getString("description")
-                )
-            )
+            val title = sectionObj.getString("title")
+            val description = sectionObj.getString("description")
+            val sectionId = dao.findSectionIdByTitle(title)
+                ?: dao.insertSection(SectionEntity(title = title, description = description))
 
             val questions = sectionObj.getJSONArray("questions")
             for (j in 0 until questions.length()) {
                 val qObj = questions.getJSONObject(j)
-                val questionId = dao.insertQuestion(
+                val prompt = qObj.getString("prompt")
+                val explanation = qObj.optString("explanation", "")
+                val existingQuestionId = dao.findQuestionId(sectionId, prompt)
+                val questionId = existingQuestionId ?: dao.insertQuestion(
                     QuestionEntity(
                         sectionId = sectionId,
-                        prompt = qObj.getString("prompt"),
-                        explanation = qObj.optString("explanation", "")
+                        prompt = prompt,
+                        explanation = explanation
                     )
                 )
+
+                if (existingQuestionId != null) {
+                    dao.updateQuestionExplanation(questionId, explanation)
+                    dao.deleteOptionsForQuestion(questionId)
+                }
 
                 val opts = qObj.getJSONArray("options")
                 val optionEntities = mutableListOf<OptionEntity>()
