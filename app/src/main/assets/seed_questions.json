@@ -5552,6 +5552,1106 @@
                                                   "isCorrect":  false
                                               }
                                           ]
+                          },
+                          {
+                              "prompt":  "A101. What is the safest pattern for handling offline-first writes?",
+                              "explanation":  "Offline-first improves UX and needs deterministic sync conflict handling.",
+                              "options":  [
+                                              {
+                                                  "text":  "Write locally first and sync with conflict strategy",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Block user until network succeeds",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Drop writes when offline",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use main thread for retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A102. Why isolate network DTOs from domain models?",
+                              "explanation":  "Mapping keeps boundaries clean and resilient to API changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "To avoid leaking transport concerns into core logic",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To increase APK size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To avoid unit testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To disable serialization",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A103. What is the main reason to use immutable UI state objects?",
+                              "explanation":  "Immutable state reduces accidental side effects.",
+                              "options":  [
+                                              {
+                                                  "text":  "Predictable rendering and simpler debugging",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster build times only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Required by Room",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removes all recompositions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A104. In Compose, what usually causes unnecessary recompositions?",
+                              "explanation":  "Stability and memoization reduce excessive recomposition work.",
+                              "options":  [
+                                              {
+                                                  "text":  "Passing unstable objects each frame",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Using MaterialTheme",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using data classes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using previews",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A105. Why should expensive sorting be avoided directly in composables?",
+                              "explanation":  "Move heavy computation to ViewModel or remember blocks.",
+                              "options":  [
+                                              {
+                                                  "text":  "It may run repeatedly during recomposition",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Sort is unsupported in Kotlin",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It breaks navigation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It disables dark mode",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A106. What does snapshotFlow help with?",
+                              "explanation":  "snapshotFlow bridges Compose snapshot state with coroutine streams.",
+                              "options":  [
+                                              {
+                                                  "text":  "Convert Compose state reads into Flow emissions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Persist DB entities",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Generate Retrofit interfaces",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace StateFlow",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A107. Best practice for one-shot navigation events?",
+                              "explanation":  "Ephemeral events should be modeled separately from persistent state.",
+                              "options":  [
+                                              {
+                                                  "text":  "Expose event channel or shared flow from ViewModel",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Store nav controller in repository",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Navigate in DAO",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use global mutable singleton",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A108. Why should repositories avoid Android Context when possible?",
+                              "explanation":  "Framework independence improves reuse and testing.",
+                              "options":  [
+                                              {
+                                                  "text":  "Keep data layer platform-agnostic and testable",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To improve UI animations",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To shrink vector assets",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Because Context is deprecated",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A109. What is a practical use of Room transactions?",
+                              "explanation":  "Transactions prevent partial updates and maintain consistency.",
+                              "options":  [
+                                              {
+                                                  "text":  "Ensure related DB operations succeed atomically",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Enable network retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve XML parsing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schedule background jobs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A110. When should you prefer Paging placeholders?",
+                              "explanation":  "Placeholders can improve perceived continuity in paged lists.",
+                              "options":  [
+                                              {
+                                                  "text":  "When item counts are known and UI benefits from stable scroll",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When list has 5 items",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When no DB exists",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When using static arrays",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A111. Why add tracing spans around repository calls?",
+                              "explanation":  "Tracing reveals where time is spent across boundaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "Correlate latency across app layers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace analytics",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid logs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve icon rendering",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A112. What does startup profile installation do on Android?",
+                              "explanation":  "Profile-guided compilation reduces startup CPU overhead.",
+                              "options":  [
+                                              {
+                                                  "text":  "Precompiles hot paths to improve launch performance",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Adds runtime permissions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypts local DB",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Generates screenshots",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A113. Main risk of overusing Singleton-scoped dependencies?",
+                              "explanation":  "Scope should match lifecycle and ownership boundaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "State leakage and hidden coupling across features",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No DI graph build",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No memory usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No testability impact",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A114. Why use assisted injection for some ViewModels?",
+                              "explanation":  "Assisted injection handles values unknown at graph creation.",
+                              "options":  [
+                                              {
+                                                  "text":  "To pass runtime parameters with DI-provided dependencies",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To remove constructor params",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To avoid factories always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To replace SavedStateHandle",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A115. Best approach for secure local token storage?",
+                              "explanation":  "Sensitive credentials require encryption at rest.",
+                              "options":  [
+                                              {
+                                                  "text":  "Use encrypted storage APIs with key management",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Store in plain SharedPreferences",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hardcode in BuildConfig",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Write to logs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A116. What is the benefit of certificate pinning tradeoff discussion?",
+                              "explanation":  "Pinning can break connectivity if cert rollout is mishandled.",
+                              "options":  [
+                                              {
+                                                  "text":  "It improves security but adds operational rotation complexity",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It removes TLS need",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It speeds all requests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It replaces auth",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A117. Why should analytics SDK initialization be lazy when possible?",
+                              "explanation":  "Delay non-critical initialization to improve first frame timing.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce startup work and cold launch latency",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase network requests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable crash reporting",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Break deep links",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A118. How can you prevent duplicate clicks from triggering duplicate actions?",
+                              "explanation":  "UI guards prevent accidental duplicate submissions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Debounce or disable action until completion",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Use GlobalScope launch",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Retry infinitely",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove loading indicators",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A119. When is optimistic UI update appropriate?",
+                              "explanation":  "Optimistic updates improve responsiveness with compensating behavior.",
+                              "options":  [
+                                              {
+                                                  "text":  "When rollback strategy exists on server failure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When operations are irreversible",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When no network available",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only for debug builds",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A120. What is a good practice for API error mapping?",
+                              "explanation":  "Typed failures enable consistent user messaging and retries.",
+                              "options":  [
+                                              {
+                                                  "text":  "Map transport errors to domain-level failure types",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Expose raw HTTP everywhere",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Throw generic Exception always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hide all errors",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A121. Why separate UI tests by critical journeys?",
+                              "explanation":  "Focused tests are faster and more actionable.",
+                              "options":  [
+                                              {
+                                                  "text":  "Improve signal and reduce flaky broad suites",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase device RAM",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate unit tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid CI parallelism",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A122. What does test dispatcher control in coroutine tests?",
+                              "explanation":  "Controlled schedulers make async tests reliable.",
+                              "options":  [
+                                              {
+                                                  "text":  "Deterministic scheduling and virtual time",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "GPU rendering speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "APK signing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Manifest merging",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A123. Why add baseline profile generation to CI?",
+                              "explanation":  "Automated profile checks prevent regressions across changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Continuously validate performance artifacts",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace release notes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove lint",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skip instrumentation tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A124. How should large feature flags be cleaned up?",
+                              "explanation":  "Flag debt increases complexity if not retired.",
+                              "options":  [
+                                              {
+                                                  "text":  "Set expiry ownership and remove after rollout",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Keep forever",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Store in UI strings",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable in debug only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A125. What is a healthy strategy for app module dependencies?",
+                              "explanation":  "Dependency direction should enforce architecture rules.",
+                              "options":  [
+                                              {
+                                                  "text":  "Acyclic graph with clear layer boundaries",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Circular dependencies for reuse",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single giant module always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No shared interfaces",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A126. Why use Gradle version catalogs in larger Android codebases?",
+                              "explanation":  "Catalogs reduce drift and simplify upgrades.",
+                              "options":  [
+                                              {
+                                                  "text":  "Centralized and consistent dependency management",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve runtime FPS",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace R8",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid semantic versions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A127. What does ABI split packaging optimize?",
+                              "explanation":  "ABI-specific artifacts reduce app size for end users.",
+                              "options":  [
+                                              {
+                                                  "text":  "Smaller downloads by shipping only needed native binaries",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Higher Java compatibility",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No install time",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic dark theme",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A128. When should you add a foreground service notification action?",
+                              "explanation":  "User control is essential for long-running visible work.",
+                              "options":  [
+                                              {
+                                                  "text":  "When user may need immediate control like stop/pause",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "For every short task",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only in debug",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Never for media",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A129. Main reason to instrument app startup with precise markers?",
+                              "explanation":  "You cannot optimize reliably without measurement.",
+                              "options":  [
+                                              {
+                                                  "text":  "Identify bottlenecks before optimization",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase ProGuard speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate strict mode",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace benchmark tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A130. Why avoid business logic inside composable click handlers?",
+                              "explanation":  "Separation of concerns improves maintainability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Keep UI layer thin and test logic in ViewModel/use cases",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Compose forbids lambdas",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Room requires it",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It improves APK signing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A131. What is the benefit of using sealed UI intents/actions?",
+                              "explanation":  "Explicit intents simplify reducer-style state updates.",
+                              "options":  [
+                                              {
+                                                  "text":  "Typed, explicit user action modeling",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lower network latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic DB migration",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No need for unit tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A132. How should pagination errors be surfaced in UI?",
+                              "explanation":  "User-friendly pagination handles partial failures gracefully.",
+                              "options":  [
+                                              {
+                                                  "text":  "Inline recoverable states with retry affordance",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Crash app immediately",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ignore errors silently",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Show generic toast only always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A133. What is a strong reason to batch writes in local DB sync?",
+                              "explanation":  "Batching can improve performance during large sync operations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce transaction overhead and improve throughput",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase UI thread load",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove conflict handling",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid indexing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A134. Why should sync workers be idempotent?",
+                              "explanation":  "Idempotency prevents duplicate side effects.",
+                              "options":  [
+                                              {
+                                                  "text":  "They can be retried or re-run by scheduler",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "They never repeat",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "They are UI-only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "WorkManager guarantees single execution",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A135. What does exponential backoff protect against?",
+                              "explanation":  "Backoff reduces load amplification under failure.",
+                              "options":  [
+                                              {
+                                                  "text":  "Rapid repeated retries during outages",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Slow compile speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Image decoding errors",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Manifest merge conflicts",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A136. Best practice for long lists with images in Compose?",
+                              "explanation":  "Efficient image pipelines prevent jank and OOM.",
+                              "options":  [
+                                              {
+                                                  "text":  "Use async image loading with caching and sized requests",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Load full-res on main thread",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable placeholders",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Decode in composable every frame",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A137. Why monitor ANR rate by device class and OS version?",
+                              "explanation":  "Segmented telemetry speeds targeted fixes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Identify environment-specific regressions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve lint warnings",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce APK install size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace crash reports",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A138. What is a release gate in mobile CI/CD?",
+                              "explanation":  "Release gates reduce production regression risk.",
+                              "options":  [
+                                              {
+                                                  "text":  "Automated quality checks required before promotion",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A manual screenshot folder",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only code formatting",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A custom app icon",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A139. How does staged rollout reduce deployment risk?",
+                              "explanation":  "Gradual rollout limits blast radius of bad builds.",
+                              "options":  [
+                                              {
+                                                  "text":  "Expose updates gradually and watch health metrics",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee no rollbacks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skip QA",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Install all users instantly",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A140. When is feature modularization not worth it initially?",
+                              "explanation":  "Modularization has upfront cost and should match scale.",
+                              "options":  [
+                                              {
+                                                  "text":  "Very small apps with low complexity",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Large teams with parallel delivery",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Apps with many independent features",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Codebases with slow builds",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A141. What is a common source of memory leaks in Android UI?",
+                              "explanation":  "Lifecycle-mismatched references keep objects from GC.",
+                              "options":  [
+                                              {
+                                                  "text":  "Holding long-lived references to destroyed contexts/views",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Using immutable data",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using sealed classes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using StateFlow",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A142. Why use LeakCanary in debug builds?",
+                              "explanation":  "Early leak detection prevents production stability issues.",
+                              "options":  [
+                                              {
+                                                  "text":  "Detect retained objects and leaks early",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace crash analytics",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve network throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Sign release APK",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A143. What should happen if remote config fetch fails?",
+                              "explanation":  "Resilient defaults keep app usable under config outages.",
+                              "options":  [
+                                              {
+                                                  "text":  "Fallback to safe defaults and cached values",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Crash app",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable navigation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Clear user data",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A144. Why standardize error codes across backend and mobile?",
+                              "explanation":  "Shared error semantics improve reliability and diagnosis.",
+                              "options":  [
+                                              {
+                                                  "text":  "Consistent handling, analytics, and support workflows",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce app icon size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid contract tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A145. Best way to protect expensive endpoints from abusive clients?",
+                              "explanation":  "Security controls must be enforced server-side.",
+                              "options":  [
+                                              {
+                                                  "text":  "Server-side auth, quotas, and anomaly detection",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Client-only checks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Longer app names",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable TLS",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A146. What is a practical reason to keep app-level changelog metadata?",
+                              "explanation":  "Version metadata helps incident and analytics investigations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Correlate behavior shifts with release versions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve image decoding",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce CPU cores",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace semantic versioning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A147. Why should migration tests run on realistic preloaded schemas?",
+                              "explanation":  "Production-like test data reveals migration bugs sooner.",
+                              "options":  [
+                                              {
+                                                  "text":  "Catch real upgrade edge cases before release",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve Compose preview",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce lint output",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid schema export",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A148. How should app teams handle flaky instrumentation tests?",
+                              "explanation":  "Flakiness erodes trust; manage it with explicit policy.",
+                              "options":  [
+                                              {
+                                                  "text":  "Quarantine, fix root cause, and enforce reliability threshold",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Ignore and rerun forever",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Delete all UI tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable CI",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A149. What is the value of architecture fitness functions?",
+                              "explanation":  "Automated checks prevent architectural drift over time.",
+                              "options":  [
+                                              {
+                                                  "text":  "Continuously verify architectural constraints in CI",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Generate mockups",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace code review",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase local DB size",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "A150. Senior Android ownership includes which operational habit?",
+                              "explanation":  "Post-release monitoring is core to reliable delivery.",
+                              "options":  [
+                                              {
+                                                  "text":  "Watching production metrics after each rollout",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Only coding new features",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ignoring observability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Deferring incident response",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
                           }
                       ]
     },
