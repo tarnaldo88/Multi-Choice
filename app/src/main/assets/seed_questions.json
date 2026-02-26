@@ -7074,5 +7074,1111 @@
                               "explanation":  "Start with stack trace and logs to isolate the root failure cause quickly."
                           }
                       ]
+    },
+    {
+        "title":  "Software Engineering (Mid-Senior)",
+        "description":  "Architecture, reliability, data, and delivery at scale",
+        "questions":  [
+                          {
+                              "prompt":  "SEMS1. In distributed APIs, why use idempotency keys?",
+                              "explanation":  "They allow safe retries by preventing duplicate side effects.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent duplicate side effects on retries",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase bandwidth",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace auth tokens",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee linearizability",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS2. Which pattern keeps DB writes and event publish consistent?",
+                              "explanation":  "Transactional outbox persists events in the same transaction as state changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Transactional outbox",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Circuit breaker",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Saga only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Client cache",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS3. What is the primary purpose of a Saga?",
+                              "explanation":  "It coordinates distributed steps with compensating actions on failure.",
+                              "options":  [
+                                              {
+                                                  "text":  "Coordinate distributed transactions with compensation",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Speed up SQL joins",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace queues",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypt payloads",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS4. Which isolation level blocks dirty reads?",
+                              "explanation":  "Read Committed and stronger levels prevent reading uncommitted data.",
+                              "options":  [
+                                              {
+                                                  "text":  "Read Committed",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Read Uncommitted",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "None",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eventual",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS5. Main microservices tradeoff versus monolith?",
+                              "explanation":  "You gain isolation but pay extra distributed-system and ops complexity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Higher operational complexity",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No network failures",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No observability needed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No versioning needed",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS6. What does p99 latency measure?",
+                              "explanation":  "99 percent of requests complete faster than that latency value.",
+                              "options":  [
+                                              {
+                                                  "text":  "Latency threshold for fastest 99 percent",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Average latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Max latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Failure rate",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS7. Why prefer canary releases?",
+                              "explanation":  "They reduce blast radius by exposing changes to a small cohort first.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce risk with staged rollout",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eliminate rollbacks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove need for tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee zero bugs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS8. Which metric best reflects API reliability to users?",
+                              "explanation":  "Success rate under valid requests directly represents user outcomes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Request success rate",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "CPU utilization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Build time",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Pod count",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS9. Key advantage of CQRS?",
+                              "explanation":  "Read and write models can be optimized independently for workload shape.",
+                              "options":  [
+                                              {
+                                                  "text":  "Independent optimization of reads and writes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Automatic strong consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No migrations ever",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No events required",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS10. Why use distributed tracing?",
+                              "explanation":  "Tracing links spans across services to isolate latency and failures.",
+                              "options":  [
+                                              {
+                                                  "text":  "Locate cross-service bottlenecks",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace all logs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase QPS directly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS11. Offset pagination risk at large offsets?",
+                              "explanation":  "Large offsets scan and discard many rows, hurting performance and stability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Slow scans and unstable pages",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No sorting support",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Requires NoSQL",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Breaks HTTP",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS12. Best mitigation for cache stampede?",
+                              "explanation":  "Request coalescing ensures one recomputation per hot key.",
+                              "options":  [
+                                              {
+                                                  "text":  "Single-flight request coalescing",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Infinite TTL",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable cache",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Bigger DB pool only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS13. Dead-letter queue purpose?",
+                              "explanation":  "It isolates repeatedly failing messages for analysis and replay.",
+                              "options":  [
+                                              {
+                                                  "text":  "Store poison messages for later handling",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase producer throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee exactly-once",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS14. Primary goal of rate limiting?",
+                              "explanation":  "Rate limits protect service availability and fairness under load.",
+                              "options":  [
+                                              {
+                                                  "text":  "Protect service from overload",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Encrypt traffic",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace auth",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce memory leaks",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS15. Which pattern prevents cascading dependency failures?",
+                              "explanation":  "Circuit breakers fail fast during downstream instability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Circuit breaker",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Factory",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Adapter",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Observer",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS16. Eventual consistency means?",
+                              "explanation":  "Replicas may be temporarily stale but converge eventually.",
+                              "options":  [
+                                              {
+                                                  "text":  "Temporary divergence with eventual convergence",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Immediate consistency everywhere",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No replication",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No writes allowed",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS17. Best way to reduce blast radius of one failing dependency?",
+                              "explanation":  "Bulkheads isolate resources so one dependency cannot starve others.",
+                              "options":  [
+                                              {
+                                                  "text":  "Bulkhead isolation",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Global shared pool",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Infinite retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single service",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS18. Why use feature flags in production?",
+                              "explanation":  "They decouple deployment from release and support fast rollback.",
+                              "options":  [
+                                              {
+                                                  "text":  "Controlled rollout and rollback",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace monitoring",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce SQL cost",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS19. What does RPO define?",
+                              "explanation":  "RPO is tolerated data loss window in time during disaster recovery.",
+                              "options":  [
+                                              {
+                                                  "text":  "Maximum acceptable data loss window",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Recovery time target",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "SLO target",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Mean latency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS20. What does RTO define?",
+                              "explanation":  "RTO is target duration to restore service operation after outage.",
+                              "options":  [
+                                              {
+                                                  "text":  "Target time to recover service",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Target data durability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Target throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Target cache hit rate",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS21. Why make DB migrations backward compatible first?",
+                              "explanation":  "Old and new app versions can run concurrently during rolling deploys.",
+                              "options":  [
+                                              {
+                                                  "text":  "Enable safe rolling deploys",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Avoid backups",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee no downtime forever",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove schema versioning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS22. Best index for queries by tenant_id and created_at?",
+                              "explanation":  "Composite index matching filter/order columns typically performs best.",
+                              "options":  [
+                                              {
+                                                  "text":  "Composite index (tenant_id, created_at)",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Index on created_at only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Full-text index",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No index",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS23. Why is N+1 query pattern harmful?",
+                              "explanation":  "It multiplies DB round trips and increases tail latency.",
+                              "options":  [
+                                              {
+                                                  "text":  "Excessive database round trips",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Too much compile time",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No transaction support",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only affects writes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS24. Connection pooling primarily helps by?",
+                              "explanation":  "Reusing connections reduces setup overhead and bounds DB concurrency.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reusing expensive connections",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guaranteeing query correctness",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoiding indexes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removing retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS25. For social-like counters, which consistency is commonly acceptable?",
+                              "explanation":  "Eventual consistency is often adequate for non-critical counters.",
+                              "options":  [
+                                              {
+                                                  "text":  "Eventual consistency",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Strict serializability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Linearizable writes everywhere",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No consistency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS26. Backpressure in stream processing means?",
+                              "explanation":  "Consumers signal producers to slow down to avoid buffer exhaustion.",
+                              "options":  [
+                                              {
+                                                  "text":  "Slowing producers when consumers lag",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Retrying failed events",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compressing payloads",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ordering by timestamp",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS27. Main benefit of correlation IDs in logs?",
+                              "explanation":  "They connect logs from one request across services and layers.",
+                              "options":  [
+                                              {
+                                                  "text":  "Trace a request end-to-end",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce memory usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase CPU throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace tracing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS28. Expand-contract migration strategy provides?",
+                              "explanation":  "Safe zero-downtime schema evolution across rolling deployments.",
+                              "options":  [
+                                              {
+                                                  "text":  "Safer zero-downtime schema change",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Immediate schema cleanup",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No app changes needed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No validation needed",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS29. Why store immutable events in event sourcing?",
+                              "explanation":  "Immutable history supports replay, auditing, and temporal debugging.",
+                              "options":  [
+                                              {
+                                                  "text":  "Replayable and auditable history",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No storage growth",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No versioning",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No ordering concerns",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS30. Risk of synchronous fan-out to many downstream services?",
+                              "explanation":  "Tail latency and failure probability increase with each dependency.",
+                              "options":  [
+                                              {
+                                                  "text":  "Failure and latency amplification",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guaranteed consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower complexity",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No retries needed",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS31. What helps maintain API compatibility long-term?",
+                              "explanation":  "Versioning and additive changes reduce client breakage risk.",
+                              "options":  [
+                                              {
+                                                  "text":  "Backward-compatible versioning",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Frequent breaking changes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No documentation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single mutable contract",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS32. Version-column optimistic locking is used to?",
+                              "explanation":  "Detect concurrent conflicting writes without long-held locks.",
+                              "options":  [
+                                              {
+                                                  "text":  "Detect lost updates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Avoid retries completely",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace transactions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase cache hits",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS33. SLO stands for?",
+                              "explanation":  "SLO is Service Level Objective, an internal reliability target.",
+                              "options":  [
+                                              {
+                                                  "text":  "Service Level Objective",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "System Load Output",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Service Log Option",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Security Level Operation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS34. Why run controlled chaos experiments?",
+                              "explanation":  "To validate resilience assumptions before real incidents occur.",
+                              "options":  [
+                                              {
+                                                  "text":  "Validate recovery and resilience behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase feature velocity",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace load testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce logging needs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS35. Practical reason to partition by tenant?",
+                              "explanation":  "Improves noisy-neighbor isolation and scaling characteristics.",
+                              "options":  [
+                                              {
+                                                  "text":  "Isolation and better scaling",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eliminate auth",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid backups",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove indexes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS36. Best baseline for external dependency resilience?",
+                              "explanation":  "Use bounded timeouts, retries with backoff, and circuit breakers.",
+                              "options":  [
+                                              {
+                                                  "text":  "Timeouts + retries + circuit breaker",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Infinite retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No timeout",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable fallback",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS37. Main purpose of read replicas?",
+                              "explanation":  "They offload read traffic from primaries and improve read scalability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Scale reads from primary DB",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Handle all writes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee no lag",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace backups",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS38. Why add jitter to retry backoff?",
+                              "explanation":  "Jitter avoids synchronized retries that create traffic spikes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent synchronized retry storms",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee exactly once",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce memory usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve code style",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS39. Which release signal often implies rollback?",
+                              "explanation":  "Sharp post-deploy error-rate regressions typically indicate bad rollout.",
+                              "options":  [
+                                              {
+                                                  "text":  "Error-rate spike after deploy",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster CI",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower CPU",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "More logs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS40. Why separate readiness and liveness probes?",
+                              "explanation":  "One governs traffic routing readiness, the other restart health.",
+                              "options":  [
+                                              {
+                                                  "text":  "Different signals for routing vs restart",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace autoscaling",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypt traffic",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS41. Core benefit of immutable infrastructure?",
+                              "explanation":  "Rebuild-and-replace reduces config drift and environment skew.",
+                              "options":  [
+                                              {
+                                                  "text":  "Lower configuration drift",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No monitoring needed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No rollbacks needed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guaranteed uptime",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS42. Why contract-test service integrations?",
+                              "explanation":  "It catches breaking API changes early without full end-to-end runs.",
+                              "options":  [
+                                              {
+                                                  "text":  "Catch interface breaks early",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace all integration tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate versioning",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee performance",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS43. Write-ahead logs provide what guarantee?",
+                              "explanation":  "Durability and recovery after crashes by persisting intents first.",
+                              "options":  [
+                                              {
+                                                  "text":  "Durability and crash recovery",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Query caching",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Traffic encryption",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Authentication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS44. Better relevance in search systems often needs?",
+                              "explanation":  "Inverted indexes plus scoring/ranking, not exact match only.",
+                              "options":  [
+                                              {
+                                                  "text":  "Inverted index with ranking",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Primary key lookup",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No tokenization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Prefix-only match",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS45. In USE metrics, saturation indicates?",
+                              "explanation":  "Growing queueing/capacity pressure before hard failure.",
+                              "options":  [
+                                              {
+                                                  "text":  "Capacity pressure and queueing",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Code complexity",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Feature velocity",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "DB schema quality",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS46. Purpose of bounded contexts in DDD?",
+                              "explanation":  "They define explicit model boundaries and reduce ambiguity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Clear model boundaries and language",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eliminate integration",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Force microservices",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid events",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS47. Common caching anti-pattern for critical data?",
+                              "explanation":  "Caching volatile critical state without invalidation causes stale reads.",
+                              "options":  [
+                                              {
+                                                  "text":  "No invalidation strategy",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Short TTL for static data",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using cache keys",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Read-through cache",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS48. Why tune alerts around blast radius?",
+                              "explanation":  "Impact-aware alerts prioritize user harm and reduce alert fatigue.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prioritize incidents by user impact",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase deployment speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace runbooks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid SLOs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS49. How to preserve ordering per entity in event streams?",
+                              "explanation":  "Partition by entity key so related events go to same ordered shard.",
+                              "options":  [
+                                              {
+                                                  "text":  "Partition by entity key",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Round-robin partitioning",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Unkeyed pub-sub",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Multiple writers per key",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS50. First priority in senior incident response?",
+                              "explanation":  "Stabilize user impact first, then run structured diagnosis.",
+                              "options":  [
+                                              {
+                                                  "text":  "Mitigate impact before deep root cause work",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Immediate full refactor",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable all alerts",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Wait for next release",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          }
+                      ]
     }
 ]
