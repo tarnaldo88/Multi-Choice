@@ -6658,6 +6658,1106 @@
                                               }
                                           ],
                               "explanation":  "Clarifying requirements first prevents solving the wrong problem."
+                          },
+                          {
+                              "prompt":  "SD51. What is a key purpose of API gateways?",
+                              "explanation":  "Gateways provide cross-cutting controls at the edge.",
+                              "options":  [
+                                              {
+                                                  "text":  "Centralized routing, auth, and policy enforcement",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replacing databases",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compiling mobile apps",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Generating UI themes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD52. When should you prefer asynchronous processing?",
+                              "explanation":  "Async workflows improve responsiveness for long-running operations.",
+                              "options":  [
+                                              {
+                                                  "text":  "For tasks that do not require immediate user response",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "For all read requests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only when no queue exists",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only in monoliths",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD53. What problem does a dead-letter queue solve?",
+                              "explanation":  "DLQs isolate poison messages for inspection and replay.",
+                              "options":  [
+                                              {
+                                                  "text":  "Captures messages that repeatedly fail processing",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improves query indexing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypts payloads",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduces DNS latency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD54. Why use TTL-based cache eviction?",
+                              "explanation":  "TTL controls freshness and resource consumption.",
+                              "options":  [
+                                              {
+                                                  "text":  "Limit staleness and bound memory use",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee strong consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid cache keys",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace replication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD55. Main benefit of read-through caching?",
+                              "explanation":  "Read-through automatically fills cache on misses.",
+                              "options":  [
+                                              {
+                                                  "text":  "Simplifies cache population on reads",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eliminates invalidation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removes database dependency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantees no misses",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD56. When is write-behind cache risky?",
+                              "explanation":  "Deferred writes can lose data if failures occur before flush.",
+                              "options":  [
+                                              {
+                                                  "text":  "When durability guarantees are strict",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When reads dominate",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When payloads are small",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When using SSD",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD57. What does quorum read/write aim to balance?",
+                              "explanation":  "Quorum settings control how many replicas must acknowledge operations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Consistency and availability in replicated stores",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "CPU and RAM usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Frontend and backend ownership",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "TLS and JWT",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD58. Why shard by user or tenant key?",
+                              "explanation":  "Key-based sharding scales storage and throughput.",
+                              "options":  [
+                                              {
+                                                  "text":  "Distribute load and data more evenly",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Enable full ACID globally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid all hotspots automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove need for backups",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD59. A common issue with poor shard key selection is:",
+                              "explanation":  "Skewed keys create bottlenecks and uneven capacity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Hot partitions receiving disproportionate traffic",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No data replication",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No failover",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No indexes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD60. What is consistent hashing useful for?",
+                              "explanation":  "Consistent hashing minimizes key movement in distributed caches.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reducing remapping when nodes are added or removed",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improving SQL joins",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypting data at rest",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Generating API docs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD61. Why use service discovery in dynamic environments?",
+                              "explanation":  "Service discovery keeps client routing up to date.",
+                              "options":  [
+                                              {
+                                                  "text":  "Resolve service instances as they scale or move",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Remove monitoring",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable load balancing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD62. What is a sidecar pattern commonly used for?",
+                              "explanation":  "Sidecars modularize operational concerns from business logic.",
+                              "options":  [
+                                              {
+                                                  "text":  "Offloading cross-cutting concerns like proxying and telemetry",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replacing primary service logic",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Managing schema migrations only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Building UI components",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD63. Main purpose of rate limiting at system boundaries?",
+                              "explanation":  "Rate limits preserve reliability under high or malicious traffic.",
+                              "options":  [
+                                              {
+                                                  "text":  "Protect services from abuse and overload",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase payload size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee ordering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace authentication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD64. Which policy is best for global public APIs under bursty traffic?",
+                              "explanation":  "Bucket-based algorithms smooth bursts while enforcing limits.",
+                              "options":  [
+                                              {
+                                                  "text":  "Token bucket or leaky bucket algorithms",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No limits with retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Round robin only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Unlimited queueing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD65. What does request hedging attempt to improve?",
+                              "explanation":  "Hedging can cut p99 latency at the cost of extra load.",
+                              "options":  [
+                                              {
+                                                  "text":  "Tail latency by sending backup requests",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Strong consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "CPU cache locality",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schema evolution",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD66. Why cap retry attempts in distributed systems?",
+                              "explanation":  "Bounded retries reduce overload amplification.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent retry storms and cascading failures",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase throughput always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee success",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove timeout needs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD67. What is jitter in retry strategy?",
+                              "explanation":  "Jitter avoids synchronized spikes after failures.",
+                              "options":  [
+                                              {
+                                                  "text":  "Randomized delay to desynchronize retries",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Longer fixed delay",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Immediate retry",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disabling retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD68. Purpose of idempotent consumer design in queues?",
+                              "explanation":  "Consumers should tolerate redelivery without duplicate side effects.",
+                              "options":  [
+                                              {
+                                                  "text":  "Handle duplicate delivery safely",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee exactly-once transport",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Speed up UI rendering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce memory leaks",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD69. Why separate command and query models (CQRS) sometimes?",
+                              "explanation":  "CQRS can improve scalability for asymmetric workloads.",
+                              "options":  [
+                                              {
+                                                  "text":  "Optimize read and write paths independently",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Avoid data modeling",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate eventual consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove messaging",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD70. Tradeoff of CQRS/event-driven designs often includes:",
+                              "explanation":  "These patterns add complexity despite scalability benefits.",
+                              "options":  [
+                                              {
+                                                  "text":  "Higher complexity and operational overhead",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No consistency concerns",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower observability need",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No schema changes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD71. What is event sourcing primarily?",
+                              "explanation":  "Event sourcing stores history as events and can rebuild state.",
+                              "options":  [
+                                              {
+                                                  "text":  "Persisting state changes as append-only events",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Caching latest response only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Using only cron jobs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replicating binaries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD72. Why maintain snapshotting with event sourcing?",
+                              "explanation":  "Snapshots avoid replaying entire event history each time.",
+                              "options":  [
+                                              {
+                                                  "text":  "Speed up state reconstruction",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee no replay bugs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace event schema versioning",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce network latency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD73. What does monotonic read consistency mean?",
+                              "explanation":  "Monotonic reads are a session-level consistency guarantee.",
+                              "options":  [
+                                              {
+                                                  "text":  "A client never sees older data after seeing newer data",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "All clients see same data instantly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reads always from primary",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No stale reads ever",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD74. When is strong consistency worth its cost?",
+                              "explanation":  "Critical correctness paths may require strict consistency.",
+                              "options":  [
+                                              {
+                                                  "text":  "For critical invariants like payments or inventory",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "For static assets",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "For analytics dashboards only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "For logs with eventual delivery",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD75. Why use write-ahead logging?",
+                              "explanation":  "WAL records intent before applying changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Durability and crash recovery of writes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster frontend rendering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic sharding",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "TLS certificate rotation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD76. What is split-brain in distributed systems?",
+                              "explanation":  "Split-brain causes conflicting writes and must be prevented.",
+                              "options":  [
+                                              {
+                                                  "text":  "Multiple nodes act as primary concurrently",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A slow query",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A failed cache eviction",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A lost metric",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD77. How do leader election mechanisms help?",
+                              "explanation":  "Election avoids conflicting primaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "Coordinate a single active leader for critical tasks",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eliminate all downtime",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase request size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace replication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD78. Why run health checks as readiness and liveness separately?",
+                              "explanation":  "Distinct probes support safer orchestration behavior.",
+                              "options":  [
+                                              {
+                                                  "text":  "Differentiate traffic eligibility from restart health",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce CPU usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid monitoring",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace autoscaling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD79. What is graceful degradation?",
+                              "explanation":  "Degradation preserves core user value under stress.",
+                              "options":  [
+                                              {
+                                                  "text":  "Serve reduced functionality during partial failure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Shut down all services",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable alerts",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Retry forever",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD80. What does bulkhead isolation protect against?",
+                              "explanation":  "Bulkheads compartmentalize resources and limit blast radius.",
+                              "options":  [
+                                              {
+                                                  "text":  "Failure propagation across components",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Schema drift",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Credential theft",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Clock skew",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD81. Why design for backpressure in stream systems?",
+                              "explanation":  "Backpressure helps maintain stability under load.",
+                              "options":  [
+                                              {
+                                                  "text":  "Keep producers from overwhelming consumers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Bypass queueing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable autoscaling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD82. A practical reason to use partition keys in Kafka-like systems?",
+                              "explanation":  "Partitioning offers parallelism with key-level ordering.",
+                              "options":  [
+                                              {
+                                                  "text":  "Maintain order per key and scale consumers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee global ordering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate duplicates",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid schema registry",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD83. What is schema registry used for in event systems?",
+                              "explanation":  "Schema registries enforce safe event evolution.",
+                              "options":  [
+                                              {
+                                                  "text":  "Manage schema versions and compatibility",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Store binary blobs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schedule cron jobs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Handle TLS termination",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD84. Why use CDN for static content?",
+                              "explanation":  "CDNs bring content closer to users globally.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce latency and origin load via edge caching",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase database writes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace API gateway",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypt payloads end-to-end only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD85. When should data be denormalized?",
+                              "explanation":  "Denormalization is a tradeoff for read-heavy patterns.",
+                              "options":  [
+                                              {
+                                                  "text":  "When read performance and access simplicity outweigh write complexity",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Always in OLTP",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Never in distributed systems",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only for tiny datasets",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD86. What is the risk of dual writes without coordination?",
+                              "explanation":  "Without atomicity, one write may succeed while the other fails.",
+                              "options":  [
+                                              {
+                                                  "text":  "Data inconsistency between systems",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lower throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Higher cache hit",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduced latency always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD87. Why might you choose a queue over direct synchronous calls?",
+                              "explanation":  "Queues absorb spikes and decouple processing lifecycles.",
+                              "options":  [
+                                              {
+                                                  "text":  "Decouple producers and consumers with buffering",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee instant completion",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove need for retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid serialization",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD88. What does exactly-once processing usually require in practice?",
+                              "explanation":  "Exactly-once semantics are end-to-end, not broker-only.",
+                              "options":  [
+                                              {
+                                                  "text":  "Idempotency plus careful state and offset coordination",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Only a fast broker",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single-thread consumers",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No retries",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD89. Why monitor saturation alongside errors and latency?",
+                              "explanation":  "Saturation reveals capacity pressure early.",
+                              "options":  [
+                                              {
+                                                  "text":  "Predict impending failure before outages",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce log volume",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate tracing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve naming conventions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD90. What is a canary analysis key decision signal?",
+                              "explanation":  "Canary verdicts should be driven by measurable user-impact metrics.",
+                              "options":  [
+                                              {
+                                                  "text":  "Regression in critical SLIs compared to baseline",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Number of commits",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Team size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "PR title format",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD91. Why use feature flags in system rollouts?",
+                              "explanation":  "Flags reduce risk by decoupling deploy from release.",
+                              "options":  [
+                                              {
+                                                  "text":  "Control exposure and enable fast rollback",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce API payload",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid versioning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD92. Purpose of synthetic monitoring is to:",
+                              "explanation":  "Synthetic checks catch issues before users report them.",
+                              "options":  [
+                                              {
+                                                  "text":  "Proactively test user journeys from outside",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace logs entirely",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase cache misses",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Track code style",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD93. Why pair dashboards with alert runbooks?",
+                              "explanation":  "Runbooks convert alerts into concrete actions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Speed diagnosis and consistent response",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase incident count",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid SLO definitions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce on-call ownership",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD94. What does MTTR measure?",
+                              "explanation":  "MTTR is a core operational reliability metric.",
+                              "options":  [
+                                              {
+                                                  "text":  "Mean time to recover service after incidents",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Mean time to release",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Median query response",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Memory transfer rate",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD95. When is active-active multi-region most justified?",
+                              "explanation":  "Active-active improves resilience but raises complexity.",
+                              "options":  [
+                                              {
+                                                  "text":  "High availability requirements with low downtime tolerance",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Small internal tools",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single-office apps",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Static marketing sites",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD96. A major challenge of multi-region active-active is:",
+                              "explanation":  "Cross-region writes require careful conflict handling.",
+                              "options":  [
+                                              {
+                                                  "text":  "Conflict resolution and data consistency",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "No failover path",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No monitoring",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No TLS support",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD97. Why use quorum-based consensus systems for metadata?",
+                              "explanation":  "Consensus protects critical coordination state.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reliable coordination under failures",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Higher UI throughput",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower object storage costs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Better image compression",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD98. What should be specified first in a design interview?",
+                              "explanation":  "Clarifying scope and goals guides all design decisions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Requirements, constraints, and success metrics",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Database vendor",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Class diagrams only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Code framework",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD99. In capacity estimates, why include headroom?",
+                              "explanation":  "Headroom improves reliability during bursts and incidents.",
+                              "options":  [
+                                              {
+                                                  "text":  "Handle spikes and growth without immediate failure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Waste resources intentionally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid autoscaling",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce observability",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SD100. What is the best early artifact for aligning design tradeoffs?",
+                              "explanation":  "Shared diagrams and assumptions align stakeholders quickly.",
+                              "options":  [
+                                              {
+                                                  "text":  "A simple architecture diagram with assumptions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Detailed SQL migrations first",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Final production code",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "UI mockups only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
                           }
                       ]
     },
@@ -11519,6 +12619,1106 @@
                                               },
                                               {
                                                   "text":  "Wait for next release",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS51. Primary goal of architecture decision records (ADRs)?",
+                              "explanation":  "ADRs create durable engineering context for future maintainers.",
+                              "options":  [
+                                              {
+                                                  "text":  "Capture context, decision, and consequences",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace code reviews",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Store runtime logs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automate deployments",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS52. Why define service SLOs before tuning alerts?",
+                              "explanation":  "SLOs provide objective reliability targets and alert boundaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "To align alerts to user impact and error budgets",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To reduce code size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To avoid on-call rotations",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To remove dashboards",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS53. What does a good incident timeline provide?",
+                              "explanation":  "A clear timeline prevents guesswork during postmortems.",
+                              "options":  [
+                                              {
+                                                  "text":  "Shared factual sequence for analysis",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Root cause certainty by default",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Blameless ownership transfer",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automated rollback policy",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS54. Best reason to use canary releases?",
+                              "explanation":  "Canaries expose new code to a subset of traffic first.",
+                              "options":  [
+                                              {
+                                                  "text":  "Limit blast radius while validating production behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee zero bugs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skip integration tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid monitoring",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS55. What is a common drawback of tightly coupled microservices?",
+                              "explanation":  "Excessive coupling reduces independence and increases coordination cost.",
+                              "options":  [
+                                              {
+                                                  "text":  "Cascading failures and slower delivery",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lower observability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Fewer APIs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No data consistency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS56. Why use idempotency keys on write APIs?",
+                              "explanation":  "Idempotency keys make retried operations safe.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent duplicate side effects on retries",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve JSON readability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase cache hit rate always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove authentication needs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS57. When is eventual consistency usually acceptable?",
+                              "explanation":  "Eventual consistency trades immediacy for availability and scale.",
+                              "options":  [
+                                              {
+                                                  "text":  "When temporary staleness is tolerable",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When transactions are mandatory",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When ordering is irrelevant and unknown",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When no retries exist",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS58. Key benefit of outbox pattern?",
+                              "explanation":  "Outbox avoids dual-write inconsistency between DB and broker.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reliable event publication with DB state changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster frontend rendering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate message brokers",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid schema migrations",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS59. Most useful first step in debugging production latency spike?",
+                              "explanation":  "Start with observability and change correlation before deep fixes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Check golden signals and recent changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Rewrite slow endpoint",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase thread pool blindly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable tracing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS60. Why keep runbooks near on-call workflows?",
+                              "explanation":  "Actionable runbooks improve incident handling under stress.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce response time and decision ambiguity",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase deploy frequency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove need for alerts",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace architecture docs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS61. What does p99 latency reflect better than average?",
+                              "explanation":  "Tail latency reveals worst-case user impact hidden by averages.",
+                              "options":  [
+                                              {
+                                                  "text":  "Tail user experience under load",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Median memory usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compile time variance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schema quality",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS62. Why segment metrics by tenant or region?",
+                              "explanation":  "Aggregated metrics can hide severe partial outages.",
+                              "options":  [
+                                              {
+                                                  "text":  "Detect localized failures hidden in aggregates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce cardinality automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid alerting",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve encryption",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS63. What is the risk of unbounded queues?",
+                              "explanation":  "Unbounded buffers hide overload until failure becomes severe.",
+                              "options":  [
+                                              {
+                                                  "text":  "Memory growth and latency collapse",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Higher consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower error rates",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Better backpressure",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS64. What does backpressure achieve?",
+                              "explanation":  "Backpressure keeps consumers from being overwhelmed.",
+                              "options":  [
+                                              {
+                                                  "text":  "Protects systems by controlling producer rate",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increases retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removes load balancing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improves schema versioning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS65. When should you favor synchronous RPC over async messaging?",
+                              "explanation":  "RPC fits request-response use cases needing quick answers.",
+                              "options":  [
+                                              {
+                                                  "text":  "When immediate response is required",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When ordering is always global",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When offline processing dominates",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When eventual completion is fine",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS66. A practical reason to version external APIs?",
+                              "explanation":  "Versioning enables gradual migration and compatibility management.",
+                              "options":  [
+                                              {
+                                                  "text":  "Evolve contracts without breaking existing clients",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce TLS cost",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase CPU cache locality",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid all deprecations",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS67. What makes a deprecation policy effective?",
+                              "explanation":  "Predictable deprecation reduces consumer risk.",
+                              "options":  [
+                                              {
+                                                  "text":  "Clear timelines, telemetry, and migration guides",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Immediate endpoint removal",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No communication",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hidden feature flags",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS68. Which database index strategy usually helps read-heavy filters?",
+                              "explanation":  "Indexes should be query-driven, not blanket applied.",
+                              "options":  [
+                                              {
+                                                  "text":  "Indexes matching frequent query predicates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Index every column",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid composite indexes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use only full-table scans",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS69. Tradeoff of heavy indexing on write-heavy tables?",
+                              "explanation":  "Each index must be updated on writes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Slower writes and more storage",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Always faster writes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No maintenance cost",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower lock contention always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS70. Why use connection pooling?",
+                              "explanation":  "Pooling reduces overhead and improves throughput.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reuse expensive DB/network connections efficiently",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee no timeouts",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace retry logic",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid authentication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS71. What is a key sign of a noisy alert?",
+                              "explanation":  "Noisy alerts drive fatigue and slower true incident response.",
+                              "options":  [
+                                              {
+                                                  "text":  "Frequent pages with low actionability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "High severity tag",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Includes runbook link",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Uses SLO thresholds",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS72. Why run game days or chaos experiments?",
+                              "explanation":  "Controlled failure drills expose weak spots proactively.",
+                              "options":  [
+                                              {
+                                                  "text":  "Validate resilience assumptions before real incidents",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase code coverage metric",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace disaster recovery plans",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce need for logs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS73. Best outcome of blameless postmortems?",
+                              "explanation":  "Blameless reviews focus on process and system fixes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Systemic improvements and shared learning",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Identify one person at fault",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Close incident quickly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hide customer impact",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS74. Why standardize structured logging fields?",
+                              "explanation":  "Consistent fields make logs machine-usable at scale.",
+                              "options":  [
+                                              {
+                                                  "text":  "Enable reliable querying and correlation",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Decrease retention automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate tracing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improve UI styling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS75. When does sampling in distributed tracing help?",
+                              "explanation":  "Sampling balances observability cost and visibility.",
+                              "options":  [
+                                              {
+                                                  "text":  "Control overhead while preserving diagnostic value",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee full coverage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove instrumentation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid privacy controls",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS76. Main purpose of a circuit breaker?",
+                              "explanation":  "Circuit breakers prevent repeated costly calls to failing services.",
+                              "options":  [
+                                              {
+                                                  "text":  "Fail fast to protect downstream dependencies",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase request payload size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ensure exactly-once processing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace rate limiting",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS77. Why combine timeout + retry + jitter?",
+                              "explanation":  "These controls together reduce cascading overload.",
+                              "options":  [
+                                              {
+                                                  "text":  "Improve resilience without synchronized retry storms",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee delivery once",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Remove need for idempotency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase code complexity only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS78. What is the pitfall of global transactions across services?",
+                              "explanation":  "Distributed transactions can be fragile and costly operationally.",
+                              "options":  [
+                                              {
+                                                  "text":  "High coupling and poor availability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Too little consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lower operational overhead",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Simpler scaling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS79. When are sagas commonly used?",
+                              "explanation":  "Sagas coordinate local transactions with compensations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Coordinating multi-step distributed workflows",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replacing unit tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Securing static files",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Implementing UI themes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS80. What is compensation in saga patterns?",
+                              "explanation":  "Compensation handles partial failures in distributed processes.",
+                              "options":  [
+                                              {
+                                                  "text":  "A corrective action to undo prior step effects",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Immediate rollback of all systems",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Retry without limits",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schema migration tool",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS81. Why enforce schema compatibility in event streams?",
+                              "explanation":  "Schema rules protect independent service deployment.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent consumer breakages during producer evolution",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reduce partition count",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase retention period",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid message keys",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS82. What does consumer lag indicate?",
+                              "explanation":  "Lag is a key health signal for stream processing.",
+                              "options":  [
+                                              {
+                                                  "text":  "Consumers are behind production rate",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Messages are out of order",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No partitions exist",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "TLS handshake failures",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS83. Benefit of feature ownership mapping per service?",
+                              "explanation":  "Ownership clarity speeds decisions and escalation.",
+                              "options":  [
+                                              {
+                                                  "text":  "Faster incident routing and clearer accountability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lower storage cost",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic failover",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No need for documentation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS84. Why gate risky changes behind kill switches?",
+                              "explanation":  "Kill switches reduce MTTR during bad rollouts.",
+                              "options":  [
+                                              {
+                                                  "text":  "Disable problematic behavior quickly without redeploy",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve static analysis",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce CI duration",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS85. What is a good default for secrets rotation?",
+                              "explanation":  "Automation reduces human error and exposure window.",
+                              "options":  [
+                                              {
+                                                  "text":  "Automated periodic rotation with auditability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Manual yearly updates",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hardcode in source",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Rotate only after breach",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS86. What does principle of least privilege reduce?",
+                              "explanation":  "Tight permissions limit damage from misuse.",
+                              "options":  [
+                                              {
+                                                  "text":  "Blast radius of credential compromise",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "CPU usage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Network latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Deployment frequency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS87. Why track cost alongside performance metrics?",
+                              "explanation":  "Engineering choices should balance reliability and spend.",
+                              "options":  [
+                                              {
+                                                  "text":  "Optimize for business-efficient reliability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace SLOs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid incident response",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate capacity planning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS88. What is capacity planning primarily about?",
+                              "explanation":  "Capacity planning prevents outages and waste.",
+                              "options":  [
+                                              {
+                                                  "text":  "Forecasting demand and provisioning headroom",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Reducing code comments",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Minimizing PR size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removing autoscaling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS89. Which signal best supports autoscaling decisions?",
+                              "explanation":  "Scaling should follow meaningful workload indicators.",
+                              "options":  [
+                                              {
+                                                  "text":  "Load metric tied to saturation and latency",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Number of commits",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Team size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "App icon size",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS90. Why isolate noisy neighbors in multi-tenant systems?",
+                              "explanation":  "Isolation controls prevent one tenant from degrading others.",
+                              "options":  [
+                                              {
+                                                  "text":  "Protect fairness and tenant experience",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase schema complexity",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable quotas",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce observability",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS91. What does bulkhead isolation provide?",
+                              "explanation":  "Bulkheads compartmentalize risk and protect critical paths.",
+                              "options":  [
+                                              {
+                                                  "text":  "Limits failure impact to a subsystem boundary",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Global consistency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Universal retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic backups",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS92. When should you choose blue-green deployment?",
+                              "explanation":  "Blue-green enables near-instant traffic cutover and rollback.",
+                              "options":  [
+                                              {
+                                                  "text":  "Need fast rollback with full environment switch",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "For tiny cosmetic changes only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When no monitoring exists",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To avoid staging",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS93. Why collect leading indicators, not only lagging incidents?",
+                              "explanation":  "Leading signals support proactive reliability work.",
+                              "options":  [
+                                              {
+                                                  "text":  "Detect risk trends before outages occur",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase postmortem length",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace SRE on-call",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable alerting",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS94. What is the purpose of error budgets?",
+                              "explanation":  "Error budgets quantify acceptable unreliability against SLOs.",
+                              "options":  [
+                                              {
+                                                  "text":  "Balance reliability investment with feature delivery",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Set salary bands",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace product roadmap",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate regressions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS95. Which practice improves large-team codebase maintainability?",
+                              "explanation":  "Strong boundaries and tooling reduce entropy as teams scale.",
+                              "options":  [
+                                              {
+                                                  "text":  "Clear boundaries, ownership, and automated quality gates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Single mega module only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable linters",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid refactors",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS96. Why require reproducible builds?",
+                              "explanation":  "Reproducibility helps verify artifact integrity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Increase supply-chain trust and debugging reliability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve UI contrast",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce API latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid release notes",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS97. How should rollback plans be validated?",
+                              "explanation":  "Drilled rollback procedures reduce recovery time.",
+                              "options":  [
+                                              {
+                                                  "text":  "Practice them regularly in realistic scenarios",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Document once and ignore",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only test in outages",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Rely on memory",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS98. What is a common anti-pattern in architecture evolution?",
+                              "explanation":  "Incremental migration lowers risk compared to all-at-once rewrites.",
+                              "options":  [
+                                              {
+                                                  "text":  "Big-bang rewrites without incremental migration path",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Small reversible changes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Parallel runs for validation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Feature flag rollouts",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS99. Why keep contract and load tests in CI/CD quality gates?",
+                              "explanation":  "Quality gates prevent expensive production regressions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Catch compatibility and capacity regressions early",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replace all manual testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate observability",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Speed deploys by skipping checks",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "SEMS100. Senior engineering leadership in incidents should prioritize?",
+                              "explanation":  "Leadership focus should stabilize users and guide effective response.",
+                              "options":  [
+                                              {
+                                                  "text":  "Clear communication, mitigation, and coordinated ownership",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Deep refactor during outage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Silencing stakeholders",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Waiting for perfect root cause",
                                                   "isCorrect":  false
                                               }
                                           ]
