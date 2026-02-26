@@ -1102,6 +1102,1106 @@
                                               }
                                           ],
                               "explanation":  "Immutable data reduces side effects and simplifies reasoning/testing."
+                          },
+                          {
+                              "prompt":  "K51. What does covariance `out T` allow?",
+                              "explanation":  "Covariance allows a generic type to produce T values safely.",
+                              "options":  [
+                                              {
+                                                  "text":  "Use subtype substitution for producers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Write any supertype into collection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable generic checks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Make type invariant",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K52. What does contravariance `in T` allow?",
+                              "explanation":  "Contravariance allows consuming T values with supertype substitution.",
+                              "options":  [
+                                              {
+                                                  "text":  "Use subtype substitution for consumers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Read exact subtype values safely",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Bypass type system",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Make class covariant",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K53. In Kotlin generics, invariant means:",
+                              "explanation":  "Invariant type parameters are not substitutable by sub/supertypes.",
+                              "options":  [
+                                              {
+                                                  "text":  "No subtype substitution between generic instantiations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Only subtype substitution allowed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only supertype substitution allowed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Type erased at compile-time only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K54. What is star projection `List\u003c*\u003e`?",
+                              "explanation":  "It represents a list of unknown type with safe read restrictions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Unknown generic type with limited operations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "List of Any with full write access",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "List of Nothing only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compile error placeholder",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K55. Why use `inline` functions?",
+                              "explanation":  "Inlining can reduce lambda allocation/overhead at call sites.",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce call overhead and lambda allocations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Enable reflection metadata only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Force JVM JIT compilation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable null checks",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K56. `noinline` parameter is used when:",
+                              "explanation":  "A lambda parameter must not be inlined, often for storage/passing.",
+                              "options":  [
+                                              {
+                                                  "text":  "Lambda must be passed/stored as value",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lambda should always inline",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lambda must return non-locally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Function is abstract",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K57. `crossinline` prevents:",
+                              "explanation":  "crossinline disallows non-local returns from lambda.",
+                              "options":  [
+                                              {
+                                                  "text":  "Non-local returns from inlined lambda",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lambda allocation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Type inference",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Coroutine suspension",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K58. Reified type parameters are useful for:",
+                              "explanation":  "Reified enables runtime type checks without passing Class explicitly.",
+                              "options":  [
+                                              {
+                                                  "text":  "Runtime type checks in inline functions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Removing generic bounds",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Preventing type erasure entirely",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compiling to native only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K59. Why avoid `GlobalScope` in app code?",
+                              "explanation":  "It is unstructured and not lifecycle-aware, causing leaks/cancel issues.",
+                              "options":  [
+                                              {
+                                                  "text":  "It breaks structured concurrency and lifecycle control",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It is slower than all scopes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It cannot launch coroutines",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It forces main thread",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K60. Structured concurrency means:",
+                              "explanation":  "Child coroutines are bound to parent scope lifecycle and cancellation.",
+                              "options":  [
+                                              {
+                                                  "text":  "Coroutines have parent-child lifecycle ownership",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "All coroutines are global",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only one coroutine can run",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No cancellation propagation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K61. SupervisorJob differs from Job by:",
+                              "explanation":  "SupervisorJob prevents one child failure from cancelling siblings.",
+                              "options":  [
+                                              {
+                                                  "text":  "Child failure does not cancel sibling children",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It disables cancellation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It runs only on Main dispatcher",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It retries failed children automatically",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K62. `coroutineScope` vs `supervisorScope` main difference:",
+                              "explanation":  "coroutineScope fails all children on one failure, supervisorScope isolates siblings.",
+                              "options":  [
+                                              {
+                                                  "text":  "Failure propagation behavior across children",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Dispatcher selection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Return type only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Blocking vs non-blocking",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K63. What does `withTimeout` do?",
+                              "explanation":  "It cancels coroutine block if execution exceeds timeout.",
+                              "options":  [
+                                              {
+                                                  "text":  "Cancels block after timeout",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Retries block until success",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Delays block start",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Switches dispatcher",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K64. `withTimeoutOrNull` returns:",
+                              "explanation":  "It returns null instead of throwing timeout exception on expiry.",
+                              "options":  [
+                                              {
+                                                  "text":  "Null when timeout occurs",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "TimeoutException always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Last emitted value",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Boolean status",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K65. Flow `buffer()` operator helps by:",
+                              "explanation":  "Buffer decouples producer/collector to improve throughput.",
+                              "options":  [
+                                              {
+                                                  "text":  "Allowing upstream/downstream concurrency",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guaranteeing ordering changes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Persisting flow to disk",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Making flow hot",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K66. Flow `conflate()` does what?",
+                              "explanation":  "Conflate skips intermediate values when collector is slow.",
+                              "options":  [
+                                              {
+                                                  "text":  "Drops intermediate emissions under backpressure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Duplicates each emission",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Sorts emissions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Converts to StateFlow",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K67. `collectLatest` differs from `collect` by:",
+                              "explanation":  "collectLatest cancels previous block when new value arrives.",
+                              "options":  [
+                                              {
+                                                  "text":  "Cancelling prior collector work on new emission",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Running on latest dispatcher",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Collecting only last element",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ignoring cancellation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K68. Which flow type replays latest value to new collectors?",
+                              "explanation":  "StateFlow always has current value and replays latest.",
+                              "options":  [
+                                              {
+                                                  "text":  "StateFlow",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "SharedFlow with replay 0",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Channel",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Sequence",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K69. SharedFlow is typically used for:",
+                              "explanation":  "SharedFlow models hot streams/events with configurable replay/buffer.",
+                              "options":  [
+                                              {
+                                                  "text":  "Hot broadcast-style emissions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Database transactions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Immutable collections",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Blocking IPC",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K70. Channel in coroutines is best described as:",
+                              "explanation":  "Channel is a coroutine-safe queue for point-to-point communication.",
+                              "options":  [
+                                              {
+                                                  "text":  "Asynchronous queue between coroutines",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Always broadcast bus",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Synchronous lock primitive",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Persistent message broker",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K71. Sequences are preferable over collections when:",
+                              "explanation":  "For large pipelines where lazy evaluation avoids intermediate allocations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Need lazy chained transformations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Need random access writes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Need thread safety",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Need serialization only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K72. What is a common pitfall of `runBlocking` in Android/UI code?",
+                              "explanation":  "It blocks current thread and can freeze UI/anr.",
+                              "options":  [
+                                              {
+                                                  "text":  "Blocks thread and can freeze UI",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Launches too many threads",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Cannot call suspend functions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Always throws exception",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K73. Data class generated `copy` is useful for:",
+                              "explanation":  "It enables immutable-style state updates with selective field changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Immutable state updates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Deep cloning all references",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Serialization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Thread confinement",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K74. `by` delegation in class declaration allows:",
+                              "explanation":  "It forwards interface implementation to delegate object automatically.",
+                              "options":  [
+                                              {
+                                                  "text":  "Forwarding interface implementation to delegate",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Inheritance from multiple classes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compile-time macros",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Generic specialization",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K75. Property delegates like `observable` are used to:",
+                              "explanation":  "Execute callbacks on property value changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Hook into property get/set behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Store properties off-heap",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable reflection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid nullability",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K76. `sealed interface` vs `sealed class` key point:",
+                              "explanation":  "Both restrict implementations; interface allows multiple inheritance of type.",
+                              "options":  [
+                                              {
+                                                  "text":  "Sealed interface supports broader inheritance flexibility",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Sealed class is always public",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Sealed interface cannot have methods",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "They are unrelated",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K77. Why use `@JvmInline value class`?",
+                              "explanation":  "Value classes can wrap a single value with reduced runtime overhead.",
+                              "options":  [
+                                              {
+                                                  "text":  "Type safety wrapper with low overhead",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Multi-field data holder",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime inheritance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic JSON mapping",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K78. What does `Nothing?` represent?",
+                              "explanation":  "Only null fits Nothing? because Nothing has no values.",
+                              "options":  [
+                                              {
+                                                  "text":  "A type whose only value is null",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Non-null impossible type",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Alias for Unit",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Any nullable type",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K79. Kotlin contracts are primarily for:",
+                              "explanation":  "Providing extra semantic info to compiler for smart-cast/data-flow analysis.",
+                              "options":  [
+                                              {
+                                                  "text":  "Improving compiler static analysis",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Runtime validation only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Dependency injection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Binary compatibility",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K80. `takeIf` returns:",
+                              "explanation":  "It returns receiver when predicate true, otherwise null.",
+                              "options":  [
+                                              {
+                                                  "text":  "Receiver or null based on predicate",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Boolean result only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Filtered list",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Exception on false",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K81. `also` scope function is best for:",
+                              "explanation":  "Performing side effects while returning original object.",
+                              "options":  [
+                                              {
+                                                  "text":  "Side effects without changing chain receiver",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Transforming to another type",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Null-safe fallback",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Synchronized access",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K82. `apply` scope function returns:",
+                              "explanation":  "apply returns receiver object after configuration block.",
+                              "options":  [
+                                              {
+                                                  "text":  "The receiver object",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Lambda result",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Boolean status",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Unit always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K83. `run` scope function returns:",
+                              "explanation":  "run returns lambda result; useful for object computations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Lambda result",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Receiver always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Null on failure",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Boolean",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K84. Why use `buildList {}` APIs?",
+                              "explanation":  "They allow mutable construction with immutable result exposure.",
+                              "options":  [
+                                              {
+                                                  "text":  "Efficiently build immutable collections",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Force thread safety",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Persist to DB automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid generics",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K85. `Result` type is commonly used for:",
+                              "explanation":  "Representing success/failure outcomes without throwing across boundaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "Encapsulating success or failure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replacing all exceptions globally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Multithreading",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Collection transformations",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K86. Binary compatibility concern in libraries often involves:",
+                              "explanation":  "Changing public signatures/inline contracts can break consumers.",
+                              "options":  [
+                                              {
+                                                  "text":  "Public API signature changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Private local var names",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Code comments",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Formatting style",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K87. `@PublishedApi` is used when:",
+                              "explanation":  "Internal declarations must be accessible from public inline functions.",
+                              "options":  [
+                                              {
+                                                  "text":  "Exposing internal members to public inline code",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Publishing to Maven",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Marking deprecated APIs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Enabling reflection",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K88. Kotlin Multiplatform `expect/actual` provides:",
+                              "explanation":  "Common API declarations with platform-specific implementations.",
+                              "options":  [
+                                              {
+                                                  "text":  "Shared contracts with per-platform implementations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Runtime platform switching",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic JNI generation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single binary for all targets",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K89. Why avoid exposing mutable collections from APIs?",
+                              "explanation":  "It protects invariants and prevents external unintended state mutation.",
+                              "options":  [
+                                              {
+                                                  "text":  "Encapsulation and invariant safety",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improves serialization only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Required by compiler",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Makes code faster always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K90. `Dispatchers.Default` is designed for:",
+                              "explanation":  "CPU-intensive non-blocking tasks.",
+                              "options":  [
+                                              {
+                                                  "text":  "CPU-bound computations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Blocking IO calls",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "UI rendering",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "File downloads only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K91. What does `yield()` in coroutines do?",
+                              "explanation":  "It gives other coroutines a chance to run cooperatively.",
+                              "options":  [
+                                              {
+                                                  "text":  "Cooperative scheduling hint",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Blocks thread",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Cancels coroutine",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Flushes flow buffer",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K92. Why should suspend functions be cancellation-cooperative?",
+                              "explanation":  "Responsive cancellation avoids wasted work and leaked resources.",
+                              "options":  [
+                                              {
+                                                  "text":  "To stop work promptly and release resources",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To run faster always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To avoid exceptions",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To guarantee idempotency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K93. `NonCancellable` context is typically used for:",
+                              "explanation":  "Critical cleanup in finally blocks that must complete despite cancellation.",
+                              "options":  [
+                                              {
+                                                  "text":  "Running mandatory cleanup after cancellation",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Long-running business logic",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ignoring all timeouts",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replacing SupervisorJob",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K94. `MutableStateFlow` update best practice in concurrency:",
+                              "explanation":  "Use atomic update functions to avoid lost updates.",
+                              "options":  [
+                                              {
+                                                  "text":  "Use update/compare-set style atomic operations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Direct writes from many threads without care",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Always wrap in synchronized block",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use GlobalScope for updates",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K95. What is context receiver feature about (conceptually)?",
+                              "explanation":  "It allows requiring specific contextual types for function availability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Declaring required contextual capabilities",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Replacing extension functions fully",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime DI container",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Thread-local scoping",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K96. Why prefer explicit API mode for libraries?",
+                              "explanation":  "It enforces explicit visibility/types, reducing accidental public API leakage.",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent accidental public API exposure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve runtime speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Enable reflection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable null checks",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K97. `compareTo` operator overload enables:",
+                              "explanation":  "Defining ordering so operators like \u003c and \u003e work on custom types.",
+                              "options":  [
+                                              {
+                                                  "text":  "Custom relational operator behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Equality checks only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Hash code generation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Serialization support",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K98. Why use `sealed` for UI state models?",
+                              "explanation":  "It gives exhaustive handling and compile-time safety for state branches.",
+                              "options":  [
+                                              {
+                                                  "text":  "Exhaustive when handling of state variants",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Automatic persistence",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Better threading",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoids nullability",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K99. Good practice for coroutine scope ownership in apps:",
+                              "explanation":  "Scopes should be owned by lifecycle-bound components and cancelled properly.",
+                              "options":  [
+                                              {
+                                                  "text":  "Tie scopes to lifecycle owners",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Use one global scope for everything",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Never cancel scopes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Create scope per function without owner",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "K100. Why keep domain logic free of framework-specific types?",
+                              "explanation":  "It improves testability, portability, and architectural boundaries.",
+                              "options":  [
+                                              {
+                                                  "text":  "Improve decoupling and testability",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase UI performance directly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Required by Kotlin compiler",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate interfaces",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
                           }
                       ]
     },
