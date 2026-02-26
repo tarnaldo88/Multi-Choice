@@ -20,6 +20,18 @@ interface MultiChoiceDao {
     @Insert
     suspend fun insertOptions(options: List<OptionEntity>)
 
+    @Query("SELECT id FROM sections WHERE title = :title LIMIT 1")
+    suspend fun findSectionIdByTitle(title: String): Long?
+
+    @Query("SELECT id FROM questions WHERE sectionId = :sectionId AND prompt = :prompt LIMIT 1")
+    suspend fun findQuestionId(sectionId: Long, prompt: String): Long?
+
+    @Query("UPDATE questions SET explanation = :explanation WHERE id = :questionId")
+    suspend fun updateQuestionExplanation(questionId: Long, explanation: String)
+
+    @Query("DELETE FROM options WHERE questionId = :questionId")
+    suspend fun deleteOptionsForQuestion(questionId: Long)
+
     @Query("SELECT COUNT(*) FROM sections")
     suspend fun countSections(): Int
 
