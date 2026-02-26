@@ -9964,6 +9964,1326 @@
                                               }
                                           ],
                               "explanation":  "Long-term quality comes from tests, reviews, observability, and iterative refactoring."
+                          },
+                          {
+                              "prompt":  "G51. What does idempotent operation mean?",
+                              "explanation":  "Idempotency is important for safe retries in distributed systems.",
+                              "options":  [
+                                              {
+                                                  "text":  "Applying it multiple times has the same effect as once",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It always succeeds",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It is always fast",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It cannot fail",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G52. What is the main goal of code reviews?",
+                              "explanation":  "Code reviews improve correctness and team knowledge sharing.",
+                              "options":  [
+                                              {
+                                                  "text":  "Catch defects and improve shared code quality",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Block all merges",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Enforce one coding style only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G53. Which principle says classes should have one reason to change?",
+                              "explanation":  "SRP improves maintainability by limiting class responsibilities.",
+                              "options":  [
+                                              {
+                                                  "text":  "Single Responsibility Principle",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Open Closed Principle",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Liskov Substitution Principle",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Dependency Inversion Principle",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G54. Open Closed Principle encourages software to be:",
+                              "explanation":  "OCP helps add behavior without editing stable code paths.",
+                              "options":  [
+                                              {
+                                                  "text":  "Open for extension, closed for modification",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Open source only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Closed to interfaces",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Open to global state",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G55. What does DRY stand for?",
+                              "explanation":  "DRY reduces duplication and maintenance overhead.",
+                              "options":  [
+                                              {
+                                                  "text":  "Do Not Repeat Yourself",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Data Read Yield",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Double Runtime Yield",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Direct Read YAML",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G56. What is YAGNI in engineering decisions?",
+                              "explanation":  "YAGNI prevents premature complexity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Do not build features until they are needed",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Build every possible extension now",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Ignore user feedback",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Never refactor",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G57. What is a race condition?",
+                              "explanation":  "Race conditions occur when shared state is accessed without proper coordination.",
+                              "options":  [
+                                              {
+                                                  "text":  "Outcome depends on unpredictable execution order",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A slow database query",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A compile warning",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A memory leak only",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G58. Why are immutable objects useful in concurrent systems?",
+                              "explanation":  "Immutability simplifies reasoning under concurrency.",
+                              "options":  [
+                                              {
+                                                  "text":  "They avoid shared-state mutation bugs",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "They always use less memory",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "They remove need for testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "They are required by all languages",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G59. What does a mutex primarily provide?",
+                              "explanation":  "A mutex ensures one thread accesses protected code at a time.",
+                              "options":  [
+                                              {
+                                                  "text":  "Mutual exclusion for critical sections",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Automatic retry logic",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Network failover",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Load balancing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G60. Deadlock happens when:",
+                              "explanation":  "Deadlocks arise from circular waiting on resources.",
+                              "options":  [
+                                              {
+                                                  "text":  "Threads wait on each other indefinitely",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "One thread runs too fast",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "CPU reaches 100 percent",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Database index is missing",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G61. Which HTTP method is typically idempotent?",
+                              "explanation":  "PUT is defined as idempotent in HTTP semantics.",
+                              "options":  [
+                                              {
+                                                  "text":  "PUT",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "POST",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "PATCH",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "CONNECT",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G62. HTTP status code 404 means:",
+                              "explanation":  "404 indicates missing endpoint or resource.",
+                              "options":  [
+                                              {
+                                                  "text":  "Requested resource was not found",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Unauthorized",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Conflict",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Server timeout",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G63. HTTP status code 503 indicates:",
+                              "explanation":  "503 typically signals transient service overload or maintenance.",
+                              "options":  [
+                                              {
+                                                  "text":  "Service unavailable, often temporary",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Request succeeded",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Bad request payload",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Forbidden access",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G64. What is pagination useful for?",
+                              "explanation":  "Pagination reduces response size and improves performance.",
+                              "options":  [
+                                              {
+                                                  "text":  "Fetching large datasets in manageable chunks",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Encrypting payloads",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Versioning APIs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Handling authentication",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G65. Offset pagination downside at scale is:",
+                              "explanation":  "Large offsets can force expensive scans.",
+                              "options":  [
+                                              {
+                                                  "text":  "Performance degrades with large offsets",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Cannot sort records",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Requires NoSQL only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Cannot return JSON",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G66. Cursor pagination is often preferred because it:",
+                              "explanation":  "Cursors avoid large skip operations and page drift.",
+                              "options":  [
+                                              {
+                                                  "text":  "Performs better and is stable under inserts/deletes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Requires less backend code always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminates indexing needs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantees exact counts",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G67. What is normalization in relational databases?",
+                              "explanation":  "Normalization improves integrity and reduces duplicate data.",
+                              "options":  [
+                                              {
+                                                  "text":  "Structuring tables to reduce redundancy",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Adding more indexes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Sharding data",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypting rows",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G68. Why use database indexes?",
+                              "explanation":  "Indexes trade write cost for faster reads.",
+                              "options":  [
+                                              {
+                                                  "text":  "Speed up read queries on filtered/sorted columns",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guarantee no locks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace backups",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce network latency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G69. A foreign key mainly enforces:",
+                              "explanation":  "Foreign keys prevent invalid references.",
+                              "options":  [
+                                              {
+                                                  "text":  "Referential integrity between tables",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster joins",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic caching",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Schema versioning",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G70. CAP theorem highlights tradeoffs among:",
+                              "explanation":  "Distributed systems cannot maximize all CAP properties simultaneously under partition.",
+                              "options":  [
+                                              {
+                                                  "text":  "Consistency, Availability, and Partition tolerance",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Caching, API, and Processing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Cost, Agility, and Performance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Concurrency, Accuracy, and Privacy",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G71. What is eventual consistency?",
+                              "explanation":  "Eventual consistency favors availability and partition tolerance.",
+                              "options":  [
+                                              {
+                                                  "text":  "Replicas may temporarily differ but converge later",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "All reads are instantly consistent",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Writes are never lost",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No replication lag exists",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G72. What is a cache invalidation challenge?",
+                              "explanation":  "Stale cache data is a common source of bugs.",
+                              "options":  [
+                                              {
+                                                  "text":  "Keeping cached data fresh after source updates",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Choosing JSON format",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Creating primary keys",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compiling code",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G73. Write-through cache behavior is:",
+                              "explanation":  "Write-through simplifies consistency at possible write latency cost.",
+                              "options":  [
+                                              {
+                                                  "text":  "Write to cache and backing store together",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Write only to cache",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Write only to DB then never cache",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Delete on every read",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G74. Main benefit of feature flags?",
+                              "explanation":  "Flags decouple deployment from release exposure.",
+                              "options":  [
+                                              {
+                                                  "text":  "Controlled rollout and fast rollback of behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Permanent replacement for testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic code generation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Eliminate monitoring",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G75. What is blue-green deployment?",
+                              "explanation":  "Blue-green reduces downtime and enables quick rollback.",
+                              "options":  [
+                                              {
+                                                  "text":  "Switch traffic between two production environments",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Deploying only on weekends",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Patching servers manually",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Running two databases always",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G76. Canary release means:",
+                              "explanation":  "Canaries limit blast radius of bad releases.",
+                              "options":  [
+                                              {
+                                                  "text":  "Release to small subset first and monitor",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Release to all users instantly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skip production testing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable logging",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G77. CI in CI/CD stands for:",
+                              "explanation":  "CI focuses on frequent integration with automated checks.",
+                              "options":  [
+                                              {
+                                                  "text":  "Continuous Integration",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Code Inspection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Centralized Infrastructure",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Current Iteration",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G78. CD in CI/CD commonly means:",
+                              "explanation":  "CD automates release flow after successful validation.",
+                              "options":  [
+                                              {
+                                                  "text":  "Continuous Delivery or Deployment",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Code Debugging",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Component Design",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Controlled Downtime",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G79. A flaky test is one that:",
+                              "explanation":  "Flaky tests reduce trust in the test suite.",
+                              "options":  [
+                                              {
+                                                  "text":  "Passes and fails inconsistently without code changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Always fails quickly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runs only in debug",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Has no assertions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G80. Unit tests should ideally be:",
+                              "explanation":  "High-quality unit tests support fast feedback loops.",
+                              "options":  [
+                                              {
+                                                  "text":  "Fast, deterministic, and isolated",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Slow and integration-heavy",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Dependent on production APIs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Run only manually",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G81. Integration tests focus on:",
+                              "explanation":  "Integration tests catch contract and wiring issues.",
+                              "options":  [
+                                              {
+                                                  "text":  "Interactions between components",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "UI pixel-perfect snapshots only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compiler warnings",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Naming conventions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G82. What is mocking used for in tests?",
+                              "explanation":  "Mocks isolate unit behavior and simulate edge cases.",
+                              "options":  [
+                                              {
+                                                  "text":  "Replace dependencies with controlled behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve runtime performance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Deploy faster",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid writing assertions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G83. What does refactoring mean?",
+                              "explanation":  "Refactoring improves maintainability while preserving outcomes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Changing internal code structure without changing behavior",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Adding new features only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Removing all tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Migrating databases",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G84. Code smell refers to:",
+                              "explanation":  "Smells suggest where refactoring may be needed.",
+                              "options":  [
+                                              {
+                                                  "text":  "A pattern indicating potential design/maintainability issues",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Compiler optimization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime memory limit",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Security patch",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G85. What is technical spike in agile teams?",
+                              "explanation":  "Spikes help estimate and de-risk unknown work.",
+                              "options":  [
+                                              {
+                                                  "text":  "Timeboxed exploration to reduce uncertainty",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Permanent experimental branch",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Production hotfix process",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "User acceptance test",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G86. What is the purpose of API versioning?",
+                              "explanation":  "Versioning supports backward compatibility strategies.",
+                              "options":  [
+                                              {
+                                                  "text":  "Evolve APIs without breaking existing clients",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid authentication",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace documentation",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G87. Backward compatibility means:",
+                              "explanation":  "Compatibility reduces upgrade risk for consumers.",
+                              "options":  [
+                                              {
+                                                  "text":  "New version still works with old clients/contracts",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Old version supports future unknown fields only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Breaking all old payloads",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No schema evolution",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G88. What is a semantic version MAJOR bump for?",
+                              "explanation":  "SemVer major increments communicate breaking changes.",
+                              "options":  [
+                                              {
+                                                  "text":  "Backward-incompatible API changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Security patch only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Documentation typo fixes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Build script formatting",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G89. Observability typically includes:",
+                              "explanation":  "Combining signals improves production diagnosis.",
+                              "options":  [
+                                              {
+                                                  "text":  "Logs, metrics, and traces",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Only error logs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only dashboards",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only profiling",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G90. A useful metric for service reliability is:",
+                              "explanation":  "Reliability metrics should reflect user-impacting failures.",
+                              "options":  [
+                                              {
+                                                  "text":  "Error rate over time",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Number of comments",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Variable naming length",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Lines of code per file",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G91. SLO stands for:",
+                              "explanation":  "SLOs define measurable reliability targets.",
+                              "options":  [
+                                              {
+                                                  "text":  "Service Level Objective",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "System Log Output",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Software Lifecycle Operation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Single Login Option",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G92. Error budget is:",
+                              "explanation":  "Error budgets balance reliability work and feature velocity.",
+                              "options":  [
+                                              {
+                                                  "text":  "Allowed unreliability based on SLO target",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Maximum salary for on-call",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Total test failures allowed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Network throughput limit",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G93. What does least privilege principle imply?",
+                              "explanation":  "Least privilege reduces security blast radius.",
+                              "options":  [
+                                              {
+                                                  "text":  "Grant only minimum required access",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Grant admin by default",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Share credentials across teams",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skip audit logs",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G94. Why rotate secrets regularly?",
+                              "explanation":  "Secret rotation is a core operational security practice.",
+                              "options":  [
+                                              {
+                                                  "text":  "Limit exposure window if credentials leak",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve latency",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Reduce test runtime",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase cache hits",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G95. Input validation helps prevent:",
+                              "explanation":  "Validation is a first defense for correctness and security.",
+                              "options":  [
+                                              {
+                                                  "text":  "Invalid or malicious data from entering system",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "All business logic bugs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Network latency spikes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compiler warnings",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G96. What is SQL injection?",
+                              "explanation":  "Parameterized queries mitigate SQL injection risks.",
+                              "options":  [
+                                              {
+                                                  "text":  "Executing unintended SQL via untrusted input",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A database backup method",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A caching strategy",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A thread scheduling issue",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G97. Why use parameterized queries?",
+                              "explanation":  "Parameterized statements reduce injection risk.",
+                              "options":  [
+                                              {
+                                                  "text":  "Separate SQL logic from user input safely",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase schema size",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable indexing",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid transactions",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G98. What is an SLA?",
+                              "explanation":  "SLAs are external service commitments, often tied to penalties.",
+                              "options":  [
+                                              {
+                                                  "text":  "Contractual service commitment with customers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Internal coding style guide",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Database replication mode",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Source linting algorithm",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G99. A postmortem after incident should be:",
+                              "explanation":  "Blameless postmortems improve learning and resilience.",
+                              "options":  [
+                                              {
+                                                  "text":  "Blameless and focused on systemic improvements",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Focused on individual blame",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Skipped if fixed quickly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only shared with management",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G100. MTTR refers to:",
+                              "explanation":  "MTTR tracks incident recovery effectiveness.",
+                              "options":  [
+                                              {
+                                                  "text":  "Mean time to recover from incidents",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Mean time to release",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Maximum throughput to replication",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Minimum test to run",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G101. Why document architecture decisions?",
+                              "explanation":  "Decision records help teams understand why choices were made.",
+                              "options":  [
+                                              {
+                                                  "text":  "Preserve context and tradeoffs for future changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Increase build speed",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace onboarding",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid code comments",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G102. What is coupling in software design?",
+                              "explanation":  "Lower coupling generally improves modularity and changeability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Degree of dependency between components",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Number of tests",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime memory allocation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Logging verbosity",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G103. High cohesion in a module means:",
+                              "explanation":  "High cohesion helps readability and maintainability.",
+                              "options":  [
+                                              {
+                                                  "text":  "Its responsibilities are strongly related",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It depends on many unrelated modules",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It has no public methods",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It cannot be tested",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G104. Dependency inversion recommends:",
+                              "explanation":  "Abstractions reduce tight coupling between layers.",
+                              "options":  [
+                                              {
+                                                  "text":  "Depend on abstractions, not concrete implementations",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Depend on global singletons",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Avoid interfaces",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use inheritance everywhere",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G105. What is a common benefit of message queues?",
+                              "explanation":  "Queues smooth spikes and decouple producer/consumer lifecycles.",
+                              "options":  [
+                                              {
+                                                  "text":  "Asynchronous decoupling and buffering",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Guaranteed exactly once without design effort",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No need for retries",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No ordering concerns",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G106. Retry with exponential backoff is useful because:",
+                              "explanation":  "Backoff avoids hammering unhealthy dependencies.",
+                              "options":  [
+                                              {
+                                                  "text":  "It reduces pressure during transient failures",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It guarantees success",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It removes idempotency needs",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It always lowers latency",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G107. Why include correlation IDs in logs?",
+                              "explanation":  "Correlation IDs improve distributed debugging.",
+                              "options":  [
+                                              {
+                                                  "text":  "Trace a request across multiple services",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Compress log files",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Encrypt data automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace tracing tools",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G108. What is the first step before optimizing performance?",
+                              "explanation":  "Data-driven optimization prevents wasted effort.",
+                              "options":  [
+                                              {
+                                                  "text":  "Measure and identify the bottleneck",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Rewrite in another language",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Increase server size blindly",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G109. What does premature optimization risk?",
+                              "explanation":  "Optimize where profiling shows real constraints.",
+                              "options":  [
+                                              {
+                                                  "text":  "Added complexity without proven benefit",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Higher correctness automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Better onboarding",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "No maintenance cost",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
+                          },
+                          {
+                              "prompt":  "G110. What is a rollback plan for deployments?",
+                              "explanation":  "Rollback readiness reduces outage duration during bad releases.",
+                              "options":  [
+                                              {
+                                                  "text":  "Documented steps to restore previous stable state",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A list of future features",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A UI test checklist only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "An API schema diff",
+                                                  "isCorrect":  false
+                                              }
+                                          ]
                           }
                       ]
     },
