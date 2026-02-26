@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "title":  "Kotlin (Junior-Mid)",
         "description":  "Core Kotlin language questions",
@@ -2202,6 +2202,1150 @@
                                                   "isCorrect":  false
                                               }
                                           ]
+                          },
+                          {
+                              "prompt":  "K101. What does by lazy provide for a property?",
+                              "options":  [
+                                              {
+                                                  "text":  "Thread-safe lazy initialization by default",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Eager initialization at class load",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic null-safety checks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compile-time constant generation",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "lazy defers initialization until first access and is synchronized by default."
+                          },
+                          {
+                              "prompt":  "K102. When should you prefer Sequence over List operations?",
+                              "options":  [
+                                              {
+                                                  "text":  "When chaining many operations on large datasets",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "When you need random access by index",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When you need immediate materialization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "When you only use mutable lists",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Sequence evaluates lazily and avoids intermediate collections in long pipelines."
+                          },
+                          {
+                              "prompt":  "K103. What is the result of using as? in Kotlin?",
+                              "options":  [
+                                              {
+                                                  "text":  "A safe cast that returns null on failure",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A forced cast that throws immediately",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A compile-time only cast",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A cast that defaults to zero values",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "as? avoids ClassCastException by returning null when cast fails."
+                          },
+                          {
+                              "prompt":  "K104. Which scope function returns the receiver object?",
+                              "options":  [
+                                              {
+                                                  "text":  "apply",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "let",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "run",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "with",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "apply returns the receiver and is commonly used for object configuration."
+                          },
+                          {
+                              "prompt":  "K105. Which scope function uses it and returns lambda result?",
+                              "options":  [
+                                              {
+                                                  "text":  "let",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "apply",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "also",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "run",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "let uses it as context object and returns the lambda result."
+                          },
+                          {
+                              "prompt":  "K106. What is the key difference between == and ===?",
+                              "options":  [
+                                              {
+                                                  "text":  "== checks structural equality, === checks reference equality",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "== checks reference, === checks structural",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Both are identical in Kotlin",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "=== is only for numbers",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Kotlin separates value equality from identity equality."
+                          },
+                          {
+                              "prompt":  "K107. Why use inline for higher-order functions?",
+                              "options":  [
+                                              {
+                                                  "text":  "To reduce lambda allocation and call overhead",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To force asynchronous execution",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To prevent null values",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To enable reflection metadata",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Inlining can improve performance by substituting function body at call sites."
+                          },
+                          {
+                              "prompt":  "K108. What does crossinline prevent in inline lambdas?",
+                              "options":  [
+                                              {
+                                                  "text":  "Non-local returns from that lambda",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Capturing variables",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Suspending calls",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Passing lambdas to other functions",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "crossinline blocks non-local return behavior inside inline lambda parameters."
+                          },
+                          {
+                              "prompt":  "K109. What does noinline do for an inline function parameter?",
+                              "options":  [
+                                              {
+                                                  "text":  "Keeps a lambda as an object instead of inlining it",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Prevents null checks in lambda",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Makes lambda execute on IO thread",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Converts lambda to suspend lambda",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "noinline opts a lambda parameter out of inlining."
+                          },
+                          {
+                              "prompt":  "K110. What is an advantage of sealed interfaces or classes?",
+                              "options":  [
+                                              {
+                                                  "text":  "Exhaustive when handling of known subtypes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Automatic database mapping",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime method injection",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Unlimited inheritance across modules",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Sealed hierarchies restrict subtypes and improve exhaustive branching."
+                          },
+                          {
+                              "prompt":  "K111. What does @JvmStatic do in a companion object?",
+                              "options":  [
+                                              {
+                                                  "text":  "Exposes member as a static method for Java callers",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Makes member immutable",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Marks method as suspend",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Converts method to top-level function",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "@JvmStatic improves Java interop by generating static accessors."
+                          },
+                          {
+                              "prompt":  "K112. Why use @JvmOverloads on Kotlin functions?",
+                              "options":  [
+                                              {
+                                                  "text":  "Generate Java overloads for default parameters",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Enable function inlining",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable nullability checks",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Auto-generate equals and hashCode",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Java cannot call Kotlin default arguments directly, so overloads help interop."
+                          },
+                          {
+                              "prompt":  "K113. What does Nothing represent in Kotlin?",
+                              "options":  [
+                                              {
+                                                  "text":  "A type with no possible values",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A nullable any type",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A platform type from Java",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A primitive zero-sized type",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Nothing is used for functions that never return normally, like throwing functions."
+                          },
+                          {
+                              "prompt":  "K114. What does Unit correspond to?",
+                              "options":  [
+                                              {
+                                                  "text":  "A function return type with no meaningful value",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A singleton list",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "The same as null",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A marker for suspend-only functions",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Unit is the Kotlin equivalent of Java void as a real type."
+                          },
+                          {
+                              "prompt":  "K115. What problem do value classes solve?",
+                              "options":  [
+                                              {
+                                                  "text":  "Type-safe wrappers with minimal runtime overhead",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Multiple inheritance of classes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runtime code generation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic serialization setup",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Value classes wrap a value to improve type safety without typical object cost."
+                          },
+                          {
+                              "prompt":  "K116. Why avoid using !! frequently?",
+                              "options":  [
+                                              {
+                                                  "text":  "It can throw NullPointerException at runtime",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "It disables compiler optimizations",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It makes code slower than Java always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "It breaks coroutine scheduling",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "!! bypasses null-safety and should be limited to truly guaranteed non-null cases."
+                          },
+                          {
+                              "prompt":  "K117. When is lateinit appropriate?",
+                              "options":  [
+                                              {
+                                                  "text":  "For non-null var properties initialized after construction",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "For primitive numeric properties only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "For immutable val properties",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "For nullable properties",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "lateinit supports deferred initialization for mutable non-null reference properties."
+                          },
+                          {
+                              "prompt":  "K118. How do coroutines typically switch dispatcher for IO work?",
+                              "options":  [
+                                              {
+                                                  "text":  "Use withContext(Dispatchers.IO)",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Use launch(Dispatchers.Main) only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use GlobalScope.async always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use Thread.sleep in suspend functions",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "withContext changes coroutine context for a scoped block."
+                          },
+                          {
+                              "prompt":  "K119. What is a suspend function?",
+                              "options":  [
+                                              {
+                                                  "text":  "A function that can suspend without blocking a thread",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A function that always runs in background",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A function that cannot return values",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A function restricted to UI thread",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Suspend functions pause and resume cooperatively via coroutines."
+                          },
+                          {
+                              "prompt":  "K120. What does structured concurrency enforce?",
+                              "options":  [
+                                              {
+                                                  "text":  "Child coroutines are bound to parent scope lifecycle",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "All coroutines run globally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only one coroutine can run at a time",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Coroutines cannot throw exceptions",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Structured concurrency prevents leaks and unmanaged coroutine lifetimes."
+                          },
+                          {
+                              "prompt":  "K121. Which Flow operator transforms each value?",
+                              "options":  [
+                                              {
+                                                  "text":  "map",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "collect",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "launchIn",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "onCompletion",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "map converts each emitted item into another value."
+                          },
+                          {
+                              "prompt":  "K122. Which Flow operator is terminal and starts collection?",
+                              "options":  [
+                                              {
+                                                  "text":  "collect",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "filter",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "map",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "debounce",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Flow is cold, so a terminal operator like collect triggers execution."
+                          },
+                          {
+                              "prompt":  "K123. What does stateIn provide for a Flow?",
+                              "options":  [
+                                              {
+                                                  "text":  "Converts Flow to StateFlow with replayed latest value",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Converts Flow to LiveData automatically",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Cancels upstream immediately",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Merges two flows by default",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "stateIn shares upstream and keeps latest state for subscribers."
+                          },
+                          {
+                              "prompt":  "K124. What is SharedFlow mainly used for?",
+                              "options":  [
+                                              {
+                                                  "text":  "Hot stream for events to multiple collectors",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Persistent key-value storage",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replacing Room entities",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Compile-time code generation",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "SharedFlow broadcasts emissions to active collectors."
+                          },
+                          {
+                              "prompt":  "K125. What does reified require?",
+                              "options":  [
+                                              {
+                                                  "text":  "An inline function type parameter",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A sealed class",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A companion object",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A suspend lambda",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Reified generics need inlining so type info is available at call sites."
+                          },
+                          {
+                              "prompt":  "K126. What is a platform type in Kotlin interop?",
+                              "options":  [
+                                              {
+                                                  "text":  "A Java type with unknown nullability in Kotlin",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A type only available on Android",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A primitive type wrapper",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A type that cannot be cast",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Platform types come from Java where nullability annotations may be missing."
+                          },
+                          {
+                              "prompt":  "K127. Why use explicit API mode in libraries?",
+                              "options":  [
+                                              {
+                                                  "text":  "To force explicit visibility and return types",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To auto-generate documentation only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To disable warnings",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To convert classes to data classes",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Explicit API mode helps maintain stable public APIs for library consumers."
+                          },
+                          {
+                              "prompt":  "K128. What does tailrec do?",
+                              "options":  [
+                                              {
+                                                  "text":  "Optimizes eligible tail-recursive calls into loops",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Caches recursion results",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Allows mutual recursion optimization",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Runs recursion in parallel",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "tailrec can prevent stack overflow for properly tail-positioned recursion."
+                          },
+                          {
+                              "prompt":  "K129. What is the purpose of delegated properties?",
+                              "options":  [
+                                              {
+                                                  "text":  "Delegate getter and setter logic to another object",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Disable encapsulation",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Force immutable behavior",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace interfaces",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Delegation supports reuse for behaviors like lazy, observable, and map-backed properties."
+                          },
+                          {
+                              "prompt":  "K130. What does by observable allow?",
+                              "options":  [
+                                              {
+                                                  "text":  "Run callback when property value changes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Prevent any reassignment",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Persist property automatically to disk",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Make property thread-local",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "observable delegate notifies on each assignment."
+                          },
+                          {
+                              "prompt":  "K131. What does require(condition) do?",
+                              "options":  [
+                                              {
+                                                  "text":  "Throws IllegalArgumentException when condition is false",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Throws IllegalStateException when false",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Returns null when false",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Logs warning only",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "require validates caller input and signals bad arguments."
+                          },
+                          {
+                              "prompt":  "K132. What does check(condition) do?",
+                              "options":  [
+                                              {
+                                                  "text":  "Throws IllegalStateException when condition is false",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Throws IllegalArgumentException when false",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Returns Boolean result",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Stops coroutine silently",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "check validates object state assumptions."
+                          },
+                          {
+                              "prompt":  "K133. When should you use runCatching?",
+                              "options":  [
+                                              {
+                                                  "text":  "To capture exceptions into Result for fluent handling",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "To ignore all exceptions globally",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To convert suspend to blocking",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "To bypass compiler checks",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "runCatching wraps success or failure in Result for chainable handling."
+                          },
+                          {
+                              "prompt":  "K134. What is the default visibility in Kotlin declarations?",
+                              "options":  [
+                                              {
+                                                  "text":  "public",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "internal",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "private",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "protected",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "If not specified, Kotlin declarations are public."
+                          },
+                          {
+                              "prompt":  "K135. What does internal visibility mean?",
+                              "options":  [
+                                              {
+                                                  "text":  "Visible within the same module",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Visible within the same package only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Visible to subclasses only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Visible everywhere except tests",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "internal is module-scoped visibility."
+                          },
+                          {
+                              "prompt":  "K136. How does Kotlin support composition over inheritance?",
+                              "options":  [
+                                              {
+                                                  "text":  "Class and interface delegation with by",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Multiple class inheritance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic mixins at runtime",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Trait injection annotations",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Delegation allows reusing behavior without deep inheritance trees."
+                          },
+                          {
+                              "prompt":  "K137. What does object : Interface { ... } create?",
+                              "options":  [
+                                              {
+                                                  "text":  "An anonymous object expression",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A companion object",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A sealed subclass declaration",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A type alias",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Object expressions create ad-hoc anonymous implementations."
+                          },
+                          {
+                              "prompt":  "K138. What is a common benefit of typealias?",
+                              "options":  [
+                                              {
+                                                  "text":  "Improves readability for complex type signatures",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Creates a new runtime type",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Improves performance by inlining bytecode",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Enforces additional validation rules",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "typealias renames existing types for clearer intent without new runtime types."
+                          },
+                          {
+                              "prompt":  "K139. What does associateBy return?",
+                              "options":  [
+                                              {
+                                                  "text":  "A map keyed by selector result",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A filtered list",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A sorted set",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A grouped sequence of pairs",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "associateBy builds a map from collection elements using a key selector."
+                          },
+                          {
+                              "prompt":  "K140. Which function flattens nested collections one level?",
+                              "options":  [
+                                              {
+                                                  "text":  "flatten",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "groupBy",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "zip",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "windowed",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "flatten merges nested iterables into a single list."
+                          },
+                          {
+                              "prompt":  "K141. What does mapNotNull do?",
+                              "options":  [
+                                              {
+                                                  "text":  "Maps elements and drops null results",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Maps only null elements",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Returns Map\u003cK,V\u003e",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Forces all values non-null with exception",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "mapNotNull combines transformation with null filtering."
+                          },
+                          {
+                              "prompt":  "K142. Why prefer immutable data models where possible?",
+                              "options":  [
+                                              {
+                                                  "text":  "Easier reasoning and fewer shared-state bugs",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Faster writes in all cases",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Required for coroutines",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Needed for JVM interop",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Immutable objects reduce accidental mutation and concurrency issues."
+                          },
+                          {
+                              "prompt":  "K143. What does copy in a data class enable?",
+                              "options":  [
+                                              {
+                                                  "text":  "Creating modified clones of immutable-like objects",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Deep cloning entire object graphs always",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Copying only mutable fields",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Serializing to JSON",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Data class copy supports concise state updates with changed fields."
+                          },
+                          {
+                              "prompt":  "K144. How do default parameters help API design?",
+                              "options":  [
+                                              {
+                                                  "text":  "Reduce overload boilerplate while keeping flexibility",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Remove need for named arguments",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Force all callers to pass every parameter",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Prevent Java interop",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Defaults keep call sites concise and APIs easier to evolve."
+                          },
+                          {
+                              "prompt":  "K145. What do named arguments improve?",
+                              "options":  [
+                                              {
+                                                  "text":  "Call-site readability and reduced argument order mistakes",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Runtime performance",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Bytecode size reduction",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Automatic nullability inference",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Named arguments clarify intent, especially for same-type parameters."
+                          },
+                          {
+                              "prompt":  "K146. When can a when expression be used without else?",
+                              "options":  [
+                                              {
+                                                  "text":  "When all possible cases are exhaustively covered",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Only for enum types",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Only when returning Unit",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Never in Kotlin",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Exhaustive when on sealed, enum, or boolean can omit else."
+                          },
+                          {
+                              "prompt":  "K147. What is smart cast in Kotlin?",
+                              "options":  [
+                                              {
+                                                  "text":  "Compiler auto-cast after successful type or null checks",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Runtime reflection cast",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Manual use of as only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Unsafe cast that may crash",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Kotlin tracks control flow to safely refine variable types."
+                          },
+                          {
+                              "prompt":  "K148. Why use buildList { ... }?",
+                              "options":  [
+                                              {
+                                                  "text":  "Create an immutable list with mutable builder syntax",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Create a synchronized mutable list",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Allocate zero-memory lists",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Guarantee sorted order",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Builder APIs allow convenient construction while returning read-only collections."
+                          },
+                          {
+                              "prompt":  "K149. What does takeIf return?",
+                              "options":  [
+                                              {
+                                                  "text":  "The object if predicate is true, else null",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "A Boolean predicate result",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "A list of matching items",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Throws when predicate is false",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "takeIf is a concise conditional object filter."
+                          },
+                          {
+                              "prompt":  "K150. What does also typically help with?",
+                              "options":  [
+                                              {
+                                                  "text":  "Perform side effects while returning the original object",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Transform object to a different type",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Replace object with lambda result",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Handle null-only branches",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "also is useful for logging and validation in fluent chains."
+                          },
+                          {
+                              "prompt":  "K151. How can you make a DSL-like API in Kotlin?",
+                              "options":  [
+                                              {
+                                                  "text":  "Use lambdas with receiver and extension functions",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Use only abstract classes",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Use Java annotations exclusively",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Disable type inference",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Kotlin DSLs commonly rely on receiver lambdas for natural syntax."
+                          },
+                          {
+                              "prompt":  "K152. What is a practical reason to mark classes sealed in domain models?",
+                              "options":  [
+                                              {
+                                                  "text":  "Prevent uncontrolled extension and keep state variants explicit",
+                                                  "isCorrect":  true
+                                              },
+                                              {
+                                                  "text":  "Improve JSON parsing speed only",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Allow inheritance from any module",
+                                                  "isCorrect":  false
+                                              },
+                                              {
+                                                  "text":  "Make properties mutable by default",
+                                                  "isCorrect":  false
+                                              }
+                                          ],
+                              "explanation":  "Sealed models constrain valid states and improve maintainability."
                           }
                       ]
     },
