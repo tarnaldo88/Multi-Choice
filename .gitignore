@@ -31,3 +31,5 @@ captures/
 
 # Google Services (optional, if used)
 google-services.json
+/.gradle/buildOutputCleanup
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
