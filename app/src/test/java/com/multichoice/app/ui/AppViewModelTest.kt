@@ -58,9 +58,12 @@ class AppViewModelTest {
         seedFileReaderStatic = mockStatic(SeedFileReader::class.java)
         seedFileReaderStatic.`when`<String> { SeedFileReader.read(any()) }.thenReturn("[]")
 
-        // Create ViewModel with mocked dependencies
-        viewModel = object : AppViewModel(application) {
-            override fun getRepository(): QuestionRepository = repository
+        // Create ViewModel with a custom approach
+        viewModel = AppViewModel(application).apply {
+            // Use reflection to replace the repository (since we can't modify the class)
+            val repoField = AppViewModel::class.java.getDeclaredField("repo")
+            repoField.isAccessible = true
+            repoField.set(this, repository)
         }
     }
 
