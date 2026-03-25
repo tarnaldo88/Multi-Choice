@@ -74,10 +74,10 @@ class AppDatabaseTest {
         )
 
         val options = listOf(
-            OptionEntity(questionId, "Mobile OS", true),
-            OptionEntity(questionId, "Programming Language", false),
-            OptionEntity(questionId, "Framework", false),
-            OptionEntity(questionId, "Database", false)
+            OptionEntity(0L, questionId, "Mobile OS", true),
+            OptionEntity(0L, questionId, "Programming Language", false),
+            OptionEntity(0L, questionId, "Framework", false),
+            OptionEntity(0L, questionId, "Database", false)
         )
         dao.insertOptions(options)
 
@@ -215,8 +215,8 @@ class AppDatabaseTest {
         )
 
         val options = listOf(
-            OptionEntity(questionId, "Option 1", true),
-            OptionEntity(questionId, "Option 2", false)
+            OptionEntity(0L, questionId, "Option 1", true),
+            OptionEntity(0L, questionId, "Option 2", false)
         )
         dao.insertOptions(options)
 
