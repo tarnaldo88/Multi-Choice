@@ -23,9 +23,7 @@ import org.mockito.Mock
 import org.mockito.MockedStatic
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
-import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
-import kotlin.test.assertNull
+import org.junit.Assert.*
 
 @ExperimentalCoroutinesApi
 class AppViewModelTest {
