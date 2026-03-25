@@ -135,6 +135,7 @@ class QuestionRepositoryTest {
 
         val expectedOptionEntities = options.mapIndexed { index, text ->
             OptionEntity(
+                id = 0L,
                 questionId = questionId,
                 text = text,
                 isCorrect = index == correctIndex
@@ -183,8 +184,8 @@ class QuestionRepositoryTest {
         })
         
         val expectedOptions = listOf(
-            OptionEntity(questionId, "Language", true),
-            OptionEntity(questionId, "Framework", false)
+            OptionEntity(0L, questionId, "Language", true),
+            OptionEntity(0L, questionId, "Framework", false)
         )
         verify(dao).insertOptions(expectedOptions)
     }
@@ -224,8 +225,8 @@ class QuestionRepositoryTest {
         verify(dao).deleteOptionsForQuestion(existingQuestionId)
         
         val expectedOptions = listOf(
-            OptionEntity(existingQuestionId, "Language", true),
-            OptionEntity(existingQuestionId, "Framework", false)
+            OptionEntity(0L, existingQuestionId, "Language", true),
+            OptionEntity(0L, existingQuestionId, "Framework", false)
         )
         verify(dao).insertOptions(expectedOptions)
     }
